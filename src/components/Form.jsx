@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
@@ -39,6 +39,19 @@ const ErrorMsg = styled.div`
 
 function Form({ onCloseModal }) {
   const [isLoadaing, setIsLoadding] = useState(false);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    if (!window.turnstile) return;
+
+    window.turnstile.render('.cf-turnstile', {
+      sitekey: '0x4AAAAAACREehtKVoDrzPyF',
+      callback: (token) => {
+        setToken(token);
+      },
+    });
+  }, []);
+
   const navigate = useNavigate();
 
   const {
@@ -125,6 +138,10 @@ function Form({ onCloseModal }) {
           className="form-control"
           {...register('message')}
         />
+      </div>
+      {/* Turnstile Widget */}
+      <div className="mb-2">
+        <div class="cf-turnstile" data-theme="light" data-size="normal"></div>
       </div>
       <FormButtons>
         <SubmitButton type="submit">
