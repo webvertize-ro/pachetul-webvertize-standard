@@ -19,7 +19,9 @@ export default async function handler(req, res) {
     },
   ).then((res) => res.json());
 
-  console.log('the responseToken is: ', responseToken);
+  if (!responseToken.success) {
+    return res.status(400).json({ error: 'CAPTCHA verification failed!' });
+  }
 
   // Validation
   if (!name || !phone || !email) {
