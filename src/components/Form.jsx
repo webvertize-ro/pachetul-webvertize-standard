@@ -39,7 +39,6 @@ const ErrorMsg = styled.div`
 
 function Form({ onCloseModal }) {
   const [isLoadaing, setIsLoadding] = useState(false);
-  const [token, setToken] = useState(null);
 
   const navigate = useNavigate();
 
@@ -47,6 +46,7 @@ function Form({ onCloseModal }) {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
     reset,
   } = useForm({
     defaultValues: {
@@ -54,8 +54,13 @@ function Form({ onCloseModal }) {
     },
   });
 
+  // registering the virtual field
+  useEffect(() => {
+    register('cf_turnstile_token', { required: true });
+  }, [register]);
+
   const onTurnstileSuccess = (token) => {
-    setToken('cf_turnstile_token', token, {
+    setValue('cf_turnstile_token', token, {
       shouldValidate: true,
     });
   };
@@ -65,9 +70,9 @@ function Form({ onCloseModal }) {
 
     window.turnstile.render('.cf-turnstile', {
       sitekey: '0x4AAAAAACREehtKVoDrzPyF',
-      callback: onTurnstileSuccess(token),
+      callback: onTurnstileSuccess,
     });
-  }, [token]);
+  }, []);
 
   async function onSubmit(data) {
     console.log('submitting data: ', data);
@@ -150,7 +155,11 @@ function Form({ onCloseModal }) {
       </div>
       {/* Turnstile Widget */}
       <div className="mb-2">
-        <div class="cf-turnstile" data-theme="light" data-size="normal"></div>
+        <div
+          className="cf-turnstile"
+          data-theme="light"
+          data-size="normal"
+        ></div>
       </div>
       <FormButtons>
         <SubmitButton type="submit">
