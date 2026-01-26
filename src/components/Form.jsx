@@ -38,7 +38,7 @@ function Form({ onCloseModal }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const formData = {
+    const collectedData = {
       name,
       phone,
       email,
@@ -49,7 +49,7 @@ function Form({ onCloseModal }) {
       const res = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(collectedData),
       });
 
       const data = await res.json();
