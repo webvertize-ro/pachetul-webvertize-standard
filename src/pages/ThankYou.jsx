@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Logo from '../components/Logo';
 import { Link, useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 const StyledThankYou = styled.div`
   height: 100vh;
@@ -32,9 +33,18 @@ const StyledButton = styled(Link)`
 
 function ThankYou() {
   const navigate = useNavigate();
-  // check sessionStorage
-  const formFilledOut = sessionStorage.getItem('formFilledOut');
-  if (!formFilledOut) navigate('/');
+
+  useEffect(() => {
+    // check sessionStorage
+    const formFilledOut = sessionStorage.getItem('formFilledOut');
+    if (!formFilledOut) {
+      navigate('/');
+      return;
+    }
+
+    // clean sessionStorage, such that if the page was accessed correctly to not work on refresh
+    sessionStorage.removeItem('formFilledOut');
+  }, [navigate]);
 
   return (
     <StyledThankYou>
