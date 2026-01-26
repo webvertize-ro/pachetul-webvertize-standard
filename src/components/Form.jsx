@@ -149,7 +149,6 @@ function Form({ onCloseModal }) {
       </div>
       {/* Turnstile Widget */}
       <div className="mb-2">
-        <input type="hidden" name="cf_turnstile_token" value={token || ''} />
         <div class="cf-turnstile" data-theme="light" data-size="normal"></div>
       </div>
       <FormButtons>
