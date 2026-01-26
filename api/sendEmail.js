@@ -7,7 +7,19 @@ export default async function handler(req, res) {
 
   const { name, phone, email, message, cf_turnstile_token } = req.body;
 
-  console.log('the cf_turnstile_token is: ', cf_turnstile_token);
+  const responseToken = await fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: process.env.TURNSTILE_SECRET,
+        response: cf_turnstile_token,
+      }),
+    },
+  ).then((res) => res.json());
+
+  console.log('the responseToken is: ', responseToken);
 
   // Validation
   if (!name || !phone || !email) {
