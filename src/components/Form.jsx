@@ -67,7 +67,7 @@ function Form({ onCloseModal }) {
       sitekey: '0x4AAAAAACREehtKVoDrzPyF',
       callback: onTurnstileSuccess(token),
     });
-  }, []);
+  }, [token]);
 
   async function onSubmit(data) {
     console.log('submitting data: ', data);
