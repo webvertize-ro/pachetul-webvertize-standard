@@ -34,7 +34,7 @@ function ThankYou() {
   const navigate = useNavigate();
   // check sessionStorage
   const formFilledOut = sessionStorage.getItem('formFilledOut');
-  console.log('formFilledOut is: ', formFilledOut);
+  if (!formFilledOut) navigate('/');
 
   return (
     <StyledThankYou>
