@@ -1,32 +1,106 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-  width: 300px;
+  width: 400px;
+  padding: 2rem 3rem;
+`;
+
+const FormButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+`;
+
+const SubmitButton = styled.button`
+  flex: 1;
+  border: none;
+  background-color: #234c6a;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+`;
+
+const CancelButton = styled.button`
+  flex: 1;
+  border: none;
+  background-color: #88304e;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 `;
 
 function Form({ onCloseModal }) {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('message', message);
+
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: formData,
+      });
+
+      const data = res.json();
+      console.log('the reply from the server is: ', data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
-    <StyledForm action="" type={onCloseModal ? 'modal' : 'regular'}>
+    <StyledForm
+      type={onCloseModal ? 'modal' : 'regular'}
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <div className="mb-4">
         <label htmlFor="name" className="form-lable">
           Nume
         </label>
-        <input type="text" name="name" className="form-control" />
+        <input
+          type="text"
+          name="name"
+          className="form-control"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div className="mb-4">
-        <label htmlFor="name" className="form-label">
+        <label htmlFor="phone" className="form-label">
           Număr de telefon
         </label>
-        <input type="text" name="email" className="form-control" />
+        <input
+          type="text"
+          name="phone"
+          className="form-control"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
       </div>
       <div className="mb-4">
-        <label htmlFor="name" className="form-label">
+        <label htmlFor="email" className="form-label">
           Adresă de email
         </label>
-        <input type="text" name="email" className="form-control" />
+        <input
+          type="text"
+          name="email"
+          className="form-control"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <div className="mb-4">
-        <label htmlFor="name" className="form-label">
+        <label htmlFor="message" className="form-label">
           Mesaj (Opțional)
         </label>
         <textarea
@@ -34,18 +108,14 @@ function Form({ onCloseModal }) {
           rows={3}
           name="message"
           className="form-control"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
       </div>
-      <div className="mb-4">
-        <div className="d-flex justify-content-start gap-2">
-          <button type="submit" className="btn btn-primary">
-            Trimite
-          </button>
-          <button className="btn btn-danger" onClick={() => onCloseModal?.()}>
-            Anulează
-          </button>
-        </div>
-      </div>
+      <FormButtons>
+        <SubmitButton type="submit">Trimite</SubmitButton>
+        <CancelButton onClick={() => onCloseModal?.()}>Anulează</CancelButton>
+      </FormButtons>
     </StyledForm>
   );
 }

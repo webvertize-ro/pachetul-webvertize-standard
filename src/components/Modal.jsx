@@ -14,12 +14,21 @@ const StyledModal = styled.div`
     0,
     2.4rem 3.2rem rgba(0, 0, 0, 0.12);
   border-radius: 1rem;
-  padding: 2rem 3rem;
   transition: all 0.5s;
+  z-index: 1001;
 `;
 
 const Header = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding: 1rem;
+  border-bottom: 1px solid grey;
+`;
+
+const StyledH4 = styled.h4`
+  margin: 0;
 `;
 
 const Overlay = styled.div`
@@ -37,13 +46,15 @@ const Overlay = styled.div`
 const Button = styled.button`
   background: none;
   border: none;
-  padding: 0.4rem;
+  padding: 0.2rem;
   border-radius: 5px;
   transform: translate(0.8rem);
   transition: all 0.2s;
-  position: absolute;
-  top: 1.2rem;
-  right: 1.9rem;
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  /* top: -0.8rem; */
+  /* right: -1.2rem; */
 
   &:hover {
     background-color: #e5e7eb;
@@ -82,10 +93,10 @@ function Window({ children, name }) {
   if (name !== openName) return null;
 
   return createPortal(
-    <Overlay onClick={close}>
+    <Overlay>
       <StyledModal>
         <Header>
-          <h4>Modal Title</h4>
+          <StyledH4>Completează formularul</StyledH4>
           <Button onClick={close}>
             <FontAwesomeIcon icon={faXmark} />
           </Button>
