@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import clientPromise from '../lib/mongodb';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -52,6 +53,16 @@ export default async function handler(req, res) {
         <p><strong>Email: </strong> ${email} </p>
         <p><strong>Mesaj: </strong> ${message} </p>
     `,
+  });
+
+  const client = await clientPromise;
+  const db = client.db('PacheteWebvertize');
+  const collection = client.db('PachetulWebvertizeBasic');
+
+  const body = req.body;
+
+  await collection.insertOne({
+    ...body,
   });
 
   res.status(200).json({ success: true, message: 'Received data' });
