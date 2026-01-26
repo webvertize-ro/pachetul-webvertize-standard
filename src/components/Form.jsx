@@ -32,6 +32,10 @@ const CancelButton = styled.button`
   border-radius: 0.5rem;
 `;
 
+const ErrorMsg = styled.div`
+  color: #8a0000;
+`;
+
 function Form({ onCloseModal }) {
   const navigate = useNavigate();
 
@@ -58,6 +62,7 @@ function Form({ onCloseModal }) {
 
       console.log('Success: ', result);
       reset();
+      navigate('/thank-you');
     } catch (err) {
       console.error(err.message);
     }
@@ -78,7 +83,7 @@ function Form({ onCloseModal }) {
           className="form-control"
           {...register('name', { required: 'Numele este obligatoriu!' })}
         />
-        {errors.name && <div>{errors.name.message}</div>}
+        {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
       </div>
       <div className="mb-4">
         <label htmlFor="phone" className="form-label">
@@ -92,7 +97,7 @@ function Form({ onCloseModal }) {
             required: 'Numarul de telefon este obligatoriu!',
           })}
         />
-        {errors.phone && <div>{errors.phone.message}</div>}
+        {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
       </div>
       <div className="mb-4">
         <label htmlFor="email" className="form-label">
@@ -104,7 +109,7 @@ function Form({ onCloseModal }) {
           className="form-control"
           {...register('email', { required: 'Email-ul este obligatoriu!' })}
         />
-        {errors.email && <div>{errors.email.message}</div>}
+        {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
       </div>
       <div className="mb-4">
         <label htmlFor="message" className="form-label">
