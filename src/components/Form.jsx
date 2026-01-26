@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
@@ -35,6 +36,7 @@ function Form({ onCloseModal }) {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -53,7 +55,11 @@ function Form({ onCloseModal }) {
       });
 
       const data = await res.json();
-      console.log('the reply from the server is: ', data);
+
+      if (res.ok) {
+        // Redirect to the thank-you page
+        navigate('/thank-you');
+      }
     } catch (error) {
       console.error(error);
     }
