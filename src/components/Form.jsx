@@ -65,7 +65,7 @@ function Form({ onCloseModal }) {
 
     window.turnstile.render('.cf-turnstile', {
       sitekey: '0x4AAAAAACREehtKVoDrzPyF',
-      callback: onTurnstileSuccess,
+      callback: onTurnstileSuccess(token),
     });
   }, []);
 
