@@ -16,6 +16,7 @@ const StyledButton = styled.button`
   border-radius: 50%;
   font-size: 1.4rem;
   border: none;
+  z-index: 9999;
 `;
 
 function BackTopBtn() {

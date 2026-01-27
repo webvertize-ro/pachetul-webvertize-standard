@@ -9,8 +9,8 @@ const StyledSideButtons = styled.div`
   gap: 0.5rem;
   position: fixed;
   right: 1rem;
-  bottom: 50%;
-  z-index: 9999;
+  bottom: 35%;
+  z-index: 99;
 `;
 
 function SideButtons() {
@@ -22,7 +22,6 @@ function SideButtons() {
       <FormButton />
       {/* WhatsApp Button */}
       <WhatsAppButton />
-      {/* Back-To-Top Button */}
     </StyledSideButtons>
   );
 }

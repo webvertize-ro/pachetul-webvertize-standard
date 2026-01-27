@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import LoadingSpinner from './LoadingSpinner';
 
 const StyledForm = styled.form`
+  @media (max-width: 576px) {
+    width: unset;
+    padding: 1rem 2rem;
+  }
   width: 400px;
   padding: 2rem 3rem;
 `;

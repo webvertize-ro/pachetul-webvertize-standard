@@ -23,7 +23,11 @@ const StyledModal = styled.div`
     2.4rem 3.2rem rgba(0, 0, 0, 0.12);
   border-radius: 1rem;
   transition: all 0.5s;
-  z-index: 1001;
+  z-index: 10001;
+
+  @media (max-width: 576px) {
+    width: 320px;
+  }
 `;
 
 const Header = styled.div`
@@ -37,6 +41,9 @@ const Header = styled.div`
 
 const StyledH4 = styled.h4`
   margin: 0;
+  @media (max-width: 576px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -56,13 +63,9 @@ const Button = styled.button`
   border: none;
   padding: 0.2rem;
   border-radius: 5px;
-  transform: translate(0.8rem);
   transition: all 0.2s;
-  /* position: absolute; */
   display: flex;
   align-items: center;
-  /* top: -0.8rem; */
-  /* right: -1.2rem; */
 
   &:hover {
     background-color: #e5e7eb;
@@ -82,6 +85,12 @@ function Modal({ children }) {
 
   const close = () => setOpenName('');
   const open = setOpenName;
+
+  // Disable scrolling when the modal is open
+  useEffect(() => {
+    if (openName) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+  }, [openName]);
 
   return (
     <ModalContext.Provider value={{ openName, close, open }}>

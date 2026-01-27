@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Header from '../components/Header';
 
 const StyledHome = styled.div`
   height: 950px;
@@ -7,7 +8,7 @@ const StyledHome = styled.div`
 function Home() {
   return (
     <StyledHome>
-      <div>This is the Home page!</div>
+      <Header />
     </StyledHome>
   );
 }

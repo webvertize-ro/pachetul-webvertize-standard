@@ -1,7 +1,7 @@
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from './Logo';
 
@@ -120,9 +120,9 @@ function Navigation() {
       onClick={handleNavClick}
     >
       <StyledNavContainer className="container">
-        <a href="index.html" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           <Logo />
-        </a>
+        </Link>
 
         <button
           type="button"
