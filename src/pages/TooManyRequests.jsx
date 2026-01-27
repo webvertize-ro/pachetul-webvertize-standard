@@ -11,6 +11,8 @@ function TooManyRequests() {
       navigate('/');
       return;
     }
+    setAllowed(true);
+    // if accessed correctly, the page should not be visible on reload
     sessionStorage.removeItem('tooManyRequests');
   }, []);
 
