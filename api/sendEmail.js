@@ -43,6 +43,8 @@ export default async function handler(req, res) {
     createdAt: { $gte: twentyFourHoursAgo },
   });
 
+  console.log('submissionsCount: ', submissionsCount);
+
   if (submissionsCount >= 2) {
     return res.status(429).json({ status: 'Too many requests!' });
   }
