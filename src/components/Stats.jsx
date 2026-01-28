@@ -11,6 +11,8 @@ import Counter from './Counter';
 
 const StyledSection = styled.section`
   padding: 2rem;
+  background-color: #2d5775;
+  color: #fff;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`

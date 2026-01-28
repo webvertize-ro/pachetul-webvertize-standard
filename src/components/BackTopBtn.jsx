@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   background-color: #e0d9d9;
-  color: #4e9f3d;
+  color: #234c6a;
   position: fixed;
   bottom: 1rem;
   right: 1rem;

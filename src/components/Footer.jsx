@@ -10,27 +10,35 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
+const StyledFooter = styled.footer`
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  background-color: #142b3e;
+  color: #fff;
+`;
+
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: #000;
+  color: #fff;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 1.5rem;
-  background-color: #4e9f3d;
+  background-color: #456882;
   color: #fff;
   padding: 0.25rem;
   border-radius: 0.35rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #468d39;
+    background-color: #1b3c53;
   }
 `;
 
 function Footer() {
   return (
-    <footer className="footer bg-light py-6">
+    <StyledFooter className="footer py-6">
       <div className="container">
         <div className="row">
           <div className="col-md-4 my-3">
@@ -93,7 +101,7 @@ function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </StyledFooter>
   );
 }
 

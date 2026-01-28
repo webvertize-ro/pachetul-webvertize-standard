@@ -1,0 +1,139 @@
+import Modal from './Modal';
+import shortServicesPic from '../assets/images/short_services_pic.jpg';
+import Form from './Form';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBriefcase, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router';
+
+const StyledShortServices = styled.div`
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #7fa5b8;
+  color: #fff;
+`;
+
+const StyledH2 = styled.h2`
+  font-size: 2.2rem;
+  font-weight: 600;
+`;
+
+const StyledP = styled.p`
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-align: justify;
+`;
+
+const StyledUl = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0;
+`;
+
+const StyledLi = styled.li`
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1b3c53;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  cursor: default;
+`;
+
+const Button1 = styled(Link)`
+  text-decoration: none;
+  background-color: #1b3c53;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
+`;
+
+const Button2 = styled(Link)`
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid #1b3c53;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #1b3c53;
+    color: #fff;
+  }
+`;
+
+const StyledImg = styled.img`
+  max-width: 425px;
+  border-radius: 1.5rem;
+`;
+
+function ShortServices() {
+  return (
+    <StyledShortServices>
+      <div className="container">
+        <div className="row d-flex align-items-center">
+          {/* Image */}
+          <div className="col-md-6 d-flex justify-content-center">
+            <StyledImg src={shortServicesPic} className="img-fluid" />
+          </div>
+          {/* Text */}
+          <div className="col-md-6 ">
+            <StyledH2>
+              Toate serviciile de care ai nevoie, într-un singur loc
+            </StyledH2>
+            <StyledP>
+              Lucrăm simplu, atent și adaptat fiecărui proiect. Ne concentrăm pe
+              rezultate clare și colaborări pe termen lung.
+            </StyledP>
+
+            <StyledUl>
+              <StyledLi>
+                <FontAwesomeIcon icon={faBriefcase} />
+                Consultanță personalizată
+              </StyledLi>
+              <StyledLi>
+                <FontAwesomeIcon icon={faBriefcase} />
+                Servicii de calitate
+              </StyledLi>
+              <StyledLi>
+                <FontAwesomeIcon icon={faBriefcase} />
+                Suport și asistență clienți
+              </StyledLi>
+              <StyledLi>
+                <FontAwesomeIcon icon={faBriefcase} />
+                Livrare / Implementare rapidă
+              </StyledLi>
+              <StyledLi>
+                <FontAwesomeIcon icon={faBriefcase} />
+                Proiecte personalizate
+              </StyledLi>
+            </StyledUl>
+            <div className="d-flex gap-2">
+              <Button1 to="/services">Află mai multe</Button1>
+              <Modal>
+                <Modal.Open opens="form-modal">
+                  <Button2>Cere o ofertă de preț</Button2>
+                </Modal.Open>
+                <Modal.Window name="form-modal">
+                  <Form />
+                </Modal.Window>
+              </Modal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledShortServices>
+  );
+}
+
+export default ShortServices;

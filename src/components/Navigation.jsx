@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
   padding: 0;
   border-bottom: 3px solid #9db2bf;
   z-index: 99;
-
+  background-color: #142b3e;
   @media (max-width: 992px) {
     height: unset;
     padding: 0.5rem;
@@ -42,13 +42,14 @@ const StyledNavLink = styled(NavLink)`
   font-family: 'Montserrat';
   font-weight: 600;
   text-transform: uppercase;
+  color: #fff;
   &:hover {
-    background-color: #9db2bf;
+    background-color: #2c5870;
     color: #fff;
   }
 
   &.active {
-    background-color: #9db2bf;
+    background-color: #2c5870;
     color: #fff !important;
   }
 
@@ -76,14 +77,14 @@ const StyledAnchor = styled.a`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 1.2rem;
-  background-color: #4e9f3d;
+  background-color: #456882;
   color: #fff;
   padding: 0.25rem;
   border-radius: 0.35rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #468d39;
+    background-color: #1b3c53;
   }
 `;
 
@@ -115,7 +116,7 @@ function Navigation() {
 
   return (
     <StyledNav
-      className="navbar navbar-expand-lg navbar-light bg-light sticky-top"
+      className="navbar navbar-expand-lg sticky-top"
       ref={navigation}
       onClick={handleNavClick}
     >

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledCounter = styled.div`
   font-weight: bold;
   font-size: 2.5rem;
-  color: #1b3c53;
+  color: #fff;
   margin-bottom: 0;
 `;
 
