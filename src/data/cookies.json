@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Ce sunt cookie-urile?",
+    "answer": "Cookie-urile sunt fișiere mici care stochează informații despre vizita ta pe site, cum ar fi preferințele sau setările tale."
+  },
+  {
+    "question": "La ce folosesc cookie-urile pe acest site?",
+    "answer": "Le folosim pentru a îmbunătăți experiența utilizatorului, pentru a păstra setările și pentru a analiza traficul site-ului."
+  },
+  {
+    "question": "Pot dezactiva cookie-urile?",
+    "answer": "Da, majoritatea browserelor permit blocarea sau ștergerea cookie-urilor. Totuși, acest lucru poate afecta funcționalitatea site-ului."
+  },
+  {
+    "question": "Cookie-uri terțe",
+    "answer": "Unele cookie-uri sunt instalate de servicii externe (de exemplu, platforme de analiză sau rețele sociale) și ne ajută să înțelegem cum interacționezi cu site-ul."
+  },
+  {
+    "question": "Unde pot afla mai multe despre cookie-uri?",
+    "answer": "Poți găsi informații suplimentare despre cookie-uri și modul în care sunt utilizate pe web accesând:",
+    "links": [
+      "https://www.allaboutcookies.org",
+      "https://www.cookieconsent.com/",
+      "https://www.eugdpr.org/"
+    ]
+  }
+]

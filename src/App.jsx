@@ -8,6 +8,7 @@ import ThankYou from './pages/ThankYou';
 import TooManyRequests from './pages/TooManyRequests';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
+import Cookies from './pages/Cookies';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/cookies" element={<Cookies />} />
           </Route>
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/too-many-requests" element={<TooManyRequests />} />

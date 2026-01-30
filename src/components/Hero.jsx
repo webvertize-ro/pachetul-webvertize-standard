@@ -58,14 +58,16 @@ function Hero({ heroBg, heroTitle, heroDesc }) {
         <TextContent>
           <StyledH2>{heroTitle}</StyledH2>
           <StyledP>{heroDesc}</StyledP>
-          <Modal>
-            <Modal.Open opens="form-modal">
-              <Button>Cere o ofertă de preț</Button>
-            </Modal.Open>
-            <Modal.Window name="form-modal">
-              <Form />
-            </Modal.Window>
-          </Modal>
+          {heroTitle !== 'Politica noastră privind cookie-urile' && (
+            <Modal>
+              <Modal.Open opens="form-modal">
+                <Button>Cere o ofertă de preț</Button>
+              </Modal.Open>
+              <Modal.Window name="form-modal">
+                <Form />
+              </Modal.Window>
+            </Modal>
+          )}
         </TextContent>
       </div>
     </StyledHero>
