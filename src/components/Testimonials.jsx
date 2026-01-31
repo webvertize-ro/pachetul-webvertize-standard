@@ -43,20 +43,22 @@ function Testimonials() {
       </div>
 
       <StyledTestimonialsContainer className="container">
-        {testimonials.map((t, index) => (
-          <div
-            key={index}
-            className="d-flex flex-column align-items-center gap-3"
-          >
-            {/* Avatar and Stars */}
-            <div className="d-flex flex-column justify-content-center align-items-center">
-              <Avatar img={t.profile_pic} />
-              <RatingStars stars={t.stars} />
+        <div className="row">
+          {testimonials.map((t, index) => (
+            <div
+              key={index}
+              className="col-md-2 d-flex flex-column align-items-center gap-3"
+            >
+              {/* Avatar and Stars */}
+              <div className="d-flex flex-column justify-content-center align-items-center">
+                <Avatar img={t.profile_pic} />
+                <RatingStars stars={t.stars} />
+              </div>
+              {/* Testimonial Text */}
+              <TestimonialContent content={t.testimonial_content} />
             </div>
-            {/* Testimonial Text */}
-            <TestimonialContent content={t.testimonial_content} />
-          </div>
-        ))}
+          ))}
+        </div>
       </StyledTestimonialsContainer>
       <ReviewGoogleButton />
     </StyledTestimonials>

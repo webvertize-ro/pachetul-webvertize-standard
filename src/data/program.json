@@ -1,0 +1,30 @@
+[
+  {
+    "day": "Luni",
+    "schedule": "09:00 - 17:00"
+  },
+  {
+    "day": "Marți",
+    "schedule": "09:00 - 17:00"
+  },
+  {
+    "day": "Miercuri",
+    "schedule": "09:00 - 17:00"
+  },
+  {
+    "day": "Joi",
+    "schedule": "09:00 - 17:00"
+  },
+  {
+    "day": "Vineri",
+    "schedule": "09:00 - 17:00"
+  },
+  {
+    "day": "Sâmbătă",
+    "schedule": "09:00 - 14:00"
+  },
+  {
+    "day": "Duminică",
+    "schedule": "închis"
+  }
+]

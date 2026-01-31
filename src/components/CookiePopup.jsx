@@ -21,8 +21,8 @@ const Text = styled.div`
   flex: 4;
 `;
 
-const Button = styled.button`
-  border: none;
+const Button = styled(Link)`
+  text-decoration: none;
   background-color: #142b3e;
   color: #fff;
   border-radius: 0.75rem;
@@ -48,17 +48,19 @@ function CookiePopup() {
   return (
     popupOpen && (
       <StyledCookiePopup>
-        <Text>
-          Acest website nu folosește cookies în prezent. În cazul în care
-          acestea vor fi implementate, ne vom asigura că îi vom anunța pe
-          utilizatori. Vă încurajăm să verificați periodic{' '}
-          <Link to="/cookies">pagina de cookies</Link> pentru a afla cele mai
-          recente informații legate de utilizarea acestora.
-        </Text>
-        <ButtonsContainer className="d-flex gap-1">
-          <Button onClick={() => handlePopup()}>Ok</Button>
-          <Button>Află mai multe</Button>
-        </ButtonsContainer>
+        <div className="container">
+          <Text>
+            Acest website nu folosește cookies în prezent. În cazul în care
+            acestea vor fi implementate, ne vom asigura că îi vom anunța pe
+            utilizatori. Vă încurajăm să verificați periodic{' '}
+            <Link to="/cookies">pagina de cookies</Link> pentru a afla cele mai
+            recente informații legate de utilizarea acestora.
+          </Text>
+          <ButtonsContainer className="d-flex gap-1">
+            <Button onClick={() => handlePopup()}>Ok</Button>
+            <Button to="/cookies">Află mai multe</Button>
+          </ButtonsContainer>
+        </div>
       </StyledCookiePopup>
     )
   );

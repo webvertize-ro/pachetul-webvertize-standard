@@ -24,6 +24,12 @@ const StyledNavContainer = styled.div`
   }
 `;
 
+const StyledButton = styled.button`
+  color: #fff;
+  border-color: #fff;
+  padding: 0.5rem;
+`;
+
 const StyledNavCollapse = styled.div`
   height: 100%;
 
@@ -88,6 +94,18 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   }
 `;
 
+const Burger = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+`;
+
+const BurgerLine = styled.div`
+  height: 4px;
+  width: 25px;
+  background-color: #fff;
+`;
+
 function Navigation() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const navigation = useRef(null);
@@ -125,14 +143,18 @@ function Navigation() {
           <Logo />
         </Link>
 
-        <button
+        <StyledButton
           type="button"
           onClick={() => setIsNavbarOpen((prev) => !prev)}
           aria-label="Toggle navigation"
           className="navbar-toggler"
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <Burger>
+            <BurgerLine></BurgerLine>
+            <BurgerLine></BurgerLine>
+            <BurgerLine></BurgerLine>
+          </Burger>
+        </StyledButton>
         <StyledNavCollapse
           className={`collapse navbar-collapse me-5 ${isNavbarOpen ? 'show' : ''}`}
           id="menuLinks"

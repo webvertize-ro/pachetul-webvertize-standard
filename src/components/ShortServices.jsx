@@ -13,6 +13,12 @@ const StyledShortServices = styled.div`
   color: #fff;
 `;
 
+const Row = styled.div`
+  @media (max-width: 992px) {
+    gap: 2rem;
+  }
+`;
+
 const StyledH2 = styled.h2`
   font-size: 2.2rem;
   font-weight: 600;
@@ -75,13 +81,17 @@ const Button2 = styled(Link)`
 const StyledImg = styled.img`
   max-width: 425px;
   border-radius: 1.5rem;
+
+  @media (max-width: 576px) {
+    max-width: 300px;
+  }
 `;
 
 function ShortServices() {
   return (
     <StyledShortServices>
       <div className="container">
-        <div className="row d-flex align-items-center">
+        <Row className="row d-flex align-items-center">
           {/* Image */}
           <div className="col-md-6 d-flex justify-content-center">
             <StyledImg src={shortServicesPic} className="img-fluid" />
@@ -130,7 +140,7 @@ function ShortServices() {
               </Modal>
             </div>
           </div>
-        </div>
+        </Row>
       </div>
     </StyledShortServices>
   );

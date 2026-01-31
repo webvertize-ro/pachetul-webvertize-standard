@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import SideButtons from './SideButtons';
 import BackTopBtn from './BackTopBtn';
 import CookiePopup from './CookiePopup';
+import BottomNav from './BottomNav';
 
 function AppLayout() {
   return (
@@ -13,6 +14,7 @@ function AppLayout() {
       <SideButtons />
       <BackTopBtn />
       <CookiePopup />
+      <BottomNav />
       <Footer />
     </div>
   );

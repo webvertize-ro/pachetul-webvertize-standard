@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import CustomizableItem from './CustomizableItem';
 import { contact } from '../data/contactInfo';
+import ContactDataItem from './ContactDataItem';
+import Modal from './Modal';
+import Form from './Form';
 
 const StyledContactSection = styled.div`
   padding: 3rem 0;
@@ -54,15 +57,21 @@ function ContactSection() {
         <div className="row d-flex">
           <div className="col-md-6 d-flex flex-column gap-3">
             {contact.map((c) => (
-              <Item>
-                <CustomizableItem
-                  title={c.name}
-                  description={c.content}
-                  icon={c.icon}
-                />
-              </Item>
+              <ContactDataItem
+                link={c.link}
+                title={c.name}
+                description={c.content}
+                icon={c.icon}
+              />
             ))}
-            <StyledButton>Cere o ofertă de preț</StyledButton>
+            <Modal>
+              <Modal.Open opens="form-modal">
+                <StyledButton>Cere o ofertă de preț</StyledButton>
+              </Modal.Open>
+              <Modal.Window name="form-modal">
+                <Form />
+              </Modal.Window>
+            </Modal>
           </div>
           <div className="col-md-6">
             <StyledIFrame
