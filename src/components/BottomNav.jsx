@@ -34,15 +34,19 @@ const StyledLink = styled.a`
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
+  background-color: #142b3e;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  font-size: 1.5rem;
-  color: ${(props) => (props.icon === faClock ? '#2E5368' : '#1B3C53')};
+  font-size: 1.1rem;
+  color: #fff;
 `;
 
 const CallNow = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   font-weight: 500;
 `;
 
@@ -55,17 +59,20 @@ const Schedule = styled.div`
 
 const ProgramButton = styled.button`
   border: none;
-  background-color: transparent;
+  background-color: #1b3c53;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
 `;
 
 const ScheduleText = styled.div`
   font-size: 0.9rem;
   font-weight: 500;
+  color: #fff;
 `;
 
 const ProgramBox = styled.div`
   position: absolute;
-  top: -285%;
+  top: -260%;
   left: 0;
   right: 0;
   background-color: #e9e0d8;
@@ -104,12 +111,12 @@ function BottomNav() {
       <Schedule>
         <ProgramButton onClick={() => setProgramOpen((o) => !o)}>
           <StyledFontAwesomeIcon icon={faClock} />
-          <ScheduleText>Program</ScheduleText>
+          <ScheduleText>{programOpen ? 'Închide' : 'Program'}</ScheduleText>
         </ProgramButton>
 
         {programOpen && (
           <ProgramBox>
-            <StyledH5>Programul de lucru</StyledH5>
+            <StyledH5>Program de lucru</StyledH5>
             {progrm.map((p) => (
               <ProgramLine>
                 <strong>{p.day}</strong>
