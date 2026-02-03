@@ -49,6 +49,10 @@ const QuestionAnswer = styled.div`
   @media (max-width: 576px) {
     font-size: 1rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: left;
+  }
 `;
 
 function AccordionItem({ question, answer, index, curOpen, onCurOpen }) {

@@ -10,11 +10,19 @@ const StyledCookiesInfoSection = styled.div`
   @media (max-width: 576px) {
     padding: 1.5rem 0;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 2rem 0;
+  }
 `;
 
 const StyledH3 = styled.h3`
   @media (max-width: 576px) {
     font-size: 1.2rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
   }
 `;
 
@@ -39,7 +47,7 @@ function CookiesInfoSection() {
   return (
     <StyledCookiesInfoSection>
       <div className="container">
-        <StyledH3 className="d-flex gap-2 align-items-center">
+        <StyledH3>
           <FontAwesomeIcon icon={faInfoCircle} />
           Informații suplimentare și actualizări
         </StyledH3>

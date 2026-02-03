@@ -19,6 +19,10 @@ const StyledH2 = styled.h2`
   @media (max-width: 576px) {
     font-size: 1.6rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const StyledP = styled.p`

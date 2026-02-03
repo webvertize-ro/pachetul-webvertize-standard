@@ -40,8 +40,10 @@ const Header = styled.div`
 `;
 
 const ModalContent = styled.div`
-  max-height: 550px;
-  overflow-y: scroll;
+  @media (max-width: 576px) {
+    max-height: 550px;
+    overflow-y: scroll;
+  }
 `;
 
 const StyledH4 = styled.h4`

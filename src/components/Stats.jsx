@@ -17,6 +17,10 @@ const StyledSection = styled.section`
   @media (max-width: 576px) {
     padding: 1.2rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 1.5rem;
+  }
 `;
 
 const StyledSectionTitle = styled.h2`

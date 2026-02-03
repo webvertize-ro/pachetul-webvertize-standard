@@ -50,6 +50,10 @@ const StyledH4 = styled.h4`
   @media (max-width: 576px) {
     font-size: 1.2rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    /* font-size: 1rem; */
+  }
 `;
 
 const StyledP = styled.p`

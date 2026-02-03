@@ -24,6 +24,10 @@ const StyledCTA = styled.div`
   @media (max-width: 576px) {
     padding: 1.5rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 1.75rem;
+  }
 `;
 
 const TextContent = styled.div`

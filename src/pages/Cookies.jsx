@@ -5,14 +5,11 @@ import cookiesImg from '../assets/images/cookies-img.jpg';
 import CookiesInfoSection from '../components/CookiesInfoSection';
 import { useEffect } from 'react';
 
-const StyledCookies = styled.div``;
-
-/**
- * Structura paginii
- * 1. Hero
- * 2. Accordion
- *
- */
+const StyledCookies = styled.div`
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
+`;
 
 function Cookies() {
   useEffect(() => {

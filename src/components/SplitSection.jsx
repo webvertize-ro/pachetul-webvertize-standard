@@ -27,22 +27,11 @@ const StyledHeader = styled.header`
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
-`;
 
-const DecorationLeft = styled.img`
-  top: 80px;
-  left: -200px;
-  width: 500px;
-  opacity: 0.7;
-  position: absolute;
-`;
-
-const DecorationRight = styled.img`
-  top: 80px;
-  right: -200px;
-  width: 500px;
-  opacity: 0.7;
-  position: absolute;
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 `;
 
 const HeaderContainer = styled.div``;
@@ -59,7 +48,7 @@ const HeaderContent = styled.div`
   justify-content: center;
 
   @media (min-width: 576px) and (max-width: 992px) {
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
   }
 `;
 
@@ -69,6 +58,10 @@ const StyledH1 = styled.h1`
   @media (max-width: 576px) {
     text-align: center;
     font-size: 1.75rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
   }
 `;
 
@@ -81,6 +74,23 @@ const ShortIntro = styled.p`
   @media (max-width: 576px) {
     font-size: 1.1rem;
     text-align: center;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
+`;
+
+const ButtonsContainer = styled.div`
+  @media (max-width: 576px) {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  @media (min-width: 576px) and (max-width: 992px) {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
   }
 `;
 
@@ -128,6 +138,10 @@ const HeaderBusinessPic = styled.img`
   @media (max-width: 576px) {
     max-width: 275px;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    max-width: 350px;
+  }
 `;
 
 function SplitSection({
@@ -150,7 +164,7 @@ function SplitSection({
             <div className="mt-6">
               <StyledH1 className="xl-text">{heading}</StyledH1>
               <ShortIntro>{shortIntro}</ShortIntro>
-              <div className="d-flex gap-2 justify-content-center">
+              <ButtonsContainer>
                 <Button1 to={btn1Path}>{btn1}</Button1>
 
                 <Modal>
@@ -161,7 +175,7 @@ function SplitSection({
                     <Form />
                   </Modal.Window>
                 </Modal>
-              </div>
+              </ButtonsContainer>
             </div>
           </HeaderContent>
           <HeaderContent className="col-lg-6">

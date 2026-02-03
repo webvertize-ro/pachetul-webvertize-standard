@@ -12,6 +12,10 @@ const StyledServicesDetails = styled.div`
   @media (max-width: 576px) {
     padding: 1.5rem 0;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 1.25rem 0;
+  }
 `;
 
 const Services = styled.div``;
@@ -23,6 +27,10 @@ const StyledH2 = styled.h2`
   @media (max-width: 576px) {
     font-size: 1.6rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
 `;
 
 const StyledP = styled.p`
@@ -30,6 +38,10 @@ const StyledP = styled.p`
 
   @media (max-width: 576px) {
     font-size: 1rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
   }
 `;
 
@@ -46,7 +58,7 @@ function ServicesDetails() {
         <Services className="row">
           {services.map((service, i) => {
             return (
-              <div key={i} className="col-md-4 mb-4">
+              <div key={i} className="col-sm-4 col-md-6 mb-4">
                 <Card
                   title={service.title}
                   text={service.text}

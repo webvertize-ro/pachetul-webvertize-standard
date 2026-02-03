@@ -6,17 +6,7 @@ import ReasonsToChooseUs from '../components/ReasonsToChooseUs';
 import CTA from '../components/CTA';
 import { useEffect } from 'react';
 
-const StyledPortfolio = styled.div`
-  /* height: 650px; */
-`;
-
-/**
- * Structura paginii:
- * 1. Hero
- * 2. Projects (4 mockup projects from a JSON file)
- * 3. "Ce ne recomanda" (Experienta in domeniu, Respectarea termenelor, Comunicare clara, Solutii adaptate fiecarui proiect)
- * 4. A relevant CTA
- */
+const StyledPortfolio = styled.div``;
 
 function Portfolio() {
   useEffect(() => {

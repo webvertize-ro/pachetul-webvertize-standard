@@ -16,6 +16,11 @@ const StyledShortServices = styled.div`
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 `;
 
 const Row = styled.div`
@@ -31,6 +36,10 @@ const StyledH2 = styled.h2`
   @media (max-width: 576px) {
     font-size: 1.6rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
 `;
 
 const StyledP = styled.p`
@@ -41,6 +50,10 @@ const StyledP = styled.p`
 
   @media (max-width: 576px) {
     font-size: 1rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
   }
 `;
 
@@ -114,17 +127,27 @@ const StyledImg = styled.img`
   }
 `;
 
+const TextContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    align-items: center;
+  }
+`;
+
 function ShortServices() {
   return (
     <StyledShortServices>
       <div className="container">
         <Row className="row d-flex align-items-center">
           {/* Image */}
-          <div className="col-md-6 d-flex justify-content-center">
+          <div className="col-lg-6 d-flex justify-content-center">
             <StyledImg src={shortServicesPic} className="img-fluid" />
           </div>
           {/* Text */}
-          <div className="col-md-6 ">
+          <TextContent className="col-lg-6 ">
             <StyledH2>
               Toate serviciile de care ai nevoie, într-un singur loc
             </StyledH2>
@@ -166,7 +189,7 @@ function ShortServices() {
                 </Modal.Window>
               </Modal>
             </div>
-          </div>
+          </TextContent>
         </Row>
       </div>
     </StyledShortServices>

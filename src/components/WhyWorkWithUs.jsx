@@ -27,14 +27,11 @@ const StyledSection = styled.section`
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
-`;
 
-const DecorationStarLeft = styled.img`
-  top: 80px;
-  left: -200px;
-  width: 500px;
-  opacity: 0.7;
-  position: absolute;
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 `;
 
 const StyledImg = styled.img`
@@ -52,6 +49,10 @@ const StyledTitle = styled.h2`
 
   @media (max-width: 576px) {
     font-size: 1.6rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
   }
 `;
 

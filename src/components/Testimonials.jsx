@@ -17,6 +17,11 @@ const StyledTestimonials = styled.section`
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 `;
 
 const TestimonialsHeading = styled.h2`
@@ -44,7 +49,6 @@ const TestimonialsSubtitle = styled.p`
 
 const StyledTestimonialsContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   align-items: stretch;
   gap: 1.25rem;
 `;
@@ -68,7 +72,7 @@ function Testimonials() {
           {testimonials.map((t, index) => (
             <div
               key={index}
-              className="col-md-2 d-flex flex-column align-items-center gap-3"
+              className="col-md-4 col-lg-2 d-flex flex-column align-items-center gap-3"
             >
               {/* Avatar and Stars */}
               <div className="d-flex flex-column justify-content-center align-items-center">

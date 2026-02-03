@@ -19,16 +19,6 @@ function Home() {
   }, []);
 
   return (
-    /**
-     *  Page structure
-     * 1. Intro + CTA (Vezi proiecte | Cere o ofert)
-     * 2. Stats
-     * 3. ShortServices + CTA (Afla mai mult | Cere o oferta)
-     * 4. OurPartners
-     * 5. WhyWorkWithUs
-     * 6. Testimonials
-     * 7. CTA
-     */
     <StyledHome>
       <SplitSection btn1Path="/portfolio" />
       <Stats />

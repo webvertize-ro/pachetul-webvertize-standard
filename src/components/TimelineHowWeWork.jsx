@@ -12,6 +12,10 @@ const StyledTimelineHowWeWork = styled.div`
   @media (max-width: 576px) {
     padding: 1.5rem 0;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 2rem 0;
+  }
 `;
 
 const HorizontalTimeline = styled.div`
@@ -35,10 +39,18 @@ const HorizontalTimeline = styled.div`
 const StyledH2 = styled.h2`
   font-size: 2.2rem;
   font-weight: 600;
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
 `;
 
 const StyledP = styled.p`
   font-size: 1.25rem;
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
 `;
 
 const Row = styled.div`

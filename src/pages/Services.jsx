@@ -13,13 +13,6 @@ const StyledServices = styled.div`
   /* position: relative; */
 `;
 
-/**
- *Structura paginii
- *1. Hero
-  2. Services/Details - grid 2 x 3
-  3. HowWeWork
-  4. CTA 
- */
 function Services() {
   useEffect(() => {
     document.title = 'Afacere Locală | Servicii';

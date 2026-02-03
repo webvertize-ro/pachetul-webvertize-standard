@@ -13,6 +13,10 @@ const StyledContactSection = styled.div`
   @media (max-width: 576px) {
     padding: 1.5rem 0;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 1.75rem 0;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -23,6 +27,10 @@ const StyledH2 = styled.h2`
   @media (max-width: 576px) {
     font-size: 1.6rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
 `;
 
 const StyledP = styled.p`
@@ -31,6 +39,10 @@ const StyledP = styled.p`
 
   @media (max-width: 576px) {
     font-size: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
     text-align: center;
   }
 `;
@@ -45,7 +57,13 @@ const LeftSide = styled.div`
   @media (max-width: 576px) {
     gap: 0.75rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    gap: 0.75rem;
+  }
 `;
+
+const RightSide = styled.div``;
 
 const StyledIFrame = styled.iframe`
   width: 500px;
@@ -93,7 +111,7 @@ function ContactSection() {
           minte.
         </StyledP>
         <Row className="row d-flex">
-          <LeftSide className="col-md-6 d-flex flex-column">
+          <LeftSide className="col-lg-6 d-flex flex-column">
             {contact.map((c) => (
               <ContactDataItem
                 link={c.link}
@@ -111,14 +129,14 @@ function ContactSection() {
               </Modal.Window>
             </Modal>
           </LeftSide>
-          <div className="col-md-6 d-flex justify-content-center">
+          <RightSide className="col-lg-6 d-flex justify-content-center">
             <StyledIFrame
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91160.57954789398!2d26.012237353149644!3d44.43791870157616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f93abf3cad4f%3A0xac0632e37c9ca628!2sBucharest!5e0!3m2!1sen!2sro!4v1769760750337!5m2!1sen!2sro"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></StyledIFrame>
-          </div>
+          </RightSide>
         </Row>
       </div>
     </StyledContactSection>

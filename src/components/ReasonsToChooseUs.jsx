@@ -13,6 +13,10 @@ const StyledWhatRecommendsUs = styled.div`
   @media (max-width: 576px) {
     padding: 1.5rem 0;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    padding: 2rem 0;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -23,6 +27,10 @@ const StyledH2 = styled.h2`
   @media (max-width: 576px) {
     font-size: 1.6rem;
   }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
+  }
 `;
 
 const StyledP = styled.p`
@@ -31,6 +39,10 @@ const StyledP = styled.p`
 
   @media (max-width: 576px) {
     font-size: 1rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    text-align: center;
   }
 `;
 
