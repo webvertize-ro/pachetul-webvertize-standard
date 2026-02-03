@@ -7,7 +7,13 @@ const StyledSection = styled.section`
   padding: 2.5rem;
 
   @media (max-width: 576px) {
-    padding: 1.75rem;
+    padding: 1.5rem;
+  }
+`;
+
+const Row = styled.div`
+  @media (max-width: 576px) {
+    gap: 0.9rem;
   }
 `;
 
@@ -16,8 +22,17 @@ const PartnerItem = styled.div`
   justify-content: center;
   padding-bottom: 0.75rem;
 
-  &:not(:last-child) {
-    border-bottom: 1px solid #fff;
+  @media (max-width: 576px) {
+    /* padding-bottom: 0; */
+    &:not(:last-child) {
+      border-bottom: 1px solid #fff;
+    }
+  }
+`;
+
+const StyledImg = styled.img`
+  @media (max-width: 576px) {
+    max-width: 150px;
   }
 `;
 
@@ -26,13 +41,13 @@ function OurPartners() {
     <StyledSection className="mySection partners overflow-hidden">
       <div className="container">
         <h6 className="text-center mb-4 text-uppercase">Partenerii noștri</h6>
-        <div className="row d-flex gap-5 justify-content-center">
+        <Row className="row">
           {partners.map((partner) => (
-            <PartnerItem>
-              <img src={partner.img} alt="test" />
+            <PartnerItem className="col-md-2">
+              <StyledImg src={partner.img} alt="test" className="img-fluid" />
             </PartnerItem>
           ))}
-        </div>
+        </Row>
       </div>
     </StyledSection>
   );

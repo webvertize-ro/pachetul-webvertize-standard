@@ -31,28 +31,26 @@ const StyledLink = styled.a`
   text-decoration: none;
   color: #000;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
   background-color: #142b3e;
   color: #fff;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.75rem;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: #fff;
 `;
 
 const CallNow = styled.div`
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
 `;
 
 const Schedule = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 `;
@@ -60,19 +58,21 @@ const Schedule = styled.div`
 const ProgramButton = styled.button`
   border: none;
   background-color: #1b3c53;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
 `;
 
 const ScheduleText = styled.div`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #fff;
 `;
 
 const ProgramBox = styled.div`
   position: absolute;
-  top: -260%;
+  top: -280%;
   left: 0;
   right: 0;
   background-color: #e9e0d8;
