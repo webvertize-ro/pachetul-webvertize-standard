@@ -24,7 +24,6 @@ const StyledH2 = styled.h2`
 
 const StyledP = styled.p`
   font-size: 1.25rem;
-  font-weight: 300;
   color: #fff;
 
   @media (max-width: 576px) {

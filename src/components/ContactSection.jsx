@@ -111,7 +111,7 @@ function ContactSection() {
           minte.
         </StyledP>
         <Row className="row d-flex">
-          <LeftSide className="col-lg-6 d-flex flex-column">
+          <LeftSide className="col-lg-6 d-flex flex-column gap-3">
             {contact.map((c) => (
               <ContactDataItem
                 link={c.link}

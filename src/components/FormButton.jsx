@@ -23,7 +23,7 @@ const StyledFormButton = styled.button`
   color: #1c4d8d;
   font-size: 1.4rem;
   border-radius: 50%;
-  background-color: #e0d9d9;
+  background-color: #fff;
   padding: 0.75rem;
   position: relative;
 
@@ -58,25 +58,5 @@ function FormButton() {
     </>
   );
 }
-
-// function FormButton({ isOpenModal, onModalOpen }) {
-//   return (
-//     <>
-//       <StyledFormButton
-//         type="button"
-//         class="btn btn-primary"
-//         onClick={() => onModalOpen((show) => !show)}
-//         isOpenModal={isOpenModal}
-//       >
-//         <FontAwesomeIcon icon={faMessage} />
-//       </StyledFormButton>
-//       {isOpenModal && (
-//         <Modal onClose={() => onModalOpen(false)}>
-//           <Form onCloseModal={() => onModalOpen(false)} />
-//         </Modal>
-//       )}
-//     </>
-//   );
-// }
 
 export default FormButton;

@@ -1,4 +1,7 @@
-import { faWhatsappSquare } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebookMessenger,
+  faWhatsappSquare,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled, { css, keyframes } from 'styled-components';
 
@@ -20,7 +23,7 @@ const StyledAnchor = styled.a`
   align-items: center;
   font-size: 1.4rem;
   border-radius: 50%;
-  color: #128c7e;
+  color: #0084ff;
   background-color: #fff;
   padding: 0.75rem;
   position: relative;
@@ -40,16 +43,16 @@ const StyledAnchor = styled.a`
   }
 `;
 
-function WhatsAppButton({ isOpenModal }) {
+function FacebookButton({ isOpenModal }) {
   return (
     <StyledAnchor
-      href="https://wa.me/+40750419349"
+      href="https://www.facebook.com"
       target="_blank"
       isOpenModal={isOpenModal}
     >
-      <FontAwesomeIcon icon={faWhatsappSquare} />
+      <FontAwesomeIcon icon={faFacebookMessenger} />
     </StyledAnchor>
   );
 }
 
-export default WhatsAppButton;
+export default FacebookButton;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import FormButton from './FormButton';
 import WhatsAppButton from './WhatsAppButton';
 import { useState } from 'react';
+import FacebookButton from './FacebookButton';
 
 const StyledSideButtons = styled.div`
   display: flex;
@@ -20,6 +21,8 @@ function SideButtons() {
     <StyledSideButtons>
       {/* Form Button */}
       <FormButton />
+      {/* Facebook Button */}
+      <FacebookButton />
       {/* WhatsApp Button */}
       <WhatsAppButton />
     </StyledSideButtons>

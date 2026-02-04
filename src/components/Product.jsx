@@ -22,6 +22,7 @@ const StyledImg = styled.img`
 
 const Row = styled.div`
   padding: 3rem;
+  /* gap: 1rem; */
 
   @media (max-width: 576px) {
     padding: 1rem;
@@ -81,6 +82,20 @@ const StyledUl = styled.ul`
   padding: 0;
 `;
 
+const StyledButton = styled.button`
+  border: none;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.75rem;
+  margin-top: auto;
+  background-color: #2e5368;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+`;
+
 const LiItem = styled.li`
   display: flex;
   gap: 0.5rem;
@@ -126,9 +141,13 @@ function Product({ product }) {
             <Modal.Open opens="form-modal">
               <StyledLink className="stretched-link">Detalii produs</StyledLink>
             </Modal.Open>
-            <Modal.Window name="form-modal" title={product.product_title}>
+            <Modal.Window
+              name="form-modal"
+              title={product.product_title}
+              lightboxOpen={lightboxOpen}
+            >
               <Row className="row">
-                <div className="col-lg-6 d-flex align-items-center justify-content-center">
+                <div className="col-lg-6 d-flex justify-content-center">
                   <ImgContainer>
                     <StyledImgModal
                       src={product.img}
@@ -148,6 +167,14 @@ function Product({ product }) {
                     ))}
                   </StyledUl>
                 </div>
+                <Modal>
+                  <Modal.Open opens="form-modal2">
+                    <StyledButton>Cere o ofertă</StyledButton>
+                  </Modal.Open>
+                  <Modal.Window name="form-modal2" lightboxOpen={lightboxOpen}>
+                    <Form />
+                  </Modal.Window>
+                </Modal>
               </Row>
             </Modal.Window>
           </Modal>

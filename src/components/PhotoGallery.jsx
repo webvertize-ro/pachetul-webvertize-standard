@@ -28,7 +28,7 @@ const ImageContainer = styled.div`
 
   transition: all 0.3s ease;
 
-  @media (min-width: 576px) {
+  @media (min-width: 992px) {
     &:hover {
       cursor: pointer;
       transform: scale(1.02);
@@ -57,8 +57,14 @@ const ImageCaption = styled.div`
   white-space: nowrap;
   background-color: rgba(0, 0, 0, 0.75);
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   cursor: pointer;
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -95,6 +101,7 @@ function PhotoGallery({ title, text, images }) {
     return {
       src: i.img,
       title: i.title,
+      alt: i.alt,
     };
   });
 
@@ -109,11 +116,13 @@ function PhotoGallery({ title, text, images }) {
               <ImageContainer className="col-4 col-md-4 mb-4" key={i}>
                 <StyledImg
                   src={img.src}
+                  alt={img.alt}
                   className="img-fluid"
                   onClick={() => {
                     setOpen(true);
                     setIndexImg(i);
                   }}
+                  loading="lazy"
                 />
                 <ImageCaption
                   className="img-caption"

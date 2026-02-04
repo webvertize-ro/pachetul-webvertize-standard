@@ -115,7 +115,8 @@ function Open({ children, opens: opensWindowName }) {
 function Window({ children, name, title = 'Solicită o ofertă', lightboxOpen }) {
   const { openName, close } = useContext(ModalContext);
 
-  const ref = useOutsideClick(lightboxOpen ? {} : close);
+  // const ref = useOutsideClick(lightboxOpen || openName ? {} : close);
+  const ref = useOutsideClick(lightboxOpen ? {} : openName ? close : {});
 
   if (name !== openName) return null;
 
