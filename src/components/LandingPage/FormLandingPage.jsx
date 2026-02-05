@@ -29,6 +29,7 @@ function FormLandingPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const turnstileRef = useRef(null);
+  const renderedRef = useRef(false);
 
   const {
     register,
@@ -53,13 +54,23 @@ function FormLandingPage() {
     });
   };
 
+  // render the turnstile
   useEffect(() => {
-    if (!window.turnstile) return;
+    if (renderedRef.current) return;
 
-    window.turnstile.render(turnstileRef.current, {
-      sitekey: '0x4AAAAAACREehtKVoDrzPyF',
-      callback: onTurnstileSuccess,
-    });
+    const interval = setInterval(() => {
+      if (!window.turnstile || !turnstileRef.current) return;
+
+      window.turnstile.render(turnstileRef.current, {
+        sitekey: '0x4AAAAAACREehtKVoDrzPyF',
+        callback: onTurnstileSuccess,
+      });
+
+      renderedRef.current = true;
+      clearInterval(interval);
+    }, 100);
+
+    return () => clearInterval(interval);
   }, []);
 
   async function onSubmit(data) {
