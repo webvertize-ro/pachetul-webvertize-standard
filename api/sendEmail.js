@@ -53,6 +53,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ status: 'Missing required fields!' });
   }
 
+  const date = new Date();
+  const formattedDate = date.toLocaleString('ro-RO', {
+    timeZone: 'Europe/Bucharest',
+  });
+
   // Sending the email
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -67,7 +72,7 @@ export default async function handler(req, res) {
   await transporter.sendMail({
     from: `Solicitare formular ${process.env.SMTP_USER}`,
     to: process.env.RECEIVING_EMAIL,
-    subject: `Solicitare formular`,
+    subject: `Solicitare formular ${formattedDate}`,
     html: `
         <h3>Un utilizator a completat formularul de pe website si acestea sunt detaliile: </h3>
         <p><strong>Nume: </strong> ${name} </p>
@@ -85,5 +90,5 @@ export default async function handler(req, res) {
     createdAt: new Date(),
   });
 
-  res.status(200).json({ success: true, message: 'Received data' });
+  res.status(200).json({ success: true });
 }
