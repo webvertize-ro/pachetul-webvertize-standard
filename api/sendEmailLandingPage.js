@@ -5,8 +5,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ status: 'Method not allowed!' });
   }
 
-  console.log('req.body is: ', req.body);
-
   const { name, phone, message, cf_turnstile_token } = req.body;
 
   // Validation
@@ -25,7 +23,7 @@ export default async function handler(req, res) {
         response: cf_turnstile_token,
       }),
     },
-  );
+  ).then((res) => res.json());
 
   if (!responseToken.success) {
     return res.status(400).json({ error: 'CAPTCHA verification failed!' });
