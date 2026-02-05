@@ -89,6 +89,12 @@ function FormLandingPage() {
         body: JSON.stringify(data),
       });
 
+      // if there are too many requests, redirect
+      if (res.status === 429) {
+        sessionStorage.setItem('tooManyRequests', 'true');
+        navigate('/too-many-requests');
+      }
+
       const result = await res.json();
       setLoading(false);
 
