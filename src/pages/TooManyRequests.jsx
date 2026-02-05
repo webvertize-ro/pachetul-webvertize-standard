@@ -11,6 +11,7 @@ const StyledTooManyRequests = styled.div`
   align-items: center;
   gap: 0.5rem;
   background-color: #2e5368;
+  color: #fff;
 `;
 
 const StyledP = styled.p`
@@ -21,6 +22,7 @@ const StyledP = styled.p`
   margin-bottom: 0;
   padding-bottom: 0;
   max-width: 750px;
+  color: #fff;
 `;
 
 const StyledButton = styled(Link)`
