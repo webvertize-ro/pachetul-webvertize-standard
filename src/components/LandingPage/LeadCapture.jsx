@@ -1,7 +1,7 @@
-import Form from '../Form';
 import styled from 'styled-components';
 import CTAOffer from './CTAOffer';
 import CTACall from './CTACall';
+import FormLandingPage from './FormLandingPage';
 
 const StyledLeadCapture = styled.div`
   background-color: #7fa5b8;
@@ -26,9 +26,7 @@ function LeadCapture() {
       <Container className="container">
         <div className="row">
           <div className="col-md-12 d-flex justify-content-center py-3">
-            <FormContainer>
-              <Form />
-            </FormContainer>
+            <FormLandingPage />
           </div>
         </div>
       </Container>

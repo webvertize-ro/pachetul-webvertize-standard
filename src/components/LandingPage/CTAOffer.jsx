@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledCTAOffer = styled.div`
   background-color: #7fa5b8;
-  padding: 2rem 0;
+  padding: 2rem 0 0.5rem 0;
 `;
 
 const StyledH3 = styled.h3`
