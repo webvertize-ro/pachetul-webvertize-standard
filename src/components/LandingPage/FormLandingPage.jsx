@@ -43,10 +43,13 @@ function FormLandingPage() {
         throw new Error(result.message || 'Something went wrong');
       }
 
+      // mark the form as filled in the sessionStorage
+      sessionStorage.setItem('formFilledOut', 'true');
+
       reset();
       navigate('/thank-you');
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   }
 
