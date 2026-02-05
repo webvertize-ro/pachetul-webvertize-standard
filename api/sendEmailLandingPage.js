@@ -53,6 +53,15 @@ export default async function handler(req, res) {
     return res.status(429).json({ status: 'Too many requests!' });
   }
 
+  // Calculate the date in format dd/mm/YYYY - h:m:s
+  const theDate = new Date();
+  const day = theDate.getDate();
+  const month = theDate.getMonth();
+  const year = theDate.getFullYear();
+  const hour = theDate.getHours();
+  const minutes = theDate.getMinutes();
+  const seconds = theDate.getSeconds();
+
   // Send an email
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -67,7 +76,7 @@ export default async function handler(req, res) {
   await transporter.sendMail({
     from: `Solicitare formular de la ${process.env.SMTP_USER}`,
     to: process.env.RECEIVING_EMAIL,
-    subject: `Solicitare formular de la ${name}`,
+    subject: `Solicitare formular ${day}/${month}/${year} - ${hour}:${minutes}`,
     html: `
         <h3>Solicitare formular de la ${name}</h3>
         <p>
