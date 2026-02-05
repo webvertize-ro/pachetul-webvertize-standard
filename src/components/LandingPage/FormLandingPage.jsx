@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
@@ -25,9 +26,34 @@ function FormLandingPage() {
   const {
     register,
     handleSubmit,
+    setValue,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      cf_turnstile_token: '',
+    },
+  });
+
+  // register the virtual field
+  useEffect(() => {
+    register('cf_turnstile_token', { required: true });
+  }, [register]);
+
+  const onTurnstileSuccess = (token) => {
+    setValue('cf_turnstile_token', token, {
+      shouldValidate: true,
+    });
+  };
+
+  useEffect(() => {
+    if (!window.turnstile) return;
+
+    window.turnstile.render('.cf-turnstile', {
+      sitekey: '0x4AAAAAACREehtKVoDrzPyF',
+      callback: onTurnstileSuccess,
+    });
+  }, []);
 
   async function onSubmit(data) {
     try {
@@ -92,6 +118,13 @@ function FormLandingPage() {
           placeholder="Vreu servicul/produsul X"
           {...register('message')}
         ></textarea>
+      </div>
+      <div className="mb-2">
+        <div
+          className="cf-turnstile"
+          data-theme="light"
+          data-size="normal"
+        ></div>
       </div>
       <StyledButton type="submit">Trimite</StyledButton>
     </StyledForm>

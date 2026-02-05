@@ -5,6 +5,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ status: 'Method not allowed!' });
   }
 
+  console.log('req.body is: ', req.body);
+
   const { name, phone, message } = req.body;
 
   // Validation
