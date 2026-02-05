@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
+import { LoadingIcon } from 'yet-another-react-lightbox';
+import LoadingSpinner from '../LoadingSpinner';
 
 const StyledForm = styled.form`
   background-color: #2e5368;
@@ -22,6 +24,7 @@ const StyledButton = styled.button`
 
 function FormLandingPage() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -57,6 +60,7 @@ function FormLandingPage() {
 
   async function onSubmit(data) {
     try {
+      setLoading(true);
       const res = await fetch('/api/sendEmailLandingPage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -64,6 +68,7 @@ function FormLandingPage() {
       });
 
       const result = await res.json();
+      setLoading(false);
 
       if (!res.ok) {
         throw new Error(result.message || 'Something went wrong');
@@ -76,6 +81,7 @@ function FormLandingPage() {
       navigate('/thank-you');
     } catch (error) {
       console.error(error.message);
+      setLoading(false);
     }
   }
 
@@ -126,7 +132,10 @@ function FormLandingPage() {
           data-size="normal"
         ></div>
       </div>
-      <StyledButton type="submit">Trimite</StyledButton>
+      <StyledButton type="submit">
+        {loading ? <LoadingSpinner /> : ''}
+        {loading ? 'Se trimite...' : 'Trimite'}
+      </StyledButton>
     </StyledForm>
   );
 }
