@@ -40,7 +40,18 @@ export default async function handler(req, res) {
     ? forwardedFor.split(',')[0].trim()
     : req.socket?.remoteAddress;
 
-  console.log('the IP is: ', ip);
+  // Calculate the time window
+  const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+
+  // Count how many submissions this IP made in the last 24 hours
+  const submissionsCount = await collection.countDocuments({
+    ip: ip,
+    createdAt: { $gte: twentyFourHoursAgo },
+  });
+
+  if (submissionsCount >= 2) {
+    return res.status(429).json({ status: 'Too many requests!' });
+  }
 
   // Send an email
   const transporter = nodemailer.createTransport({
@@ -69,6 +80,15 @@ export default async function handler(req, res) {
             Mesaj: <strong>${message ? message : 'Necompletat'}</strong>
         </p>
     `,
+  });
+
+  // Insert each submission in the database
+  const body = req.body;
+
+  await collection.insertOne({
+    ...body,
+    ip,
+    createdAt: new Date(),
   });
 
   res.status(200).json({ success: true });
