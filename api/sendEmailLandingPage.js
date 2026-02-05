@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import clientPromise from '../lib/mongodb.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -28,6 +29,18 @@ export default async function handler(req, res) {
   if (!responseToken.success) {
     return res.status(400).json({ error: 'CAPTCHA verification failed!' });
   }
+
+  const client = await clientPromise;
+  const db = client.db('PacheteWebvertize');
+  const collection = db.collection('PachetulWebvertizeBasic');
+
+  // Determine the user's IP
+  const forwardedFor = req.headers['x-forwarded-for'];
+  const ip = forwardedFor
+    ? forwardedFor.split(',')[0].trim()
+    : req.socket?.remoteAddress;
+
+  console.log('the IP is: ', ip);
 
   // Send an email
   const transporter = nodemailer.createTransport({
