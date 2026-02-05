@@ -58,12 +58,6 @@ export default async function handler(req, res) {
   const localDate = theDate.toLocaleString('ro-RO', {
     timeZone: 'Europe/Bucharest',
   });
-  const day = localDate.getDate();
-  const month = localDate.getMonth() + 1;
-  const year = localDate.getFullYear();
-  const hour = localDate.getHours();
-  const minutes = localDate.getMinutes();
-  const seconds = localDate.getSeconds();
 
   // Send an email
   const transporter = nodemailer.createTransport({
@@ -79,7 +73,7 @@ export default async function handler(req, res) {
   await transporter.sendMail({
     from: `Solicitare formular de la ${process.env.SMTP_USER}`,
     to: process.env.RECEIVING_EMAIL,
-    subject: `Solicitare formular ${day}/${month}/${year} - ${hour}:${minutes}:${seconds}`,
+    subject: `Solicitare formular ${localDate}`,
     html: `
         <h3>Solicitare formular de la ${name}</h3>
         <p>
