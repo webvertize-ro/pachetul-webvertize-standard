@@ -17,12 +17,12 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 function Rating() {
   return (
     <StyledRating className="d-flex gap-1 align-items-center mb-3">
-      Evaluat cu
       <div>
+        Evaluat cu
         <StyledFontAwesomeIcon icon={faStar} />
-        <Strong>4.9</Strong>
+        <Strong>4.9 </Strong>
+        pe Google de peste <Strong>100 de clienți</Strong>
       </div>
-      pe Google de peste <Strong>100 de clienți</Strong>
     </StyledRating>
   );
 }

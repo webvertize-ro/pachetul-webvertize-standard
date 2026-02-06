@@ -11,6 +11,7 @@ const StyledLink = styled.a`
   background-color: #1f7d53;
   padding: 0.75rem;
   border-radius: 0.75rem;
+  justify-content: center;
 `;
 
 function CallNowBtn() {

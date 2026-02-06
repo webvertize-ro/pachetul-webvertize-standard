@@ -33,15 +33,20 @@ function Footer() {
 
   return (
     <StyledFooter>
-      <Info>
-        <div>{year}</div>
-        <div>[Nume firmă]</div>
-        <div>[Oraș]</div>
-      </Info>
-      <Copyright>
-        <StyledFontAwesomeIcon icon={faCopyright} />
-        <div>Toate drepturile rezervate</div>
-      </Copyright>
+      <div className="container">
+        <div className="row">
+          <Info className="col-md-6 justify-content-center">
+            <div>{year}</div>
+            <div>[Nume firmă]</div>
+            <div>[Oraș]</div>
+          </Info>
+
+          <Copyright className="col-md-6 justify-content-center">
+            <StyledFontAwesomeIcon icon={faCopyright} />
+            <div>Toate drepturile rezervate</div>
+          </Copyright>
+        </div>
+      </div>
     </StyledFooter>
   );
 }

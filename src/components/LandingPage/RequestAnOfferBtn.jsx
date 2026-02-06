@@ -14,6 +14,8 @@ const StyledButton = styled.button`
   padding: 0.75rem;
   border-radius: 0.75rem;
   border: none;
+  width: 100%;
+  justify-content: center;
 `;
 
 function RequestAnOfferBtn() {

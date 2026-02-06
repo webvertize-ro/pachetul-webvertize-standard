@@ -7,6 +7,10 @@ const StyledProblemSolution = styled.div`
   justify-content: center;
   background-color: #2e5368;
   padding: 3rem 0;
+
+  @media (max-width: 576px) {
+    padding: 1.5rem 0;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -57,10 +61,10 @@ const Badges = styled.div`
   gap: 0.5rem;
 `;
 
-const StyledSpan = styled.span`
+const StyledDiv = styled.div`
   background-color: #1f7d53;
   padding: 0.2rem 0.75rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
@@ -97,20 +101,24 @@ function ProblemSolution() {
             Știi costurile înainte de intervenție
           </StyledLi>
         </StyledUl>
-        <Badges>
-          <StyledSpan class="badge">
-            <FontAwesomeIcon icon={faThumbsUp} />
-            Ofertă de preț gratuită
-          </StyledSpan>
-          <StyledSpan class="badge">
-            <FontAwesomeIcon icon={faThumbsUp} />
-            Te contactăm rapid
-          </StyledSpan>
-          <StyledSpan class="badge">
-            <FontAwesomeIcon icon={faThumbsUp} />
-            Fără obligații
-          </StyledSpan>
-        </Badges>
+        <div className="container">
+          <Badges className="d-flex flex-column align-items-center justify-content-center">
+            <div className="d-flex flex-column gap-2">
+              <StyledDiv className="">
+                <FontAwesomeIcon icon={faThumbsUp} />
+                Ofertă de preț gratuită
+              </StyledDiv>
+              <StyledDiv className="">
+                <FontAwesomeIcon icon={faThumbsUp} />
+                Te contactăm rapid
+              </StyledDiv>
+              <StyledDiv className="">
+                <FontAwesomeIcon icon={faThumbsUp} />
+                Fără obligații
+              </StyledDiv>
+            </div>
+          </Badges>
+        </div>
       </div>
     </StyledProblemSolution>
   );

@@ -4,12 +4,39 @@ import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { LoadingIcon } from 'yet-another-react-lightbox';
 import LoadingSpinner from '../LoadingSpinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
+const StyledFormLandingPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledH4 = styled.h4`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #fff;
+`;
+
+const StyledP = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+`;
 
 const StyledForm = styled.form`
   background-color: #2e5368;
   padding: 1.5rem;
   border-radius: 1rem;
   color: #fff;
+  border: 2px solid #fff;
 `;
 
 const ErrorMsg = styled.div`
@@ -114,60 +141,67 @@ function FormLandingPage() {
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Nume
-        </label>
-        <input
-          type="text"
-          name="name"
-          className="form-control"
-          placeholder="Ion Popescu"
-          {...register('name', { required: 'Numele este obligatoriu!' })}
-        />
-        {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
-      </div>
-      <div className="mb-3">
-        <label htmlFor="phone" className="form-label">
-          Număr de telefon
-        </label>
-        <input
-          type="text"
-          name="phone"
-          className="form-control"
-          placeholder="0712345678"
-          {...register('phone', {
-            required: 'Numărul de telefon este obligatoriu!',
-          })}
-        />
-        {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
-      </div>
-      <div className="mb-3">
-        <label htmlFor="message" className="form-label">
-          Mesaj (opțional)
-        </label>
-        <textarea
-          name="message"
-          id="message"
-          className="form-control"
-          placeholder="Vreu servicul/produsul X"
-          {...register('message')}
-        ></textarea>
-      </div>
-      <div className="mb-2">
-        <div
-          ref={turnstileRef}
-          className="cf-turnstile"
-          data-theme="light"
-          data-size="normal"
-        ></div>
-      </div>
-      <StyledButton type="submit">
-        <div>{loading ? <LoadingSpinner /> : ''}</div>
-        <div>{loading ? 'Se trimite...' : 'Trimite'}</div>
-      </StyledButton>
-    </StyledForm>
+    <StyledFormLandingPage>
+      <StyledH4>
+        <FontAwesomeIcon icon={faThumbsUp} />
+        Fă primul pas pentru rezolvarea problemei!
+      </StyledH4>
+      <StyledP>Lasă-ne câteva detalii și te sunăm noi.</StyledP>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Nume
+          </label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            placeholder="Ion Popescu"
+            {...register('name', { required: 'Numele este obligatoriu!' })}
+          />
+          {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="phone" className="form-label">
+            Număr de telefon
+          </label>
+          <input
+            type="text"
+            name="phone"
+            className="form-control"
+            placeholder="0712345678"
+            {...register('phone', {
+              required: 'Numărul de telefon este obligatoriu!',
+            })}
+          />
+          {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="message" className="form-label">
+            Mesaj (opțional)
+          </label>
+          <textarea
+            name="message"
+            id="message"
+            className="form-control"
+            placeholder="Vreu servicul/produsul X"
+            {...register('message')}
+          ></textarea>
+        </div>
+        <div className="mb-2">
+          <div
+            ref={turnstileRef}
+            className="cf-turnstile"
+            data-theme="light"
+            data-size="normal"
+          ></div>
+        </div>
+        <StyledButton type="submit">
+          <div>{loading ? <LoadingSpinner /> : ''}</div>
+          <div>{loading ? 'Se trimite...' : 'Trimite'}</div>
+        </StyledButton>
+      </StyledForm>
+    </StyledFormLandingPage>
   );
 }
 
