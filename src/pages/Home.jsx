@@ -10,6 +10,7 @@ import ShortServices from '../components/ShortServices';
 import { useEffect } from 'react';
 import PhotoGallery from '../components/PhotoGallery';
 import { images } from '../data/gallery1.js';
+import SliderWrapper from '../components/ImageSlider/SliderWrapper.jsx';
 
 const StyledHome = styled.div``;
 
@@ -20,7 +21,9 @@ function Home() {
 
   return (
     <StyledHome>
-      <SplitSection btn1Path="/portfolio" />
+      {/* <SplitSection btn1Path="/portfolio" /> */}
+      {/* Slider/Carousel */}
+      <SliderWrapper />
       <Stats />
       <PhotoGallery
         title="Galerie foto din activitatea noastră"

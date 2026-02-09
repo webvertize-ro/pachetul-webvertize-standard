@@ -82,6 +82,9 @@ const ShortIntro = styled.p`
 `;
 
 const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+
   @media (max-width: 576px) {
     display: flex;
     justify-content: center;

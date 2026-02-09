@@ -9,7 +9,7 @@ const StyledNav = styled.nav`
   height: 80px;
   padding: 0;
   border-bottom: 3px solid #9db2bf;
-  z-index: 99;
+  z-index: 101;
   background-color: #142b3e;
   @media (max-width: 992px) {
     height: unset;
