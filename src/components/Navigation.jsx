@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from './Logo';
+import Dropdown from './Dropdown';
 
 const StyledNav = styled.nav`
   height: 80px;
@@ -63,6 +64,8 @@ const StyledNavLink = styled(NavLink)`
     justify-content: center;
   }
 `;
+
+const StyledButtonDropdown = styled.button``;
 
 const StyledSocialLinks = styled.div`
   display: none;
@@ -134,7 +137,7 @@ function Navigation() {
 
   return (
     <StyledNav
-      className="navbar navbar-expand-lg sticky-top"
+      className="navbar navbar-expand-md sticky-top"
       ref={navigation}
       onClick={handleNavClick}
     >
@@ -163,6 +166,8 @@ function Navigation() {
             <StyledNavLink to="/" className="nav-item nav-link">
               Acasă
             </StyledNavLink>
+            {/* Dropdown Button */}
+            <Dropdown />
             <StyledNavLink to="/services" className="nav-item nav-link">
               Servicii
             </StyledNavLink>

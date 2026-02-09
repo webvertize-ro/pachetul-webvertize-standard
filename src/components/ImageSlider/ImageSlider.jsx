@@ -39,9 +39,9 @@ const CaptionWrapper = styled.div``;
 
 const Caption = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 12%;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
