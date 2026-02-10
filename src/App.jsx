@@ -12,6 +12,11 @@ import Cookies from './pages/Cookies';
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/NotFound';
 import LandingPage from './pages/LandingPage';
+import AboutUs from './pages/AboutUs';
+import HowWeWork from './pages/HowWeWork';
+import Certifications from './pages/Certifications';
+import FAQ from './pages/FAQ';
+import Products from './pages/Products';
 
 function App() {
   return (
@@ -25,6 +30,11 @@ function App() {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cookies" element={<Cookies />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/how-we-work" element={<HowWeWork />} />
+            <Route path="/certifications" element={<Certifications />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/products" element={<Products />} />
           </Route>
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/too-many-requests" element={<TooManyRequests />} />

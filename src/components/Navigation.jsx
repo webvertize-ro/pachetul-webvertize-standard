@@ -11,6 +11,7 @@ const StyledNav = styled.nav`
   padding: 0;
   border-bottom: 3px solid #9db2bf;
   z-index: 101;
+  font-size: 0.9rem;
   background-color: #142b3e;
   @media (max-width: 992px) {
     height: unset;
@@ -171,8 +172,14 @@ function Navigation() {
             <StyledNavLink to="/services" className="nav-item nav-link">
               Servicii
             </StyledNavLink>
+            <StyledNavLink to="/products" className="nav-item nav-link">
+              Produse
+            </StyledNavLink>
             <StyledNavLink to="/portfolio" className="nav-item nav-link">
               Portofoliu
+            </StyledNavLink>
+            <StyledNavLink to="/faq" className="nav-item nav-link">
+              Întrebări Frecvente
             </StyledNavLink>
             <StyledNavLink to="/contact" className="nav-item nav-link">
               Contact
