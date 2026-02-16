@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { timeline } from '../data/timeline';
 import TimelineItem from './TimelineItem';
+import Modal from './Modal';
+import Form from './Form';
 
 const StyledTimelineHowWeWork = styled.div`
   padding: 3rem 0;
@@ -20,6 +22,9 @@ const StyledTimelineHowWeWork = styled.div`
 
 const HorizontalTimeline = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ul {
     padding-left: 0;
@@ -34,6 +39,16 @@ const HorizontalTimeline = styled.div`
       align-items: stretch;
     }
   }
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  background-color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #1f3745;
 `;
 
 const StyledH2 = styled.h2`
@@ -84,6 +99,17 @@ function TimelineHowWeWork() {
                   />
                 ))}
               </ul>
+              <Modal>
+                <Modal.Open opens="form-modal">
+                  <StyledButton>Cere o oferta de pret</StyledButton>
+                </Modal.Open>
+                <Modal.Window
+                  name="form-modal"
+                  bgColor="rgba(59, 94, 117, 0.5)"
+                >
+                  <Form />
+                </Modal.Window>
+              </Modal>
             </HorizontalTimeline>
           </div>
         </Row>

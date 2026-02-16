@@ -85,7 +85,10 @@ function CTA({
                 <Modal.Open opens="form-modal">
                   <StyledButton>{textBtn}</StyledButton>
                 </Modal.Open>
-                <Modal.Window name="form-modal">
+                <Modal.Window
+                  name="form-modal"
+                  bgColor="rgba(59, 94, 117, 0.5)"
+                >
                   <Form />
                 </Modal.Window>
               </Modal>

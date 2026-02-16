@@ -8,9 +8,8 @@ import {
   faCircleRight,
   faDisplay,
 } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
-import Modal from '../Modal';
-import Form from '../Form';
+import { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const StyledImageSlider = styled.div`
   width: 100%;
@@ -98,7 +97,6 @@ const SliderButton = styled.button`
   opacity: 0;
   justify-content: center;
   align-items: center;
-  z-index: 100;
   transition: opacity 200ms ease-in-out;
   z-index: 100;
 
@@ -178,21 +176,36 @@ function ImageSlider() {
   }
 
   // Make slider automatic
-  useEffect(() => {
-    const id = setInterval(() => {
-      showNextImage();
-    }, 2000);
+  const autoplayRef = useRef(null);
+  const AUTOPLAY_DELAY = 5000;
 
-    return () => clearInterval(id);
-  }, []);
+  function startAutoplay() {
+    stopAutoplay();
+
+    autoplayRef.current = setTimeout(() => {
+      showNextImage();
+    }, AUTOPLAY_DELAY);
+  }
+
+  function stopAutoplay() {
+    if (autoplayRef.current) {
+      clearTimeout(autoplayRef.current);
+    }
+  }
+
+  // Restart autoplay whenever imageIndex changes
+  useEffect(() => {
+    startAutoplay();
+
+    return stopAutoplay;
+  }, [imageIndex]);
 
   return (
-    <StyledImageSlider>
+    <StyledImageSlider onMouseEnter={stopAutoplay} onMouseLeave={startAutoplay}>
       <ImageContainer>
         {images.map(({ url, alt, title, desc, caption }, index) => (
-          <>
+          <React.Fragment key={url}>
             <StyledImg
-              key={url}
               src={url}
               alt={alt}
               style={{ translate: `${-100 * imageIndex}%` }}
@@ -202,18 +215,10 @@ function ImageSlider() {
                 <Caption>
                   <StyledH2>{caption.title}</StyledH2>
                   <StyledP>{caption.subtitle}</StyledP>
-                  <Modal>
-                    <Modal.Open opens="form-modal">
-                      <StyledButton>Cere o ofertă de preț</StyledButton>
-                    </Modal.Open>
-                    <Modal.Window name="form-modal">
-                      <Form />
-                    </Modal.Window>
-                  </Modal>
                 </Caption>
               )}
             </CaptionWrapper>
-          </>
+          </React.Fragment>
         ))}
       </ImageContainer>
       <SliderButton style={{ left: 0 }} onClick={showPrevImage}>

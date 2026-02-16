@@ -124,7 +124,7 @@ function WhyWorkWithUs() {
               </StyledTitle>
               <StyledUl className="list-unstyled">
                 {reasons.map((reason) => (
-                  <ListItem className="d-flex mb-3">
+                  <ListItem className="d-flex mb-3" key={reason.strong}>
                     <StyledFontAwesomeIcon icon={faCheck} />
                     <StyledP>
                       <StyledStrong>{reason.strong}: </StyledStrong>
@@ -137,7 +137,10 @@ function WhyWorkWithUs() {
                 <Modal.Open opens="form-modal">
                   <StyledButton>Obține o ofertă de preț</StyledButton>
                 </Modal.Open>
-                <Modal.Window name="form-modal">
+                <Modal.Window
+                  name="form-modal"
+                  bgColor="rgba(59, 94, 117, 0.3)"
+                >
                   <Form />
                 </Modal.Window>
               </Modal>

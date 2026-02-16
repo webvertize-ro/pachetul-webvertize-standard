@@ -4,7 +4,11 @@ import ProjectsCard from './ProjectsCard';
 
 const StyledProjects = styled.div`
   padding: 5rem 0;
-  background-color: #2c5870;
+  /* background-color: #2c5870; */
+  background:
+    radial-gradient(circle at 20% 30%, #3b5e75 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, #2c4a5b 0%, transparent 40%),
+    linear-gradient(135deg, #1f3745, #3f6676);
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -53,9 +57,9 @@ function Projects() {
         </StyledP>
         <div className="row">
           {projects.map((project) => (
-            <div className="col-md-6 mb-4 d-flex">
+            <div className="col-sm-6 col-md-3 mb-4 d-flex">
               <ProjectsCard
-                topImg={project.topImg}
+                img={project.topImg}
                 projectTitle={project.projectTitle}
                 projectShortDesc={project.projectShortDesc}
                 projectLongDesc={project.projectLongDesc}

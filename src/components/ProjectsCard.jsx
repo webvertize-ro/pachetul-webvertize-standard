@@ -1,105 +1,109 @@
 import styled from 'styled-components';
 import Modal from './Modal';
 import ProjectModal from './ProjectModal';
-import Lightbox from 'yet-another-react-lightbox';
 import { useState } from 'react';
-import { Captions } from 'yet-another-react-lightbox/plugins';
+import Lightbox from 'yet-another-react-lightbox';
+import Captions from 'yet-another-react-lightbox/plugins/captions';
 
 const StyledProjectsCard = styled.div`
-  background-color: #7fa5b8;
+  height: 500px;
+  /* width: 250px; */
+  width: 100%;
+  background-image: url(${(props) => (props.img ? props.img : 'unset')});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 1rem;
-  color: #142b3e;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.75rem 1.5rem;
+  cursor: pointer;
 `;
 
-const StyledImg = styled.img`
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+const CardInfo = styled.div`
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.27);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
 `;
 
 const StyledH5 = styled.h5`
+  text-align: center;
   font-weight: 600;
-  color: #fff;
-
-  @media (max-width: 576px) {
-    font-size: 1.2rem;
-  }
+  color: #1f3745;
 `;
 
 const StyledP = styled.p`
-  font-size: 1.25rem;
-  color: #fff;
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
-  }
+  text-align: center;
+  font-weight: 500;
+  color: #1f3745;
 `;
 
 const StyledButton = styled.button`
   border: none;
-  text-decoration: none;
-  background-color: #142b3e;
+  background-color: #365568;
   color: #fff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  margin-top: auto;
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
-  }
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
 `;
 
 function ProjectsCard({
-  topImg,
+  img,
   projectTitle,
   projectShortDesc,
   projectLongDesc,
   imageGallery,
 }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [indexImage, setIndexImage] = useState(0);
+  const [indexImg, setIndexImg] = useState(0);
 
-  const slides = imageGallery.map((img) => {
-    return {
-      src: img.src,
-      title: img.imgDesc,
-    };
-  });
+  console.log('imageGallery: ', imageGallery);
 
   return (
-    <StyledProjectsCard className="card">
-      <StyledImg src={topImg} className="card-img-top" alt="..." />
-      <div className="card-body d-flex flex-column">
-        <StyledH5 className="card-title">{projectTitle}</StyledH5>
-        <StyledP className="card-text">{projectShortDesc}</StyledP>
-        <Modal>
-          <Modal.Open opens={`project-${projectTitle}`}>
-            <StyledButton className="stretched-link">Vezi detalii</StyledButton>
-          </Modal.Open>
-          <Modal.Window
-            name={`project-${projectTitle}`}
-            title={projectTitle}
-            lightboxOpen={lightboxOpen}
-          >
-            <ProjectModal
-              projectTitle={projectTitle}
-              projectLongDesc={projectLongDesc}
-              imageGallery={imageGallery}
-              onLightboxOpen={setLightboxOpen}
-              onIndexImage={setIndexImage}
-            />
-          </Modal.Window>
-        </Modal>
-        <Lightbox
-          plugins={[Captions]}
-          open={lightboxOpen}
-          index={indexImage}
-          close={() => setLightboxOpen(false)}
-          slides={slides}
-        />
-      </div>
-    </StyledProjectsCard>
+    <>
+      <Modal>
+        <Modal.Open opens="form-modal">
+          {/* This is the actual Card */}
+          <StyledProjectsCard img={img}>
+            <CardInfo>
+              <StyledH5>{projectTitle}</StyledH5>
+              <StyledP>{projectShortDesc}</StyledP>
+              <StyledButton>Vezi detalii</StyledButton>
+            </CardInfo>
+          </StyledProjectsCard>
+        </Modal.Open>
+        <Modal.Window
+          name="form-modal"
+          bgColor="rgba(59, 94, 117, 0.5)"
+          lightboxOpen={lightboxOpen}
+        >
+          <ProjectModal
+            projectLongDesc={projectLongDesc}
+            imageGallery={imageGallery}
+            onLightboxOpen={setLightboxOpen}
+            onIndexImage={setIndexImg}
+          />
+        </Modal.Window>
+      </Modal>
+
+      <Lightbox
+        plugins={[Captions]}
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={imageGallery}
+        index={indexImg}
+        captions={{ position: 'bottom' }}
+      />
+    </>
   );
 }
 

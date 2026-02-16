@@ -8,9 +8,15 @@ import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router';
 import styled from 'styled-components';
 
-const StyledDropdown = styled(NavLink)`
+const StyledDropdown = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
   /* width: 150px; */
 
   text-decoration: none;
@@ -25,7 +31,7 @@ const StyledDropdown = styled(NavLink)`
   } */
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.a`
   border: none;
   height: 100%;
   background-color: transparent;
@@ -43,7 +49,7 @@ const StyledButton = styled.button`
 
 const DropdownItems = styled.ul`
   background-color: #fff;
-  position: absolute;
+  position: static;
   top: 100%;
   color: #000;
   padding: 0;
@@ -52,25 +58,39 @@ const DropdownItems = styled.ul`
   flex-direction: column;
   text-transform: uppercase;
   font-weight: 600;
+  /* border: 3px solid #1b3c53; */
+  border-radius: 0.25rem;
 `;
 
 const DropdownItemsContainer = styled.div`
   position: absolute;
   top: 100%;
   width: 150px;
+
+  @media (max-width: 992px) {
+    position: static;
+    width: 100%;
+  }
 `;
 
 const StyledLi = styled.li``;
 
 const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
   color: #000;
   display: flex;
+  text-decoration: none;
   padding: 0.75rem;
 
-  &:hover {
-    background-color: #2c5870;
-    color: #fff;
+  @media (max-width: 992px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 992px) {
+    &:hover {
+      background-color: #2c5870;
+      color: #fff;
+    }
   }
 
   &.active {
@@ -99,7 +119,13 @@ function Dropdown() {
 
   return (
     <StyledDropdown ref={myRef}>
-      <StyledButton onClick={() => setOpen((e) => !e)}>
+      <StyledButton
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          return setOpen((t) => !t);
+        }}
+      >
         Despre Noi
         {open ? (
           <FontAwesomeIcon icon={faChevronUp} />

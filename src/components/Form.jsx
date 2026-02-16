@@ -13,6 +13,28 @@ const StyledForm = styled.form`
   padding: 2rem 3rem;
 `;
 
+const StyledInput = styled.input`
+  background-color: rgba(74, 112, 137, 0.5);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  &:focus {
+    background-color: rgba(74, 112, 137, 0.5);
+    color: #fff;
+  }
+`;
+
+const StyledTextarea = styled.textarea`
+  background-color: rgba(74, 112, 137, 0.5);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  &:focus {
+    background-color: rgba(74, 112, 137, 0.5);
+    color: #fff;
+  }
+`;
+
 const FormButtons = styled.div`
   display: flex;
   gap: 1rem;
@@ -123,7 +145,7 @@ function Form({ onCloseModal }) {
         <label htmlFor="name" className="form-lable">
           Nume
         </label>
-        <input
+        <StyledInput
           type="text"
           name="name"
           className="form-control"
@@ -135,7 +157,7 @@ function Form({ onCloseModal }) {
         <label htmlFor="phone" className="form-label">
           Număr de telefon
         </label>
-        <input
+        <StyledInput
           type="text"
           name="phone"
           className="form-control"
@@ -149,7 +171,7 @@ function Form({ onCloseModal }) {
         <label htmlFor="email" className="form-label">
           Adresă de email
         </label>
-        <input
+        <StyledInput
           type="text"
           name="email"
           className="form-control"
@@ -161,7 +183,7 @@ function Form({ onCloseModal }) {
         <label htmlFor="message" className="form-label">
           Mesaj (Opțional)
         </label>
-        <textarea
+        <StyledTextarea
           type="text"
           rows={3}
           name="message"

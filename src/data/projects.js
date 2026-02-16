@@ -30,19 +30,19 @@ export const projects = [
     imageGallery: [
       {
         src: project1Img1,
-        imgDesc: 'Fundația casei, baza solidă a unei locuințe familiale',
+        title: 'Fundația casei, baza solidă a unei locuințe familiale',
       },
       {
         src: project1Img2,
-        imgDesc: 'Structura casei prinde contur pas cu pas',
+        title: 'Structura casei prinde contur pas cu pas',
       },
       {
         src: project1Img3,
-        imgDesc: 'Lucrări de finisare pentru confort și funcționalitate',
+        title: 'Lucrări de finisare pentru confort și funcționalitate',
       },
       {
         src: project1Img4,
-        imgDesc: 'Casa finalizată, pregătită să devină acasă',
+        title: 'Casa finalizată, pregătită să devină acasă',
       },
     ],
   },
@@ -56,19 +56,19 @@ export const projects = [
     imageGallery: [
       {
         src: project2Img1,
-        imgDesc: 'Ideile inițiale prind formă pe hârtie',
+        title: 'Ideile inițiale prind formă pe hârtie',
       },
       {
         src: project2Img2,
-        imgDesc: 'Procesul de scriere și structurare a conținutului',
+        title: 'Procesul de scriere și structurare a conținutului',
       },
       {
         src: project2Img3,
-        imgDesc: 'Editarea și pregătirea pentru publicare',
+        title: 'Editarea și pregătirea pentru publicare',
       },
       {
         src: project2Img4,
-        imgDesc: 'Cartea finalizată, disponibilă pentru cititori',
+        title: 'Cartea finalizată, disponibilă pentru cititori',
       },
     ],
   },
@@ -81,19 +81,19 @@ export const projects = [
     imageGallery: [
       {
         src: project3Img1,
-        imgDesc: 'Plantarea puietului într-un mediu potrivit',
+        title: 'Plantarea puietului într-un mediu potrivit',
       },
       {
         src: project3Img2,
-        imgDesc: 'Udarea și îngrijirea constantă a copacului',
+        title: 'Udarea și îngrijirea constantă a copacului',
       },
       {
         src: project3Img3,
-        imgDesc: 'Creșterea treptată și dezvoltarea sănătoasă',
+        title: 'Creșterea treptată și dezvoltarea sănătoasă',
       },
       {
         src: project3Img4,
-        imgDesc: 'Copacul matur, parte din peisajul natural',
+        title: 'Copacul matur, parte din peisajul natural',
       },
     ],
   },
@@ -107,19 +107,19 @@ export const projects = [
     imageGallery: [
       {
         src: project4Img1,
-        imgDesc: 'Stabilirea obiectivelor și planului de antrenament',
+        title: 'Stabilirea obiectivelor și planului de antrenament',
       },
       {
         src: project4Img2,
-        imgDesc: 'Exerciții regulate pentru forță și rezistență',
+        title: 'Exerciții regulate pentru forță și rezistență',
       },
       {
         src: project4Img3,
-        imgDesc: 'Progres constant prin disciplină și perseverență',
+        title: 'Progres constant prin disciplină și perseverență',
       },
       {
         src: project4Img4,
-        imgDesc: 'Rezultate vizibile și un stil de viață activ',
+        title: 'Rezultate vizibile și un stil de viață activ',
       },
     ],
   },

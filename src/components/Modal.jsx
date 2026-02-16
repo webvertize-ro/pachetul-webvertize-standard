@@ -17,13 +17,20 @@ const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: ${(props) =>
+    props.bgColor ? props.bgColor : 'rgba(74, 112, 137, 0.6)'};
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(74, 112, 137, 0.01);
   box-shadow:
     0,
     2.4rem 3.2rem rgba(0, 0, 0, 0.12);
   border-radius: 1rem;
   transition: all 0.5s;
   z-index: 91;
+  color: #fff;
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
 
   @media (max-width: 576px) {
     width: 320px;
@@ -36,12 +43,20 @@ const Header = styled.div`
   justify-content: space-between;
   position: relative;
   padding: 1rem;
-  border-bottom: 1px solid grey;
+  /* border-bottom: 1px solid grey; */
+  color: #fff;
 `;
 
 const ModalContent = styled.div`
+  max-height: 750px;
+
   @media (max-width: 576px) {
     /* max-height: 550px; */
+    /* overflow-y: scroll; */
+    max-height: 525px;
+  }
+
+  @media (max-width: 992px) {
     /* overflow-y: scroll; */
   }
 `;
@@ -73,15 +88,16 @@ const Button = styled.button`
   transition: all 0.2s;
   display: flex;
   align-items: center;
+  color: #fff;
 
   &:hover {
-    background-color: #e5e7eb;
+    background-color: #2a4657;
   }
 
   & svg {
     width: 1.2rem;
     height: 1.2rem;
-    color: #6b7280;
+    color: #fff;
   }
 `;
 
@@ -112,7 +128,13 @@ function Open({ children, opens: opensWindowName }) {
   return cloneElement(children, { onClick: () => open(opensWindowName) });
 }
 
-function Window({ children, name, title = 'Solicită o ofertă', lightboxOpen }) {
+function Window({
+  children,
+  name,
+  title = 'Solicită o ofertă',
+  lightboxOpen,
+  bgColor,
+}) {
   const { openName, close } = useContext(ModalContext);
 
   // const ref = useOutsideClick(lightboxOpen || openName ? {} : close);
@@ -122,7 +144,7 @@ function Window({ children, name, title = 'Solicită o ofertă', lightboxOpen })
 
   return createPortal(
     <Overlay>
-      <StyledModal ref={ref}>
+      <StyledModal ref={ref} bgColor={bgColor}>
         <Header>
           <StyledH4>{title}</StyledH4>
           <Button onClick={close}>

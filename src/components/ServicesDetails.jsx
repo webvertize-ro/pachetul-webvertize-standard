@@ -55,10 +55,10 @@ function ServicesDetails() {
           detalii și focus pe calitate. Descoperă mai jos ce putem face pentru
           tine.
         </StyledP>
-        <Services className="row">
+        <Services className="row d-flex justify-content-center">
           {services.map((service, i) => {
             return (
-              <div key={i} className="col-sm-4 col-md-4 mb-4">
+              <div key={i} className="col-12 col-md-4 mb-4">
                 <Card
                   title={service.title}
                   text={service.text}

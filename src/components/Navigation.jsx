@@ -6,13 +6,32 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import Dropdown from './Dropdown';
 
+const NavigationHeader = styled.header`
+  transition: all 0.3s ease-in-out;
+  position: ${({ $isScrolled }) => ($isScrolled ? 'fixed' : 'unset')};
+  top: ${({ $isScrolled }) => ($isScrolled ? '0.25rem' : '0')};
+  width: 100%;
+  z-index: 100;
+  padding: ${({ $isScrolled }) => ($isScrolled ? '0.75rem 3rem' : '0')};
+
+  ${({ $isScrolled }) =>
+    $isScrolled
+      ? `filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));`
+      : `filter: none`}
+
+  @media (max-width: 576px) {
+    padding: ${({ $isScrolled }) => ($isScrolled ? '0.5rem 1.25rem' : '0')};
+  }
+`;
+
 const StyledNav = styled.nav`
   height: 80px;
   padding: 0;
-  border-bottom: 3px solid #9db2bf;
   z-index: 101;
   font-size: 0.9rem;
   background-color: #142b3e;
+  border-radius: ${({ $isScrolled }) => ($isScrolled ? '1rem' : '0')};
+
   @media (max-width: 992px) {
     height: unset;
     padding: 0.5rem;
@@ -112,7 +131,25 @@ const BurgerLine = styled.div`
 
 function Navigation() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigation = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const myBool = window.scrollY > 0;
+      setIsScrolled(myBool);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Run once on mount
+    handleScroll();
+
+    // clean up
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     function closeNavigation(e) {
@@ -137,65 +174,73 @@ function Navigation() {
   }
 
   return (
-    <StyledNav
-      className="navbar navbar-expand-md sticky-top"
-      ref={navigation}
+    <NavigationHeader
+      $isScrolled={isScrolled}
       onClick={handleNavClick}
+      className="sticky-top"
     >
-      <StyledNavContainer className="container">
-        <Link to="/" className="navbar-brand">
-          <Logo />
-        </Link>
+      <StyledNav
+        className="navbar navbar-expand-lg sticky-top"
+        ref={navigation}
+        $isScrolled={isScrolled}
+      >
+        <StyledNavContainer className="container">
+          <Link to="/" className="navbar-brand">
+            <Logo />
+          </Link>
 
-        <StyledButton
-          type="button"
-          onClick={() => setIsNavbarOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
-          className="navbar-toggler"
-        >
-          <Burger>
-            <BurgerLine></BurgerLine>
-            <BurgerLine></BurgerLine>
-            <BurgerLine></BurgerLine>
-          </Burger>
-        </StyledButton>
-        <StyledNavCollapse
-          className={`collapse navbar-collapse me-5 ${isNavbarOpen ? 'show' : ''}`}
-          id="menuLinks"
-        >
-          <StyledNavUl className="navbar-nav ms-auto">
-            <StyledNavLink to="/" className="nav-item nav-link">
-              Acasă
-            </StyledNavLink>
-            {/* Dropdown Button */}
-            <Dropdown />
-            <StyledNavLink to="/services" className="nav-item nav-link">
-              Servicii
-            </StyledNavLink>
-            <StyledNavLink to="/products" className="nav-item nav-link">
-              Produse
-            </StyledNavLink>
-            <StyledNavLink to="/portfolio" className="nav-item nav-link">
-              Portofoliu
-            </StyledNavLink>
-            <StyledNavLink to="/faq" className="nav-item nav-link">
-              Întrebări Frecvente
-            </StyledNavLink>
-            <StyledNavLink to="/contact" className="nav-item nav-link">
-              Contact
-            </StyledNavLink>
-          </StyledNavUl>
-        </StyledNavCollapse>
-        <StyledSocialLinks>
-          <StyledAnchor href="https://facebook.com" target="_blank">
-            <StyledFontAwesomeIcon icon={faFacebook} />
-          </StyledAnchor>
-          <StyledAnchor href="https://instagram.com" target="_blank">
-            <StyledFontAwesomeIcon icon={faInstagram} />
-          </StyledAnchor>
-        </StyledSocialLinks>
-      </StyledNavContainer>
-    </StyledNav>
+          <StyledButton
+            type="button"
+            onClick={() => setIsNavbarOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+            className="navbar-toggler"
+          >
+            <Burger>
+              <BurgerLine></BurgerLine>
+              <BurgerLine></BurgerLine>
+              <BurgerLine></BurgerLine>
+            </Burger>
+          </StyledButton>
+          <StyledNavCollapse
+            className={`collapse navbar-collapse ${isNavbarOpen ? 'show' : ''}`}
+            id="menuLinks"
+          >
+            <StyledNavUl className="navbar-nav ms-auto">
+              <StyledNavLink to="/" className="nav-item nav-link">
+                Acasă
+              </StyledNavLink>
+              {/* Dropdown Button */}
+
+              <Dropdown className="my-dropdown" />
+
+              <StyledNavLink to="/services" className="nav-item nav-link">
+                Servicii
+              </StyledNavLink>
+              <StyledNavLink to="/products" className="nav-item nav-link">
+                Produse
+              </StyledNavLink>
+              <StyledNavLink to="/portfolio" className="nav-item nav-link">
+                Portofoliu
+              </StyledNavLink>
+              <StyledNavLink to="/faq" className="nav-item nav-link">
+                Întrebări Frecvente
+              </StyledNavLink>
+              <StyledNavLink to="/contact" className="nav-item nav-link">
+                Contact
+              </StyledNavLink>
+            </StyledNavUl>
+          </StyledNavCollapse>
+          <StyledSocialLinks>
+            <StyledAnchor href="https://facebook.com" target="_blank">
+              <StyledFontAwesomeIcon icon={faFacebook} />
+            </StyledAnchor>
+            <StyledAnchor href="https://instagram.com" target="_blank">
+              <StyledFontAwesomeIcon icon={faInstagram} />
+            </StyledAnchor>
+          </StyledSocialLinks>
+        </StyledNavContainer>
+      </StyledNav>
+    </NavigationHeader>
   );
 }
 

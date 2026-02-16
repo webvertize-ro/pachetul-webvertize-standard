@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import cookies from '../data/cookies.json';
 import AccordionItem from './AccordionItem';
 import { useState } from 'react';
+import { faqData } from '../data/faq';
 
 const StyledAccordion = styled.div`
   padding: 3rem 0;
@@ -44,7 +44,7 @@ function Accordion() {
       <div className="container">
         <StyledH2>Întrebări frecvente (FAQ) despre cookies</StyledH2>
         <AccordionContainer className="accordion" id="accordionExample">
-          {cookies.map((cookie, index) => (
+          {faqData.map((cookie, index) => (
             <AccordionItem
               question={cookie.question}
               answer={cookie.answer}

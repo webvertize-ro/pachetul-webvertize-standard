@@ -30,7 +30,7 @@ const StyledImg = styled.img`
 `;
 
 const StyledH3 = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 
   @media (max-width: 576px) {
     text-align: center;
@@ -39,7 +39,7 @@ const StyledH3 = styled.h3`
 
 const StyledP = styled.p`
   text-align: justify;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 
   @media (max-width: 576px) {
     text-align: center;

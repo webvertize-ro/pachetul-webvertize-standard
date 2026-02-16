@@ -69,10 +69,6 @@ const StyledP = styled.p`
   font-size: 1.1rem;
 `;
 
-const TimelineButton = styled.div`
-  margin-top: auto;
-`;
-
 const StyledLink = styled(Link)`
   text-decoration: none;
   border: none;
@@ -108,16 +104,6 @@ function TimelineItem({ iconNum, icon, title, desc, CTAtext, btnLink }) {
         <div>{title}</div>
       </StyledH4>
       <StyledP>{desc}</StyledP>
-      <TimelineButton>
-        <Modal>
-          <Modal.Open opens="form-modal">
-            <StyledButton>{CTAtext}</StyledButton>
-          </Modal.Open>
-          <Modal.Window name="form-modal">
-            <Form />
-          </Modal.Window>
-        </Modal>
-      </TimelineButton>
     </StyledTimelineItem>
   );
 }

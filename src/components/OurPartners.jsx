@@ -1,55 +1,83 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { partners } from '../data/partners.js';
+import { useEffect, useState } from 'react';
 
-const StyledSection = styled.section`
-  background-color: #1b3c53;
+const ContainerFluid = styled.div`
+  background-color: #1f3745;
+`;
+
+const scroll = keyframes`
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+`;
+
+const Scroller = styled.div`
+  background-color: #2c4a5b;
+  padding: 2.5rem 0;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+`;
+
+const StyledH5 = styled.h5`
+  text-align: center;
   color: #fff;
-  padding: 2.5rem;
-
-  @media (max-width: 576px) {
-    padding: 1.5rem;
-  }
+  text-transform: uppercase;
 `;
 
-const Row = styled.div`
-  @media (max-width: 576px) {
-    gap: 0.9rem;
-  }
-`;
-
-const PartnerItem = styled.div`
+const ScrollerInner = styled.ul`
   display: flex;
-  justify-content: center;
-  padding-bottom: 0.75rem;
+  gap: 1rem;
+  width: max-content;
+  margin: 0;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 1rem 0;
 
-  @media (max-width: 576px) {
-    /* padding-bottom: 0; */
-    &:not(:last-child) {
-      border-bottom: 1px solid #fff;
-    }
-  }
-`;
-
-const StyledImg = styled.img`
-  @media (max-width: 576px) {
-    max-width: 150px;
-  }
+  animation: ${scroll}
+    ${({ speed }) =>
+      speed === 'fast' ? '20s' : speed === 'slow' ? '120s' : '40s'}
+    linear infinite
+    ${({ direction }) => (direction === 'right' ? 'reverse' : 'forwards')};
 `;
 
 function OurPartners() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    setReducedMotion(mediaQuery.matches);
+  }, []);
+
+  const duplicatedPartners = [...partners, ...partners];
+
   return (
-    <StyledSection className="mySection partners overflow-hidden">
+    <ContainerFluid className="container-fluid">
       <div className="container">
-        <h6 className="text-center mb-4 text-uppercase">Partenerii noștri</h6>
-        <Row className="row">
-          {partners.map((partner) => (
-            <PartnerItem className="col-md-2">
-              <StyledImg src={partner.img} alt="test" className="img-fluid" />
-            </PartnerItem>
-          ))}
-        </Row>
+        <Scroller>
+          <StyledH5>Partenerii noștri</StyledH5>
+          <ScrollerInner
+            speed="slow"
+            direction="left"
+            style={{ animation: reducedMotion ? 'none' : undefined }}
+          >
+            {duplicatedPartners.map((partner, index) => (
+              <li key={index}>
+                <img src={partner.img} alt="" />
+              </li>
+            ))}
+          </ScrollerInner>
+        </Scroller>
       </div>
-    </StyledSection>
+    </ContainerFluid>
   );
 }
 

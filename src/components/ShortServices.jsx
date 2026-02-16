@@ -184,7 +184,10 @@ function ShortServices() {
                 <Modal.Open opens="form-modal">
                   <Button2>Cere o ofertă de preț</Button2>
                 </Modal.Open>
-                <Modal.Window name="form-modal">
+                <Modal.Window
+                  name="form-modal"
+                  bgColor="rgba(59, 94, 117, 0.3)"
+                >
                   <Form />
                 </Modal.Window>
               </Modal>

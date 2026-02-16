@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Modal from './Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,56 @@ import Lightbox from 'yet-another-react-lightbox';
 
 const StyledProduct = styled.div`
   height: 100%;
+`;
+
+const rotatingThing = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+`;
+
+const OuterCard = styled.div`
+  /* width: 300px; */
+  height: 500px;
+  background-color: #1f3745;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  border-top-left-radius: 0.75rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(64, 46, 122, 0.75),
+      rgba(61, 194, 236, 0.75)
+    );
+    height: 160%;
+    animation: ${rotatingThing} 4s linear infinite;
+  }
+`;
+
+const InnerCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #365764;
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
 `;
 
 const Card = styled.div`
@@ -21,7 +71,6 @@ const StyledImg = styled.img`
 
 const Row = styled.div`
   padding: 3rem;
-  /* gap: 1rem; */
 
   @media (max-width: 576px) {
     padding: 1rem;
@@ -52,6 +101,7 @@ const StyledImgModal = styled.img`
 const CardBody = styled.div`
   display: flex;
   flex-direction: column;
+  color: #fff;
 `;
 
 const StyledLink = styled.a`
@@ -109,59 +159,62 @@ function Product({ product }) {
     },
   ];
 
-  console.log('slides is: ', slides);
-
   return (
     <StyledProduct>
-      <Card className="card">
-        <StyledImg
-          className="card-img-top"
-          src={product.img}
-          alt="Card image cap"
-        />
-        <CardBody className="card-body">
-          <h5 className="card-title">{product.product_title}</h5>
-          <p className="card-text">{product.short_desc}</p>
-          <Modal>
-            <Modal.Open opens="form-modal">
-              <StyledLink className="stretched-link">Detalii produs</StyledLink>
-            </Modal.Open>
-            <Modal.Window
-              name="form-modal"
-              title={product.product_title}
-              lightboxOpen={lightboxOpen}
-            >
-              <Row className="row">
-                <div className="col-lg-6 d-flex justify-content-center">
-                  <ImgContainer>
-                    <StyledImgModal
-                      src={product.img}
-                      className="img-fluid"
-                      onClick={() => setLightboxOpen(true)}
-                    />
-                  </ImgContainer>
-                </div>
-                <div className="col-lg-6">
-                  <StyledH4>Specificații produs</StyledH4>
-                  <StyledUl>
-                    {product.features.map((feature) => (
-                      <LiItem>
-                        <StyledFontAwesomeIcon icon={faCheck} />
-                        {feature}
-                      </LiItem>
-                    ))}
-                  </StyledUl>
-                </div>
-              </Row>
-            </Modal.Window>
-          </Modal>
-          <Lightbox
-            open={lightboxOpen}
-            close={() => setLightboxOpen(false)}
-            slides={slides}
+      <OuterCard>
+        <InnerCard className="card">
+          <StyledImg
+            className="card-img-top"
+            src={product.img}
+            alt="Card image cap"
           />
-        </CardBody>
-      </Card>
+          <CardBody className="card-body">
+            <h5 className="card-title">{product.product_title}</h5>
+            <p className="card-text">{product.short_desc}</p>
+            <Modal>
+              <Modal.Open opens="form-modal">
+                <StyledLink className="stretched-link">
+                  Detalii produs
+                </StyledLink>
+              </Modal.Open>
+              <Modal.Window
+                name="form-modal"
+                title={product.product_title}
+                lightboxOpen={lightboxOpen}
+                bgColor="rgba(31, 55, 69, 1)"
+              >
+                <Row className="row">
+                  <div className="col-lg-6 d-flex justify-content-center">
+                    <ImgContainer>
+                      <StyledImgModal
+                        src={product.img}
+                        className="img-fluid"
+                        onClick={() => setLightboxOpen(true)}
+                      />
+                    </ImgContainer>
+                  </div>
+                  <div className="col-lg-6">
+                    <StyledH4>Specificații produs</StyledH4>
+                    <StyledUl>
+                      {product.features.map((feature) => (
+                        <LiItem>
+                          <StyledFontAwesomeIcon icon={faCheck} />
+                          {feature}
+                        </LiItem>
+                      ))}
+                    </StyledUl>
+                  </div>
+                </Row>
+              </Modal.Window>
+            </Modal>
+            <Lightbox
+              open={lightboxOpen}
+              close={() => setLightboxOpen(false)}
+              slides={slides}
+            />
+          </CardBody>
+        </InnerCard>
+      </OuterCard>
     </StyledProduct>
   );
 }

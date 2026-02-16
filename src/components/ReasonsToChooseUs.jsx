@@ -9,14 +9,20 @@ const StyledWhatRecommendsUs = styled.div`
   padding: 5rem 0;
   background-color: #1b3c53;
   color: #fff;
+  position: relative;
 
   @media (max-width: 576px) {
-    padding: 1.5rem 0;
+    padding: 1.5rem 0.75rem;
   }
 
   @media (min-width: 576px) and (max-width: 992px) {
     padding: 2rem 0;
   }
+`;
+
+const Text = styled.div`
+  /* position: absolute;
+  z-index: 10; */
 `;
 
 const StyledH2 = styled.h2`
@@ -61,16 +67,14 @@ function ReasonsToChooseUs() {
           Clienții noștri apreciază calitatea serviciilor și atenția la detalii.
           Iată câteva motive pentru care aleg să colaboreze cu noi:
         </StyledP>
-        <div className="row d-flex gap-2">
+
+        <div className="row">
           {reasonsToChooseUs.map((reason) => (
-            <Item className="col-12">
-              {console.log(reason)}
-              <CustomizableItem
-                title={reason.title}
-                description={reason.description}
-                icon={reason.icon}
-              />
-            </Item>
+            <CustomizableItem
+              title={reason.title}
+              description={reason.description}
+              icon={reason.icon}
+            />
           ))}
         </div>
       </div>
