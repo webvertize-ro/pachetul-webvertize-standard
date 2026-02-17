@@ -58,7 +58,7 @@ function ServicesDetails() {
         <Services className="row d-flex justify-content-center">
           {services.map((service, i) => {
             return (
-              <div key={i} className="col-12 col-md-4 mb-4">
+              <div key={i} className="col-12 col-md-6 col-lg-4 mb-4">
                 <Card
                   title={service.title}
                   text={service.text}
