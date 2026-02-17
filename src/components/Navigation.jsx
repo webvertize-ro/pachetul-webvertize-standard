@@ -29,7 +29,16 @@ const StyledNav = styled.nav`
   padding: 0;
   z-index: 101;
   font-size: 0.9rem;
-  background-color: #142b3e;
+  background-color: ${({ $isScrolled }) =>
+    $isScrolled ? 'rgba(31, 55, 69, 0.85)' : '#142b3e'};
+  box-shadow: ${({ $isScrolled }) =>
+    $isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'unset'};
+  backdrop-filter: ${({ $isScrolled }) =>
+    $isScrolled ? 'blur(20px)' : 'unset'};
+  -webkit-backdrop-filter: ${({ $isScrolled }) =>
+    $isScrolled ? 'blur(20px)' : 'unset'};
+  border: ${({ $isScrolled }) =>
+    $isScrolled ? '1px solid rgba(255, 255, 255, 0.3)' : 'unset'};
   border-radius: ${({ $isScrolled }) => ($isScrolled ? '1rem' : '0')};
 
   @media (max-width: 992px) {

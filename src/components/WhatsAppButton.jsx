@@ -21,7 +21,10 @@ const StyledAnchor = styled.a`
   font-size: 1.4rem;
   border-radius: 50%;
   color: #128c7e;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 0.75rem;
   position: relative;
 

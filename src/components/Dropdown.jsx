@@ -12,6 +12,7 @@ const StyledDropdown = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   @media (max-width: 992px) {
     flex-direction: column;
@@ -29,6 +30,10 @@ const StyledDropdown = styled.div`
     background-color: #e9e0d8;
     color: #fff !important;
   } */
+
+  &:hover {
+    background-color: #2c5870;
+  }
 `;
 
 const StyledButton = styled.a`

@@ -7,7 +7,10 @@ const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e0d9d9;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #234c6a;
   position: fixed;
   bottom: 1rem;
