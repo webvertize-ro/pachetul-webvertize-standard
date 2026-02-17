@@ -19,6 +19,10 @@ const TextContent = styled.div`
 const StyledImg = styled.img`
   border-radius: 1rem;
   max-width: 425px;
+
+  @media (max-width: 576px) {
+    max-width: 300px;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -34,6 +38,10 @@ const StyledP = styled.p`
 const ButtonsContainer = styled.div`
   display: flex;
   gap: 0.5rem;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -45,10 +53,11 @@ const StyledButton = styled.button`
   font-weight: 500;
   font-size: 1.1rem;
   flex: 1;
-  white-space: nowrap;
 `;
 
 const StyledNavLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   background-color: #33565d;
   border: none;
@@ -58,7 +67,6 @@ const StyledNavLink = styled(NavLink)`
   font-weight: 500;
   font-size: 1.1rem;
   flex: 1;
-  white-space: nowrap;
 `;
 
 function OurMission() {
@@ -67,7 +75,7 @@ function OurMission() {
       <div className="container">
         <div className="row d-flex align-items-center">
           {/* Text */}
-          <div className="col-md-6 mb-4">
+          <div className="col-lg-6 mb-4">
             <TextContent>
               <StyledH2>Misiunea noastră</StyledH2>
               <StyledP>
@@ -108,7 +116,7 @@ function OurMission() {
             </ButtonsContainer>
           </div>
           {/* Image */}
-          <div className="col-md-6 d-flex justify-content-center">
+          <div className="col-lg-6 d-flex justify-content-center">
             <StyledImg src={ourMissionImg} className="img-fluid" alt="" />
           </div>
         </div>

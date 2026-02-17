@@ -78,10 +78,11 @@ function TimelineHowWeWork() {
   return (
     <StyledTimelineHowWeWork>
       <div className="container">
-        <StyledH2>Cum lucrăm</StyledH2>
+        <StyledH2>Procesul nostru</StyledH2>
         <StyledP>
-          Un proces simplu, clar și ușor de urmărit, de la prima discuție până
-          la livrarea finală.
+          Credem că un proiect reușit începe cu un proces bine definit. De
+          aceea, fiecare etapă este planificată atent, pentru a asigura
+          transparență, eficiență și rezultate de calitate.
         </StyledP>
 
         <Row className="row">
@@ -101,7 +102,7 @@ function TimelineHowWeWork() {
               </ul>
               <Modal>
                 <Modal.Open opens="form-modal">
-                  <StyledButton>Cere o oferta de pret</StyledButton>
+                  <StyledButton>Cere o ofertă de pret</StyledButton>
                 </Modal.Open>
                 <Modal.Window
                   name="form-modal"

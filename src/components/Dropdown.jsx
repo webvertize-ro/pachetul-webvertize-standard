@@ -31,8 +31,10 @@ const StyledDropdown = styled.div`
     color: #fff !important;
   } */
 
-  &:hover {
-    background-color: #2c5870;
+  @media (min-width: 992px) {
+    &:hover {
+      background-color: #2c5870;
+    }
   }
 `;
 
@@ -53,10 +55,9 @@ const StyledButton = styled.a`
 `;
 
 const DropdownItems = styled.ul`
-  background-color: #fff;
   position: static;
   top: 100%;
-  color: #000;
+  color: #fff;
   padding: 0;
   list-style: none;
   display: flex;
@@ -65,6 +66,11 @@ const DropdownItems = styled.ul`
   font-weight: 600;
   /* border: 3px solid #1b3c53; */
   border-radius: 0.25rem;
+  background-color: rgba(31, 55, 69, 0.85);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 `;
 
 const DropdownItemsContainer = styled.div`
@@ -81,7 +87,7 @@ const DropdownItemsContainer = styled.div`
 const StyledLi = styled.li``;
 
 const StyledNavLink = styled(NavLink)`
-  color: #000;
+  color: #fff;
   display: flex;
   text-decoration: none;
   padding: 0.75rem;

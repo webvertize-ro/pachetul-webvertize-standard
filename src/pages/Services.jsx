@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Hero from '../components/Hero';
 import heroBg from '../assets/images/services-hero.jpg';
 import ServicesDetails from '../components/ServicesDetails';
-import TimelineHowWeWork from '../components/TimelineHowWeWork';
 import CTA from '../components/CTA';
 import { useEffect } from 'react';
 import { images } from '../data/gallery2';
@@ -29,7 +28,6 @@ function Services() {
       <ServicesDetails />
       {/* Products */}
       <Products />
-      <TimelineHowWeWork />
       <PhotoGallery
         title="Serviciile noastre, în imagini"
         text="O selecție de imagini care ilustrează modul în care oferim serviciile noastre și atenția acordată fiecărui proiect."
