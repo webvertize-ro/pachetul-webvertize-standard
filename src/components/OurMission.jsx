@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ourMissionImg from '../assets/images/our_mission_image.jpg';
-import Modal from '../components/Modal';
-import Form from '../components/Form';
+import Modal from './Modal';
+import Form from './Form';
 import { NavLink } from 'react-router';
 
 const StyledOurMission = styled.div`
@@ -45,8 +45,20 @@ const ButtonsContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #33565d;
-  border: none;
+  background: rgba(172, 149, 132, 0.35);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(172, 149, 132, 0.3);
+
+  @media (min-width: 992px) {
+    &:hover {
+      background: rgba(172, 149, 132, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(172, 149, 132, 0.5);
+    }
+  }
+
   border-radius: 0.5rem;
   padding: 0.75rem;
   color: #fff;
@@ -59,8 +71,21 @@ const StyledNavLink = styled(NavLink)`
   display: flex;
   justify-content: center;
   text-decoration: none;
-  background-color: #33565d;
-  border: none;
+
+  background: rgba(224, 204, 192, 0.35);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(224, 204, 192, 0.35);
+  transition: all 0.2s ease-in-out;
+
+  @media (min-width: 992px) {
+    &:hover {
+      background: rgba(224, 204, 192, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(224, 204, 192, 0.35);
+    }
+  }
   border-radius: 0.5rem;
   padding: 0.75rem;
   color: #fff;

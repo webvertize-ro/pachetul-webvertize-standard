@@ -103,13 +103,27 @@ const Item = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #2e5368;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(54, 85, 104, 0.35);
+  transition: all 0.2s ease;
+
+  @media (min-width: 992px) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid rgba(54, 85, 104, 0.5);
+    }
+  }
+
   color: #fff;
   font-size: 1.25rem;
   font-weight: 500;
   border-radius: 0.75rem;
   padding: 1rem;
-  border: none;
+
   width: 50%;
   margin-left: auto;
   margin-right: auto;

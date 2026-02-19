@@ -40,12 +40,25 @@ const StyledUl = styled.ul`
 
 const StyledButton = styled.button`
   border: none;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+
+  @media (min-width: 992px) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
   font-size: 1.2rem;
   font-weight: 500;
   padding: 1rem;
   border-radius: 1rem;
-  color: #1f3745;
+  color: #fff;
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;

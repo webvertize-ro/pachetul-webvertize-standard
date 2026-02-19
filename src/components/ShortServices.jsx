@@ -85,33 +85,70 @@ const StyledLi = styled.li`
   }
 `;
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
+`;
+
 const Button1 = styled(Link)`
   text-decoration: none;
-  background-color: #1b3c53;
+  background: rgba(31, 55, 69, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 1.25rem;
   border-radius: 0.75rem;
   padding: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 576px) {
     font-size: 1rem;
     padding: 0.5rem;
   }
+
+  @media (min-width: 992px) {
+    flex: 1;
+    &:hover {
+      background: rgba(31, 55, 69, 0.45);
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
 `;
 
 const Button2 = styled(Link)`
   text-decoration: none;
-  background-color: transparent;
-  border: 1px solid #1b3c53;
+  background-color: rgba(42, 70, 87, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(42, 70, 87, 0.3);
   color: #fff;
   font-size: 1.25rem;
   border-radius: 0.75rem;
   padding: 1rem;
   transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 992px) {
+    flex: 1;
+  }
 
   &:hover {
-    background-color: #1b3c53;
-    color: #fff;
+    background-color: rgba(42, 70, 87, 0.75);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(42, 70, 87, 0.5);
   }
 
   @media (max-width: 576px) {
@@ -163,7 +200,7 @@ function ShortServices() {
                 <ListItem icon={item.icon} title={item.title} />
               ))}
             </StyledUl>
-            <div className="d-flex justify-content-center align-items-center gap-2">
+            <ButtonsContainer>
               <Button1 to="/services">Află mai multe</Button1>
               <Modal>
                 <Modal.Open opens="form-modal">
@@ -176,7 +213,7 @@ function ShortServices() {
                   <Form />
                 </Modal.Window>
               </Modal>
-            </div>
+            </ButtonsContainer>
           </TextContent>
         </Row>
       </div>

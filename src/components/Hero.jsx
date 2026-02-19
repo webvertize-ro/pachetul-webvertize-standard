@@ -68,7 +68,21 @@ const StyledP = styled.p`
 
 const Button = styled(Link)`
   text-decoration: none;
-  background-color: #142b3e;
+  background: rgba(54, 85, 104, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease-in-out;
+
+  @media (min-width: 992px) {
+    &:hover {
+      background: rgba(54, 85, 104, 0.65);
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+
   color: #fff;
   font-size: 1.25rem;
   font-weight: 500;
