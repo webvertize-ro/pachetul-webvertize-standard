@@ -4,11 +4,19 @@ import ProjectsCard from './ProjectsCard';
 
 const StyledProjects = styled.div`
   padding: 5rem 0;
-  /* background-color: #2c5870; */
-  background:
-    radial-gradient(circle at 20% 30%, #3b5e75 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, #2c4a5b 0%, transparent 40%),
-    linear-gradient(135deg, #1f3745, #3f6676);
+  position: relative;
+  z-index: 90;
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -17,6 +25,11 @@ const StyledProjects = styled.div`
   @media (min-width: 576px) and (max-width: 992px) {
     padding: 1.75rem 0;
   }
+`;
+
+const Container = styled.div`
+  position: relative;
+  z-index: 100;
 `;
 
 const StyledH2 = styled.h2`
@@ -49,11 +62,11 @@ const StyledP = styled.p`
 function Projects() {
   return (
     <StyledProjects>
-      <div className="container">
+      <Container className="container">
         <StyledH2>Proiectele noastre</StyledH2>
         <StyledP>
-          O selecție de lucrări care reflectă experiența, calitatea și modul
-          nostru de lucru.
+          Află mai multe detalii despre proiectele realizate de noi printr-un
+          simplu click.
         </StyledP>
         <div className="row">
           {projects.map((project) => (
@@ -68,7 +81,7 @@ function Projects() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </StyledProjects>
   );
 }

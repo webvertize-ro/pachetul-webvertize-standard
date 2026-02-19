@@ -7,9 +7,20 @@ const StyledWhatRecommendsUs = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   padding: 5rem 0;
-  background-color: #1b3c53;
   color: #fff;
   position: relative;
+  z-index: 90;
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 
   @media (max-width: 576px) {
     padding: 1.5rem 0.75rem;
@@ -18,6 +29,11 @@ const StyledWhatRecommendsUs = styled.div`
   @media (min-width: 576px) and (max-width: 992px) {
     padding: 2rem 0;
   }
+`;
+
+const Container = styled.div`
+  position: relative;
+  z-index: 100;
 `;
 
 const Text = styled.div`
@@ -72,7 +88,7 @@ const Item = styled.div`
 function ReasonsToChooseUs() {
   return (
     <StyledWhatRecommendsUs>
-      <div className="container">
+      <Container className="container">
         <StyledH2>Ce ne recomandă</StyledH2>
         <StyledP>
           Clienții noștri apreciază calitatea serviciilor și atenția la detalii.
@@ -80,13 +96,6 @@ function ReasonsToChooseUs() {
         </StyledP>
 
         <div className="row">
-          {/* {reasonsToChooseUs.map((reason) => (
-            <CustomizableItem
-              title={reason.title}
-              description={reason.description}
-              icon={reason.icon}
-            />
-          ))} */}
           <StyledUl>
             {reasonsToChooseUs.map((item) => (
               <ListItem
@@ -97,7 +106,7 @@ function ReasonsToChooseUs() {
             ))}
           </StyledUl>
         </div>
-      </div>
+      </Container>
     </StyledWhatRecommendsUs>
   );
 }
