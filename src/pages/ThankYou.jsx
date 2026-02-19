@@ -45,10 +45,10 @@ function ThankYou() {
       navigate('/');
       return;
     }
-
-    // clean sessionStorage, such that if the page was accessed correctly to not work on refresh
-    sessionStorage.removeItem('formFilledOut');
     setAllowed(true);
+
+    // clear sessionStorage (such that it won't load on refresh)
+    sessionStorage.removeItem('formFilledOut');
   }, [navigate]);
 
   if (!allowed) return null;
