@@ -6,8 +6,6 @@ import Lightbox from 'yet-another-react-lightbox';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
 
 const StyledProjectsCard = styled.div`
-  height: 500px;
-  /* width: 250px; */
   width: 100%;
   background-image: url(${(props) => (props.img ? props.img : 'unset')});
   background-position: center;
@@ -18,6 +16,7 @@ const StyledProjectsCard = styled.div`
   flex-direction: column;
   padding: 0 0.75rem 1.5rem;
   cursor: pointer;
+  padding-top: 15rem;
 `;
 
 const CardInfo = styled.div`
@@ -33,7 +32,7 @@ const CardInfo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 40%;
+  height: 100%;
 `;
 
 const StyledH5 = styled.h5`

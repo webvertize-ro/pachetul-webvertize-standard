@@ -4,11 +4,24 @@ import { contact } from '../data/contactInfo';
 import ContactDataItem from './ContactDataItem';
 import Modal from './Modal';
 import Form from './Form';
+import contactSectionImg from '../assets/images/contact_section_img.jpg';
 
 const StyledContactSection = styled.div`
   padding: 3rem 0;
-  background-color: #1b3c53;
   color: #fff;
+  position: relative;
+  border-top: 3px solid rgba(107, 117, 128, 0.5);
+
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+  }
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -17,6 +30,11 @@ const StyledContactSection = styled.div`
   @media (min-width: 576px) and (max-width: 992px) {
     padding: 1.75rem 0;
   }
+`;
+
+const Container = styled.div`
+  position: relative;
+  z-index: 91;
 `;
 
 const StyledH2 = styled.h2`
@@ -104,7 +122,7 @@ const StyledButton = styled.button`
 function ContactSection() {
   return (
     <StyledContactSection>
-      <div className="container">
+      <Container className="container">
         <StyledH2>Datele noastre de contact</StyledH2>
         <StyledP>
           Alege metoda de contact care ți se potrivește și spune-ne ce ai în
@@ -138,7 +156,7 @@ function ContactSection() {
             ></StyledIFrame>
           </RightSide>
         </Row>
-      </div>
+      </Container>
     </StyledContactSection>
   );
 }

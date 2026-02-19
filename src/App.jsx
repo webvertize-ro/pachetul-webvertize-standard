@@ -17,6 +17,7 @@ import HowWeWork from './pages/HowWeWork';
 import Certifications from './pages/Certifications';
 import FAQ from './pages/FAQ';
 import Products from './pages/Products';
+import Test from './pages/Test';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/test" element={<Test />} />
           </Route>
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/too-many-requests" element={<TooManyRequests />} />

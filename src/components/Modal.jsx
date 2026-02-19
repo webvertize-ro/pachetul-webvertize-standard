@@ -18,7 +18,7 @@ const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${(props) =>
-    props.bgColor ? props.bgColor : 'rgba(74, 112, 137, 0.6)'};
+    props.bgColor ? props.bgColor : 'rgba(74, 112, 137, 0.75)'};
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8.7px);
   -webkit-backdrop-filter: blur(8.7px);
@@ -54,6 +54,7 @@ const ModalContent = styled.div`
     /* max-height: 550px; */
     /* overflow-y: scroll; */
     max-height: 525px;
+    overflow: scroll;
   }
 
   @media (max-width: 992px) {

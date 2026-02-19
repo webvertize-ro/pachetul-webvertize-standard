@@ -4,6 +4,7 @@ import contactImg from '../assets/images/contact-img.jpg';
 import ContactSection from '../components/ContactSection';
 import CTA from '../components/CTA';
 import { useEffect } from 'react';
+import Group from '../components/Group';
 
 const StyledContact = styled.div`
   /* height: 650px; */
@@ -22,12 +23,13 @@ function Contact() {
 
   return (
     <StyledContact>
-      <Hero
-        heroBg={contactImg}
-        heroTitle="Hai să discutăm despre proiectul tău"
-        heroDesc="Ne face plăcere să răspundem la întrebările tale și să găsim soluții adaptate nevoilor afacerii tale. Completează formularul sau folosește datele de contact de mai jos."
-      />
-      <ContactSection />
+      <Group bgImg={contactImg}>
+        <Hero
+          heroTitle="Hai să discutăm despre proiectul tău"
+          heroDesc="Ne face plăcere să răspundem la întrebările tale și să găsim soluții adaptate nevoilor afacerii tale. Completează formularul sau folosește datele de contact de mai jos."
+        />
+        <ContactSection />
+      </Group>
       <CTA
         title="Vrei să lucrăm împreună?"
         text="Completează formularul sau contactează-ne direct și hai să discutăm cum putem să-ți transformăm ideile în proiecte concrete."

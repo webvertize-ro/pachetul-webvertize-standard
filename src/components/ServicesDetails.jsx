@@ -6,8 +6,21 @@ import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 const StyledServicesDetails = styled.div`
   padding: 3rem 0;
-  background-color: #3a6a84;
   color: #fff;
+  position: relative;
+  border-top: 3px solid rgba(107, 117, 128, 0.3);
+  background-color: #2a4657;
+
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+  }
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -16,6 +29,11 @@ const StyledServicesDetails = styled.div`
   @media (min-width: 576px) and (max-width: 992px) {
     padding: 1.25rem 0;
   }
+`;
+
+const Container = styled.div`
+  position: relative;
+  z-index: 91;
 `;
 
 const Services = styled.div``;
@@ -48,7 +66,7 @@ const StyledP = styled.p`
 function ServicesDetails() {
   return (
     <StyledServicesDetails>
-      <div className="container">
+      <Container className="container">
         <StyledH2>Serviciile noastre</StyledH2>
         <StyledP>
           Oferim servicii adaptate nevoilor tale, realizate cu atenție la
@@ -69,7 +87,7 @@ function ServicesDetails() {
             );
           })}
         </Services>
-      </div>
+      </Container>
     </StyledServicesDetails>
   );
 }

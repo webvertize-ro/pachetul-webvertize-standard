@@ -1,11 +1,26 @@
 import styled from 'styled-components';
 import AccordionItem from './AccordionItem';
 import { useState } from 'react';
-import { faqData } from '../data/faq';
+import accordionDefaultImg from '../assets/images/accordion_default_img.jpg';
 
 const StyledAccordion = styled.div`
   padding: 3rem 0;
-  background-color: #1b3c53;
+  border-top: 3px solid rgba(107, 117, 128, 0.75);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+  }
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -30,32 +45,39 @@ const StyledP = styled.p`
   font-size: 1.2rem;
 `;
 
+const Container = styled.div`
+  position: relative;
+  z-index: 91;
+`;
+
 const AccordionContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 `;
 
-function Accordion() {
+function Accordion({ data, title, subtitle, bgImg }) {
   const [curOpen, setCurOpen] = useState(1);
 
   return (
-    <StyledAccordion>
-      <div className="container">
-        <StyledH2>Întrebări frecvente (FAQ) despre cookies</StyledH2>
+    <StyledAccordion bgImg={bgImg ? bgImg : accordionDefaultImg}>
+      <Container className="container">
+        <StyledH2>{title}</StyledH2>
+        {subtitle ? <StyledP>{subtitle}</StyledP> : ''}
         <AccordionContainer className="accordion" id="accordionExample">
-          {faqData.map((cookie, index) => (
+          {data.map((item, index) => (
             <AccordionItem
-              question={cookie.question}
-              answer={cookie.answer}
+              question={item.question}
+              answer={item.answer}
               index={index + 1}
               curOpen={curOpen}
               onCurOpen={setCurOpen}
-              links={cookie.links}
+              links={item.links}
+              key={index}
             />
           ))}
         </AccordionContainer>
-      </div>
+      </Container>
     </StyledAccordion>
   );
 }

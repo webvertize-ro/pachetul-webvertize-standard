@@ -5,7 +5,7 @@ import { Captions } from 'yet-another-react-lightbox/plugins';
 
 const StyledPhotoGallery = styled.div`
   padding: 3rem 0;
-  background-color: #3a6a84;
+  background-color: #1f3745;
   color: #fff;
 
   @media (max-width: 576px) {

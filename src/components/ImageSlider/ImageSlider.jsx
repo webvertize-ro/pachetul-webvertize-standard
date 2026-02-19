@@ -71,18 +71,6 @@ const StyledP = styled.p`
   }
 `;
 
-const StyledButton = styled.button`
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  background-color: #1b3c53;
-  color: #fff;
-
-  @media (max-width: 576px) {
-    padding: 0.3rem 1rem;
-  }
-`;
-
 const SliderButton = styled.button`
   position: absolute;
   all: unset;
@@ -230,7 +218,7 @@ function ImageSlider() {
 
       <Dots>
         {images.map((_, index) => (
-          <Dot onClick={() => setImageIndex(index)}>
+          <Dot onClick={() => setImageIndex(index)} key={index}>
             {index === imageIndex ? (
               <DotFontAwesomeIcon icon={faCircleDot} />
             ) : (

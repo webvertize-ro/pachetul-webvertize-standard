@@ -5,7 +5,11 @@ const StyledContactDataItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background-color: #142b3e;
+  background: rgba(255, 255, 255, 0.29);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(107, 117, 128, 0.5);
   padding: 1rem;
   border-radius: 0.75rem;
 `;

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import whyItWorksImg from '../assets/images/why_it_works_img.jpg';
 import Modal from './Modal';
 import Form from './Form';
+import { whyOurProcessWorks } from '../data/listData';
+import ListItem from './ListItem';
 
 const StyledWhyOurProcessWorks = styled.div`
   background-color: #365764;
@@ -71,22 +73,9 @@ function WhyOurProcessWorks() {
         <div className="row">
           <div className="col-lg-6 d-flex flex-column mb-4">
             <StyledUl>
-              <StyledLi>
-                <FontAwesomeIcon icon={faCheck} />
-                Claritate în fiecare etapă
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faCheck} />
-                Respectarea termenelor stabilite
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faCheck} />
-                Comunicare transparentă și constantă
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faCheck} />
-                Soluții adaptate fiecărui client
-              </StyledLi>
+              {whyOurProcessWorks.map((item) => (
+                <ListItem icon={item.icon} title={item.title} />
+              ))}
             </StyledUl>
             <Modal>
               <Modal.Open opens="form-modal">

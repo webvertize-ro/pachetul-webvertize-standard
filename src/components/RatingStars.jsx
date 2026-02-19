@@ -4,14 +4,14 @@ import styled from 'styled-components';
 
 const Star = styled(FontAwesomeIcon)`
   font-size: 1.1rem;
-  color: ${(props) => (props.filled ? 'gold' : '#ccc')};
+  color: ${(props) => (props.$fill ? 'gold' : 'unset')};
 `;
 
 function RatingStars({ stars = 5 }) {
   return (
     <div>
       {Array.from({ length: 5 }).map((_, index) => (
-        <Star key={index} filled={index < stars} icon={faStar} />
+        <Star key={index} $fill={index < stars} icon={faStar} />
       ))}
     </div>
   );

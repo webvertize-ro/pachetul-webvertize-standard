@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { reasonsToChooseUs } from '../data/reasonsToChooseUs';
-import CustomizableItem from '../components/CustomizableItem';
+import { reasonsToChooseUs } from '../data/listData';
+import ListItem from './ListItem';
 
 const StyledWhatRecommendsUs = styled.div`
   display: flex;
@@ -52,6 +52,17 @@ const StyledP = styled.p`
   }
 `;
 
+const StyledUl = styled.ul`
+  list-style: none;
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+`;
+
 const Item = styled.div`
   background-color: #7fa5b8;
   padding: 0.5rem;
@@ -69,13 +80,22 @@ function ReasonsToChooseUs() {
         </StyledP>
 
         <div className="row">
-          {reasonsToChooseUs.map((reason) => (
+          {/* {reasonsToChooseUs.map((reason) => (
             <CustomizableItem
               title={reason.title}
               description={reason.description}
               icon={reason.icon}
             />
-          ))}
+          ))} */}
+          <StyledUl>
+            {reasonsToChooseUs.map((item) => (
+              <ListItem
+                icon={item.icon}
+                title={item.title}
+                subtitle={item.description}
+              />
+            ))}
+          </StyledUl>
         </div>
       </div>
     </StyledWhatRecommendsUs>

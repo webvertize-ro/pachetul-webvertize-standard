@@ -6,7 +6,7 @@ import CTA from '../components/CTA';
 import { useEffect } from 'react';
 import { images } from '../data/gallery2';
 import PhotoGallery from '../components/PhotoGallery';
-import Products from '../components/Products';
+import Group from '../components/Group';
 
 const StyledServices = styled.div`
   /* height: 650px; */
@@ -21,13 +21,11 @@ function Services() {
   return (
     <StyledServices>
       <Hero
-        heroBg={heroBg}
         heroTitle="Servicii de încredere, aproape de tine"
         heroDesc="Punem la dispoziție o gamă variată de servicii, adaptate nevoilor tale, cu accent pe calitate, seriozitate și atenție la detalii."
+        heroBg={heroBg}
       />
       <ServicesDetails />
-      {/* Products */}
-      <Products />
       <PhotoGallery
         title="Serviciile noastre, în imagini"
         text="O selecție de imagini care ilustrează modul în care oferim serviciile noastre și atenția acordată fiecărui proiect."

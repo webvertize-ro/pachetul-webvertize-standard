@@ -39,7 +39,7 @@ const Row = styled.div`
   display: flex;
 `;
 
-function Products() {
+function ProductsSection() {
   return (
     <StyledProducts>
       <div className="container">
@@ -48,9 +48,9 @@ function Products() {
           Produsele noastre sunt alese și configurate pentru a oferi soluții
           eficiente și fiabile clienților noștri.
         </StyledP>
-        <Row className="row">
+        <Row className="row g-4">
           {products.map((product) => (
-            <div className="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+            <div className="col-sm-6 col-md-4 ">
               <Product product={product} />
             </div>
           ))}
@@ -60,4 +60,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ProductsSection;

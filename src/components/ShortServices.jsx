@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router';
+import { shortServices } from '../data/listData';
+import ListItem from './ListItem';
 
 const StyledShortServices = styled.div`
   padding-top: 3rem;
@@ -157,26 +159,9 @@ function ShortServices() {
             </StyledP>
 
             <StyledUl>
-              <StyledLi>
-                <FontAwesomeIcon icon={faBriefcase} />
-                Consultanță personalizată
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faBriefcase} />
-                Servicii de calitate
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faBriefcase} />
-                Suport și asistență clienți
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faBriefcase} />
-                Livrare / Implementare rapidă
-              </StyledLi>
-              <StyledLi>
-                <FontAwesomeIcon icon={faBriefcase} />
-                Proiecte personalizate
-              </StyledLi>
+              {shortServices.map((item) => (
+                <ListItem icon={item.icon} title={item.title} />
+              ))}
             </StyledUl>
             <div className="d-flex justify-content-center align-items-center gap-2">
               <Button1 to="/services">Află mai multe</Button1>

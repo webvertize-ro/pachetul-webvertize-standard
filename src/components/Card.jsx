@@ -10,13 +10,15 @@ const StyledCard = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 0.75rem;
-  padding: 3rem;
+  padding: 10rem 1rem 1rem;
   width: 100%;
   height: 100%;
+  display: flex;
+  border: 1px solid rgba(107, 117, 128, 0.75);
 
   &:after {
     content: '';
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.65);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -37,6 +39,15 @@ const TextContent = styled.div`
   position: relative;
   z-index: 11;
   color: #fff;
+  background-color: rgba(107, 117, 128, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(107, 117, 128, 0.3);
+  margin-top: auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  height: 100%;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`

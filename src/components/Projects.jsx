@@ -57,7 +57,7 @@ function Projects() {
         </StyledP>
         <div className="row">
           {projects.map((project) => (
-            <div className="col-sm-6 col-md-3 mb-4 d-flex">
+            <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4 d-flex">
               <ProjectsCard
                 img={project.topImg}
                 projectTitle={project.projectTitle}
