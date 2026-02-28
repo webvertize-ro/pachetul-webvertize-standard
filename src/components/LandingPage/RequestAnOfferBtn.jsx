@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   gap: 0.5rem;
   background-color: #1b3c53;
   padding: 0.75rem;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   border: none;
   width: 100%;
   justify-content: center;

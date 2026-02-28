@@ -12,6 +12,13 @@ const StyledStreetView = styled.div`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const StyledH2 = styled.h2`
   font-size: 2.2rem;
   font-weight: 600;
@@ -45,13 +52,18 @@ const StyledP = styled.p`
 const StyledImg = styled.img`
   border-radius: 1rem;
   cursor: pointer;
+  max-width: 1000px;
+
+  @media (max-width: 576px) {
+    max-width: 300px;
+  }
 `;
 
 function StreetView() {
   const [open, setOpen] = useState();
   return (
     <StyledStreetView>
-      <div className="container">
+      <Container className="container">
         <StyledH2>Cum arată locația noastră</StyledH2>
         <StyledP>
           Vezi imaginea exterioară a sediului, ca să ne găsești rapid și ușor.
@@ -67,7 +79,7 @@ function StreetView() {
           close={() => setOpen(false)}
           slides={[{ src: streetViewImg }]}
         />
-      </div>
+      </Container>
     </StyledStreetView>
   );
 }

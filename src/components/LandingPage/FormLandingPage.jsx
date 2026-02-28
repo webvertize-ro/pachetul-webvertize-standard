@@ -12,6 +12,9 @@ const StyledFormLandingPage = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 12;
+  height: 100%;
 `;
 
 const StyledH4 = styled.h4`
@@ -20,23 +23,77 @@ const StyledH4 = styled.h4`
   align-items: flex-start;
   gap: 0.5rem;
   color: #fff;
+  font-weight: 600;
 `;
 
 const StyledP = styled.p`
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   color: #fff;
   font-size: 1.2rem;
-  text-align: center;
+  font-weight: 600;
 `;
 
 const StyledForm = styled.form`
-  background-color: #2e5368;
-  padding: 1.5rem;
+  /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem;
   color: #fff;
-  border: 2px solid #fff;
+  text-align: left;
+
+  @media (max-width: 576px) {
+    padding: 1rem;
+  }
+`;
+
+const StyledLabel = styled.label`
+  font-weight: 600;
+`;
+
+const StyledInput = styled.input`
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #000;
+  font-weight: 500;
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const StyledTextarea = styled.textarea`
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #000;
+  font-weight: 500;
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
 `;
 
 const ErrorMsg = styled.div`
@@ -46,7 +103,7 @@ const ErrorMsg = styled.div`
 
 const StyledButton = styled.button`
   border: none;
-  background-color: #7fa5b8;
+  background-color: rgba(3, 52, 110, 0.75);
   color: #fff;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -142,17 +199,14 @@ function FormLandingPage() {
 
   return (
     <StyledFormLandingPage>
-      <StyledH4>
-        <FontAwesomeIcon icon={faThumbsUp} />
-        Fă primul pas pentru rezolvarea problemei!
-      </StyledH4>
+      <StyledH4>Fă primul pas pentru rezolvarea problemei!</StyledH4>
       <StyledP>Lasă-ne câteva detalii și te sunăm noi.</StyledP>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">
+          <StyledLabel htmlFor="name" className="form-label">
             Nume
-          </label>
-          <input
+          </StyledLabel>
+          <StyledInput
             type="text"
             name="name"
             className="form-control"
@@ -162,10 +216,10 @@ function FormLandingPage() {
           {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
         </div>
         <div className="mb-3">
-          <label htmlFor="phone" className="form-label">
+          <StyledLabel htmlFor="phone" className="form-label">
             Număr de telefon
-          </label>
-          <input
+          </StyledLabel>
+          <StyledInput
             type="text"
             name="phone"
             className="form-control"
@@ -177,16 +231,16 @@ function FormLandingPage() {
           {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
         </div>
         <div className="mb-3">
-          <label htmlFor="message" className="form-label">
+          <StyledLabel htmlFor="message" className="form-label">
             Mesaj (opțional)
-          </label>
-          <textarea
+          </StyledLabel>
+          <StyledTextarea
             name="message"
             id="message"
             className="form-control"
             placeholder="Vreu servicul/produsul X"
             {...register('message')}
-          ></textarea>
+          ></StyledTextarea>
         </div>
         <div className="mb-2">
           <div

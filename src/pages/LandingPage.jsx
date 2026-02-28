@@ -1,5 +1,5 @@
 import CTAOffer from '../components/LandingPage/CTAOffer';
-import Hero from '../components/LandingPage/Hero';
+import MainContent from '../components/LandingPage/MainContent';
 import ProblemSolution from '../components/LandingPage/ProblemSolution';
 import LeadCapture from '../components/LandingPage/LeadCapture';
 import landingImg from '../assets/images/landing_img.jpg';
@@ -8,19 +8,26 @@ import CTACall from '../components/LandingPage/CTACall';
 import StickyButtons from '../components/LandingPage/StickyButtons';
 import GoogleMapsSection from '../components/LandingPage/GoogleMapsSection';
 import StreetView from '../components/LandingPage/StreetView';
+import DiscountHeader from '../components/LandingPage/DiscountHeader';
 
 function LandingPage() {
+  const features = [
+    'Firmă locală',
+    'Programări rapide',
+    'Fără costuri ascunse',
+  ];
   return (
     <div>
-      <Hero
+      <DiscountHeader />
+      <MainContent
         img={landingImg}
         title="Servicii de [...] în [...] – intervenție rapidă și preț corect"
-        subtitle="Firmă locală • Programări rapide • Fără costuri ascunse"
+        features={features}
       />
-      <CTAOffer />
-      <LeadCapture />
-      <CTACall />
-      <ProblemSolution />
+      {/* <CTAOffer /> */}
+      {/* <LeadCapture /> */}
+      {/* <CTACall /> */}
+      {/* <ProblemSolution /> */}
       <StickyButtons />
       <GoogleMapsSection />
       <StreetView />

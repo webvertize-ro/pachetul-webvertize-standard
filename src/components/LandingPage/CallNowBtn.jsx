@@ -10,7 +10,7 @@ const StyledLink = styled.a`
   gap: 0.5rem;
   background-color: #1f7d53;
   padding: 0.75rem;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   justify-content: center;
   flex: 1;
 `;
