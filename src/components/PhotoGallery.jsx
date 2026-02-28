@@ -25,7 +25,6 @@ const StyledImg = styled.img`
 
 const ImageContainer = styled.div`
   /* position: relative; */
-
   transition: all 0.3s ease;
 
   @media (min-width: 992px) {

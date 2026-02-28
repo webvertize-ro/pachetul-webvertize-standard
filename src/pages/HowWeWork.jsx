@@ -3,6 +3,8 @@ import howWeWorkImg from '../assets/images/how_we_work_img.jpg';
 import TimelineHowWeWork from '../components/TimelineHowWeWork';
 import WhyOurProcessWorks from '../components/WhyOurProcessWorks';
 import CTA from '../components/CTA';
+import PhotoGallery from '../components/PhotoGallery';
+import { images } from '../data/gallery3.js';
 
 function HowWeWork() {
   /**
@@ -23,6 +25,11 @@ function HowWeWork() {
       />
       <TimelineHowWeWork />
       <WhyOurProcessWorks />
+      <PhotoGallery
+        title="Cum arată o zi la noi"
+        text="Momente din activitatea noastră zilnică"
+        images={images}
+      />
       <CTA
         title="Pregătit să începem?"
         text="Contactează-ne pentru a discuta despre proiectul tău și pentru a primi o ofertă personalizată."
