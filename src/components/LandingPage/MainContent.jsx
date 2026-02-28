@@ -146,7 +146,7 @@ function MainContent({ img, title, features }) {
     <StyledMainContent img={img}>
       <div className="container">
         <Row className="row">
-          <div className="col-md-6">
+          <div className="col-lg-6">
             <TextContent>
               <StyledH2>{title}</StyledH2>
               <Rating />
@@ -167,7 +167,7 @@ function MainContent({ img, title, features }) {
               </ActionButtons>
             </TextContent>
           </div>
-          <div className="col-md-6">
+          <div className="col-lg-6">
             <FormLandingPage />
           </div>
         </Row>

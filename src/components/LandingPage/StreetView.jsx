@@ -57,6 +57,10 @@ const StyledImg = styled.img`
   @media (max-width: 576px) {
     max-width: 300px;
   }
+
+  @media (min-width: 576px) and (max-width: 1200px) {
+    max-width: 450px;
+  }
 `;
 
 function StreetView() {
