@@ -14,6 +14,10 @@ const StyledStickyButtons = styled.div`
   bottom: 30%;
   right: 0;
   z-index: 1000;
+
+  @media (max-width: 576px) {
+    bottom: 5%;
+  }
 `;
 
 const WhatsApp = styled.a`
