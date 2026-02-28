@@ -8,17 +8,14 @@ import Dropdown from './Dropdown';
 
 const NavigationHeader = styled.header`
   transition: all 0.3s ease-in-out;
-  position: ${({ $isScrolled }) => ($isScrolled ? 'fixed' : 'unset')};
-  top: ${({ $isScrolled }) => ($isScrolled ? '0.25rem' : '0')};
+  top: 0;
   width: 100%;
   z-index: 100;
   padding: ${({ $isScrolled }) => ($isScrolled ? '0.75rem 3rem' : '0')};
-
   ${({ $isScrolled }) =>
     $isScrolled
       ? `filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));`
       : `filter: none`}
-
   @media (max-width: 576px) {
     padding: ${({ $isScrolled }) => ($isScrolled ? '0.5rem 1.25rem' : '0')};
   }
@@ -30,7 +27,7 @@ const StyledNav = styled.nav`
   z-index: 101;
   font-size: 0.9rem;
   background-color: ${({ $isScrolled }) =>
-    $isScrolled ? 'rgba(31, 55, 69, 0.85)' : '#142b3e'};
+    $isScrolled ? 'rgba(31, 55, 69, 0.9)' : 'transparent'};
   box-shadow: ${({ $isScrolled }) =>
     $isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'unset'};
   backdrop-filter: ${({ $isScrolled }) =>
@@ -39,7 +36,8 @@ const StyledNav = styled.nav`
     $isScrolled ? 'blur(20px)' : 'unset'};
   border: ${({ $isScrolled }) =>
     $isScrolled ? '1px solid rgba(255, 255, 255, 0.3)' : 'unset'};
-  border-radius: ${({ $isScrolled }) => ($isScrolled ? '1rem' : '0')};
+  transition: all 0.5s ease-in-out;
+  border-radius: 1rem;
 
   @media (max-width: 992px) {
     height: unset;
@@ -93,8 +91,6 @@ const StyledNavLink = styled(NavLink)`
     justify-content: center;
   }
 `;
-
-const StyledButtonDropdown = styled.button``;
 
 const StyledSocialLinks = styled.div`
   display: none;

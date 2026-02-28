@@ -88,8 +88,10 @@ const SliderButton = styled.button`
   transition: opacity 200ms ease-in-out;
   z-index: 100;
 
-  &:hover {
-    opacity: 1;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 1;
+    }
   }
 
   @media (max-width: 1200px) {
@@ -136,13 +138,15 @@ const Dot = styled.button`
   transition: scale 150ms ease-in-out;
   display: flex;
 
-  &:hover,
-  &:focus-visible {
-    scale: 1.15;
-  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      scale: 1.15;
+    }
 
-  &:focus-visible {
-    outline: auto;
+    &:focus-visible {
+      outline: auto;
+    }
   }
 `;
 
