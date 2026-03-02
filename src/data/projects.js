@@ -14,6 +14,29 @@ import project4Img1 from '../assets/images/projects/project4/project4_img1.jpg';
 import project4Img2 from '../assets/images/projects/project4/project4_img2.jpg';
 import project4Img3 from '../assets/images/projects/project4/project4_img3.jpg';
 import project4Img4 from '../assets/images/projects/project4/project4_img4.jpg';
+// project 5
+import project5Img1 from '../assets/images/projects/project5/project5_img1.jpg';
+import project5Img2 from '../assets/images/projects/project5/project5_img2.jpg';
+import project5Img3 from '../assets/images/projects/project5/project5_img3.jpg';
+import project5Img4 from '../assets/images/projects/project5/project5_img4.jpg';
+
+// project 6
+import project6Img1 from '../assets/images/projects/project6/project6_img1.jpg';
+import project6Img2 from '../assets/images/projects/project6/project6_img2.jpg';
+import project6Img3 from '../assets/images/projects/project6/project6_img3.jpg';
+import project6Img4 from '../assets/images/projects/project6/project6_img4.jpg';
+
+// project 7
+import project7Img1 from '../assets/images/projects/project7/project7_img1.jpg';
+import project7Img2 from '../assets/images/projects/project7/project7_img2.jpg';
+import project7Img3 from '../assets/images/projects/project7/project7_img3.jpg';
+import project7Img4 from '../assets/images/projects/project7/project7_img4.jpg';
+
+// project 8
+import project8Img1 from '../assets/images/projects/project8/project8_img1.jpg';
+import project8Img2 from '../assets/images/projects/project8/project8_img2.jpg';
+import project8Img3 from '../assets/images/projects/project8/project8_img3.jpg';
+import project8Img4 from '../assets/images/projects/project8/project8_img4.jpg';
 
 import { topImg } from './projectsTop';
 
@@ -118,6 +141,110 @@ export const projects = [
       {
         src: project4Img4,
         title: 'Rezultate vizibile și un stil de viață activ',
+      },
+    ],
+  },
+  {
+    topImg: topImg[4],
+    projectTitle: 'Nutriție și alimentație echilibrată',
+    projectShortDesc:
+      'Un ghid complet pentru adoptarea unui regim alimentar sănătos.',
+    projectLongDesc:
+      'Proiectul a vizat educarea și implementarea unor obiceiuri alimentare sănătoase, adaptate nevoilor individuale. A inclus analiza dietei actuale, elaborarea unui plan nutrițional personalizat și monitorizarea progresului. Obiectivul central a fost îmbunătățirea stării generale de sănătate prin alegeri alimentare conștiente și sustenabile.',
+    imageGallery: [
+      {
+        src: project5Img1,
+        title: 'Analiza obiceiurilor alimentare actuale',
+      },
+      {
+        src: project5Img2,
+        title: 'Planificarea meselor și a macronutrienților',
+      },
+      {
+        src: project5Img3,
+        title: 'Prepararea hranei sănătoase și echilibrate',
+      },
+      {
+        src: project5Img4,
+        title: 'Rezultate vizibile printr-o dietă consecventă',
+      },
+    ],
+  },
+  {
+    topImg: topImg[5],
+    projectTitle: 'Meditație și dezvoltare mentală',
+    projectShortDesc:
+      'Un program de mindfulness pentru echilibru interior și claritate mentală.',
+    projectLongDesc:
+      'Proiectul a explorat tehnici de meditație și mindfulness menite să reducă stresul și să îmbunătățească concentrarea. A cuprins sesiuni zilnice ghidate, exerciții de respirație și jurnalizare reflectivă. Scopul a fost cultivarea unei stări de calm, prezență și reziliență emoțională pe termen lung.',
+    imageGallery: [
+      {
+        src: project6Img1,
+        title: 'Introducere în tehnicile de meditație',
+      },
+      {
+        src: project6Img2,
+        title: 'Sesiuni zilnice de mindfulness și respirație',
+      },
+      {
+        src: project6Img3,
+        title: 'Jurnalizare și reflecție personală',
+      },
+      {
+        src: project6Img4,
+        title: 'Echilibru mental și claritate dobândită',
+      },
+    ],
+  },
+  {
+    topImg: topImg[6],
+    projectTitle: 'Învățarea unei limbi străine',
+    projectShortDesc:
+      'Un parcurs structurat pentru dobândirea fluenței într-o limbă nouă.',
+    projectLongDesc:
+      'Proiectul a urmărit dezvoltarea competențelor lingvistice printr-o abordare metodică și consecventă. A inclus studiul gramaticii, îmbogățirea vocabularului, practica conversațională și imersiunea culturală. Obiectivul principal a fost atingerea unui nivel de comunicare fluent, prin expunere constantă și exercițiu zilnic.',
+    imageGallery: [
+      {
+        src: project7Img1,
+        title: 'Stabilirea nivelului inițial și a obiectivelor',
+      },
+      {
+        src: project7Img2,
+        title: 'Studiul gramaticii și extinderea vocabularului',
+      },
+      {
+        src: project7Img3,
+        title: 'Practică conversațională și imersiune culturală',
+      },
+      {
+        src: project7Img4,
+        title: 'Fluență dobândită și comunicare autentică',
+      },
+    ],
+  },
+  {
+    topImg: topImg[7],
+    projectTitle: 'Management financiar personal',
+    projectShortDesc:
+      'O strategie clară pentru gestionarea eficientă a bugetului personal.',
+    projectLongDesc:
+      'Proiectul a abordat principiile de bază ale finanțelor personale, de la bugetare și economisire până la investiții și planificare pe termen lung. A inclus analiza cheltuielilor curente, stabilirea unor obiective financiare realiste și implementarea unor instrumente de tracking. Scopul a fost obținerea stabilității financiare și construirea unui viitor sigur.',
+    imageGallery: [
+      {
+        src: project8Img1,
+        title: 'Analiza veniturilor și cheltuielilor curente',
+      },
+      {
+        src: project8Img2,
+        title: 'Crearea unui buget personal structurat',
+      },
+      {
+        src: project8Img3,
+        title: 'Strategii de economisire și investiții inteligente',
+      },
+      {
+        src: project8Img4,
+        title: 'Stabilitate financiară și obiective atinse',
       },
     ],
   },
