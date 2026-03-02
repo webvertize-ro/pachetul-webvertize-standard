@@ -153,7 +153,7 @@ function FormLandingPage() {
       if (!window.turnstile || !turnstileRef.current) return;
 
       window.turnstile.render(turnstileRef.current, {
-        sitekey: '0x4AAAAAACREehtKVoDrzPyF',
+        sitekey: '0x4AAAAAACfdFhOhxvEVfluw',
         callback: onTurnstileSuccess,
       });
 
