@@ -1,27 +1,25 @@
-import project1Top from '../assets/images/projects/project1/project1_top.jpg';
 import project1Img1 from '../assets/images/projects/project1/project1_img1.jpg';
 import project1Img2 from '../assets/images/projects/project1/project1_img2.jpg';
 import project1Img3 from '../assets/images/projects/project1/project1_img3.jpg';
 import project1Img4 from '../assets/images/projects/project1/project1_img4.jpg';
-import project2Top from '../assets/images/projects/project2/project2_top.jpg';
 import project2Img1 from '../assets/images/projects/project2/project2_img1.jpg';
 import project2Img2 from '../assets/images/projects/project2/project2_img2.jpg';
 import project2Img3 from '../assets/images/projects/project2/project2_img3.jpg';
 import project2Img4 from '../assets/images/projects/project2/project2_img4.jpg';
-import project3Top from '../assets/images/projects/project3/project3_top.jpg';
 import project3Img1 from '../assets/images/projects/project3/project3_img1.jpg';
 import project3Img2 from '../assets/images/projects/project3/project3_img2.jpg';
 import project3Img3 from '../assets/images/projects/project3/project3_img3.jpg';
 import project3Img4 from '../assets/images/projects/project3/project3_img4.jpg';
-import project4Top from '../assets/images/projects/project4/project4_top.jpg';
 import project4Img1 from '../assets/images/projects/project4/project4_img1.jpg';
 import project4Img2 from '../assets/images/projects/project4/project4_img2.jpg';
 import project4Img3 from '../assets/images/projects/project4/project4_img3.jpg';
 import project4Img4 from '../assets/images/projects/project4/project4_img4.jpg';
 
+import { topImg } from './projectsTop';
+
 export const projects = [
   {
-    topImg: project1Top,
+    topImg: topImg[0],
     projectTitle: 'Construcția unei case familiale',
     projectShortDesc:
       'Proiect complet de la planificare la execuție, adaptat nevoilor unei familii moderne.',
@@ -47,7 +45,7 @@ export const projects = [
     ],
   },
   {
-    topImg: project2Top,
+    topImg: topImg[1],
     projectTitle: 'Scrierea și publicarea unei cărți',
     projectShortDesc:
       'Un proces creativ structurat, de la idee la produs final.',
@@ -73,7 +71,7 @@ export const projects = [
     ],
   },
   {
-    topImg: project3Top,
+    topImg: topImg[2],
     projectTitle: 'Plantarea și îngrijirea unui copac',
     projectShortDesc: 'Un proiect simplu, cu impact pe termen lung.',
     projectLongDesc:
@@ -98,7 +96,7 @@ export const projects = [
     ],
   },
   {
-    topImg: project4Top,
+    topImg: topImg[3],
     projectTitle: 'Program de fitness și exerciții fizice',
     projectShortDesc:
       'Un plan structurat pentru îmbunătățirea condiției fizice.',
