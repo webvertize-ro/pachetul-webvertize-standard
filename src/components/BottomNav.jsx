@@ -135,6 +135,7 @@ const ProgramLine = styled.li`
   display: flex;
   gap: 0.25rem;
   font-size: 1.1rem;
+  font-weight: ${(props) => (props.currenDay ? '800' : '400')};
 `;
 
 const DayName = styled.div``;
@@ -146,6 +147,20 @@ const DayHours = styled.div`
 function BottomNav() {
   const [programOpen, setProgramOpen] = useState(false);
   const ref = useRef(null);
+  const days = [
+    'Duminică',
+    'Luni',
+    'Marți',
+    'Miercuri',
+    'Joi',
+    'Vineri',
+    'Sâmbătă',
+  ];
+  const currentDate = new Date();
+  // currentDate.setTime(currentDate.getTime() + 24 * 60 * 60 * 1000);
+  const currentDay = days[currentDate.getDay()];
+
+  console.log();
 
   function useClickOutside(ref, callback) {
     useEffect(() => {
@@ -184,7 +199,7 @@ function BottomNav() {
           <StyledH5>Program de lucru</StyledH5>
           <StyledUl>
             {progrm.map((p) => (
-              <ProgramLine>
+              <ProgramLine key={p.day} currenDay={currentDay === p.day}>
                 <DayName>{p.day}</DayName>
                 <DayHours>{p.schedule}</DayHours>
               </ProgramLine>

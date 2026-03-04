@@ -9,7 +9,7 @@ const StyledSideButtons = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   position: fixed;
-  right: 1rem;
+  right: 1.5rem;
   bottom: 35%;
   z-index: 99;
 `;
