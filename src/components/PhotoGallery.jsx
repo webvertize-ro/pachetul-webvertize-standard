@@ -99,6 +99,7 @@ function PhotoGallery({ title, text, images }) {
   const slides = images.map((i) => {
     return {
       src: i.img,
+      srcSet: i.srcSet,
       title: i.title,
       alt: i.alt,
     };
@@ -114,6 +115,8 @@ function PhotoGallery({ title, text, images }) {
             {slides.map((img, i) => (
               <ImageContainer className="col-4 col-md-4 mb-4" key={i}>
                 <StyledImg
+                  srcSet={img.srcSet}
+                  sizes="(max-width: 576px) 33vw, (max-width: 992px) 33vw, calc(33vw - 4rem)"
                   src={img.src}
                   alt={img.alt}
                   className="img-fluid"
