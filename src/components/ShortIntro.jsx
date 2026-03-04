@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import shortIntroImg from '../assets/images/short_intro_img.jpg';
+import shortIntroImg from '../assets/images/short_intro_img.avif';
 
 const StyledShortIntro = styled.div`
   background-color: #ac9584;

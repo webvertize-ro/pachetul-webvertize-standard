@@ -1,8 +1,8 @@
-import img1 from '../assets/images/img-slider/img1.jpg';
-import img2 from '../assets/images/img-slider/img2.jpg';
-import img3 from '../assets/images/img-slider/img3.jpg';
-import img4 from '../assets/images/img-slider/img4.jpg';
-import img5 from '../assets/images/img-slider/img5.jpg';
+import img1 from '../assets/images/img-slider/img1.avif';
+import img2 from '../assets/images/img-slider/img2.avif';
+import img3 from '../assets/images/img-slider/img3.avif';
+import img4 from '../assets/images/img-slider/img4.avif';
+import img5 from '../assets/images/img-slider/img5.avif';
 
 export const images = [
   {

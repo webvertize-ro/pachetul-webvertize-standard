@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ourMissionImg from '../assets/images/our_mission_image.jpg';
+import ourMissionImg from '../assets/images/our_mission_image.avif';
 import Modal from './Modal';
 import Form from './Form';
 import { NavLink } from 'react-router';

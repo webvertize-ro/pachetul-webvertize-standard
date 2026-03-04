@@ -4,7 +4,7 @@ import { contact } from '../data/contactInfo';
 import ContactDataItem from './ContactDataItem';
 import Modal from './Modal';
 import Form from './Form';
-import contactSectionImg from '../assets/images/contact_section_img.jpg';
+import contactSectionImg from '../assets/images/contact_section_img.avif';
 
 const StyledContactSection = styled.div`
   padding: 3rem 0;

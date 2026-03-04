@@ -1,7 +1,7 @@
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import whyItWorksImg from '../assets/images/why_it_works_img.jpg';
+import whyItWorksImg from '../assets/images/why_it_works_img.avif';
 import Modal from './Modal';
 import Form from './Form';
 import { whyOurProcessWorks } from '../data/listData';

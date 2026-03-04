@@ -1,5 +1,5 @@
 import Modal from './Modal';
-import shortServicesPic from '../assets/images/short_services_pic.jpg';
+import shortServicesPic from '../assets/images/short_services_pic.avif';
 import Form from './Form';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

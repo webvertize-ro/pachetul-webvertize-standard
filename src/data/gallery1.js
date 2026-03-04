@@ -1,9 +1,9 @@
-import img1 from '../assets/images/gallery/gallery1/activity_img1.jpg';
-import img2 from '../assets/images/gallery/gallery1/activity_img2.jpg';
-import img3 from '../assets/images/gallery/gallery1/activity_img3.jpg';
-import img4 from '../assets/images/gallery/gallery1/activity_img4.jpg';
-import img5 from '../assets/images/gallery/gallery1/activity_img5.jpg';
-import img6 from '../assets/images/gallery/gallery1/activity_img6.jpg';
+import img1 from '../assets/images/gallery/gallery1/activity_img1.avif';
+import img2 from '../assets/images/gallery/gallery1/activity_img2.avif';
+import img3 from '../assets/images/gallery/gallery1/activity_img3.avif';
+import img4 from '../assets/images/gallery/gallery1/activity_img4.avif';
+import img5 from '../assets/images/gallery/gallery1/activity_img5.avif';
+import img6 from '../assets/images/gallery/gallery1/activity_img6.avif';
 
 export const images = [
   {

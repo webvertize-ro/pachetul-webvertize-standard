@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Hero from '../components/Hero';
-import heroBg from '../assets/images/services-hero.jpg';
+import heroBg from '../assets/images/services-hero.avif';
 import ServicesDetails from '../components/ServicesDetails';
 import CTA from '../components/CTA';
 import { useEffect } from 'react';

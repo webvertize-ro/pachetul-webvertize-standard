@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import whyWorkWithUsPic from '../assets/images/why_work_with_us_pic.jpg';
+import whyWorkWithUsPic from '../assets/images/why_work_with_us_pic.avif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Form from './Form';

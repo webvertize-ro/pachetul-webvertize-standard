@@ -1,7 +1,7 @@
-import teamMember1 from '../assets/images/team_members/team_member_1.jpg';
-import teamMember2 from '../assets/images/team_members/team_member_2.jpg';
-import teamMember3 from '../assets/images/team_members/team_member_3.jpg';
-import teamMember4 from '../assets/images/team_members/team_member_4.jpg';
+import teamMember1 from '../assets/images/team_members/team_member_1.avif';
+import teamMember2 from '../assets/images/team_members/team_member_2.avif';
+import teamMember3 from '../assets/images/team_members/team_member_3.avif';
+import teamMember4 from '../assets/images/team_members/team_member_4.avif';
 
 export const ourTeam = [
   {

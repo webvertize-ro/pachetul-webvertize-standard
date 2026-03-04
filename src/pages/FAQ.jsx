@@ -1,6 +1,6 @@
 import Accordion from '../components/Accordion';
 import Hero from '../components/Hero';
-import faqImage from '../assets/images/faq_image.jpg';
+import faqImage from '../assets/images/faq_image.avif';
 import CTA from '../components/CTA';
 import { faqData } from '../data/faq';
 import styled from 'styled-components';

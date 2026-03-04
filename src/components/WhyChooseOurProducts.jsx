@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import whyChooseOurProductsImg from '../assets/images/why_choose_our_products_img.jpg';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { whyChooseOurProducts } from '../data/listData';

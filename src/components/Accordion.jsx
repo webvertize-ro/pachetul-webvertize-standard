@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import AccordionItem from './AccordionItem';
 import { useState } from 'react';
-import accordionDefaultImg from '../assets/images/accordion_default_img.jpg';
+import accordionDefaultImg from '../assets/images/accordion_default_img.avif';
 
 const StyledAccordion = styled.div`
   padding: 3rem 0;

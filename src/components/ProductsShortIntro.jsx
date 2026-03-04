@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import productsIntro from '../assets/images/products_intro.jpg';
+import productsIntro from '../assets/images/products_intro.avif';
 
 const StyledProductsShortIntro = styled.div`
   padding: 3rem 0;

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import businessStreetViewImg from '../assets/images/business_street_view.jpg';
+import businessStreetViewImg from '../assets/images/business_street_view.avif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';

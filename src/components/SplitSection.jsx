@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import headerBusinessPic from '../assets/images/split_section_pic1.jpg';
+import headerBusinessPic from '../assets/images/split_section_pic1.avif';
 import { Link } from 'react-router';
 import Form from './Form';
 import Modal from './Modal';

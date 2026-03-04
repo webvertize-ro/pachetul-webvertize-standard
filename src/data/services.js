@@ -6,12 +6,12 @@ import {
   faHeadset,
   faSliders,
 } from '@fortawesome/free-solid-svg-icons';
-import consultingImg from '../assets/images/consulting-service.jpg';
-import professionalImg from '../assets/images/professional-service.jpg';
-import quickImg from '../assets/images/quick-img.jpg';
-import supportImg from '../assets/images/support-img.jpg';
-import qualityImg from '../assets/images/quality-img.jpg';
-import solutionsImg from '../assets/images/solutions-img.jpg';
+import consultingImg from '../assets/images/consulting-service.avif';
+import professionalImg from '../assets/images/professional-service.avif';
+import quickImg from '../assets/images/quick-img.avif';
+import supportImg from '../assets/images/support-img.avif';
+import qualityImg from '../assets/images/quality-img.avif';
+import solutionsImg from '../assets/images/solutions-img.avif';
 
 export const services = [
   {

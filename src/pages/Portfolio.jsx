@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Hero from '../components/Hero';
-import portfolioBackground from '../assets/images/portfolio_background.jpg';
+import portfolioBackground from '../assets/images/portfolio_background.avif';
 import Projects from '../components/Projects';
 import ReasonsToChooseUs from '../components/ReasonsToChooseUs';
 import CTA from '../components/CTA';

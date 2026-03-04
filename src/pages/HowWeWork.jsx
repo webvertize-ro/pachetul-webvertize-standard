@@ -1,5 +1,5 @@
 import Hero from '../components/Hero';
-import howWeWorkImg from '../assets/images/how_we_work_img.jpg';
+import howWeWorkImg from '../assets/images/how_we_work_img.avif';
 import TimelineHowWeWork from '../components/TimelineHowWeWork';
 import WhyOurProcessWorks from '../components/WhyOurProcessWorks';
 import CTA from '../components/CTA';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Accordion from '../components/Accordion';
 import Hero from '../components/Hero';
-import cookiesImg from '../assets/images/cookies-img.jpg';
+import cookiesImg from '../assets/images/cookies-img.avif';
 import CookiesInfoSection from '../components/CookiesInfoSection';
 import { useEffect } from 'react';
 import cookies from '../data/cookies.json';

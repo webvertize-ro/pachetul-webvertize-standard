@@ -1,5 +1,5 @@
 import Hero from '../components/Hero';
-import productsHeader from '../assets/images/products_header.jpg';
+import productsHeader from '../assets/images/products_header.avif';
 import ProductsSection from '../components/ProductsSection';
 import ProductsShortIntro from '../components/ProductsShortIntro';
 import WhyChooseOurProducts from '../components/WhyChooseOurProducts';

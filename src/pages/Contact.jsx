@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Hero from '../components/Hero';
-import contactImg from '../assets/images/contact-img.jpg';
+import contactImg from '../assets/images/contact-img.avif';
 import ContactSection from '../components/ContactSection';
 import CTA from '../components/CTA';
 import { useEffect } from 'react';

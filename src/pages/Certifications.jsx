@@ -1,5 +1,5 @@
 import Hero from '../components/Hero';
-import certificationImg from '../assets/images/certification_img.jpg';
+import certificationImg from '../assets/images/certification_img.avif';
 import ShortIntro from '../components/ShortIntro';
 import CertificationsList from '../components/CertificationsList';
 import OurCommitment from '../components/OurCommitment';

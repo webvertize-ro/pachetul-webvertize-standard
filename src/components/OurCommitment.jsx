@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import commitmentImg from '../assets/images/commitment_img.jpg';
+import commitmentImg from '../assets/images/commitment_img.avif';
 
 const StyledOurCommitment = styled.div`
   background-color: #2a4657;

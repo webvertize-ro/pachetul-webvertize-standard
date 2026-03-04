@@ -2,12 +2,12 @@ import CTAOffer from '../components/LandingPage/CTAOffer';
 import MainContent from '../components/LandingPage/MainContent';
 import ProblemSolution from '../components/LandingPage/ProblemSolution';
 import LeadCapture from '../components/LandingPage/LeadCapture';
-import landingImg from '../assets/images/landing_img.jpg';
+import landingImg from '../assets/images/landing_img.avif';
 import Footer from '../components/LandingPage/Footer';
 import CTACall from '../components/LandingPage/CTACall';
 import StickyButtons from '../components/LandingPage/StickyButtons';
 import GoogleMapsSection from '../components/LandingPage/GoogleMapsSection';
-import StreetView from '../components/LandingPage/StreetView';
+import StreetViewLP from '../components/LandingPage/StreetViewLP';
 import DiscountHeader from '../components/LandingPage/DiscountHeader';
 
 function LandingPage() {
@@ -30,7 +30,7 @@ function LandingPage() {
       {/* <ProblemSolution /> */}
       <StickyButtons />
       <GoogleMapsSection />
-      <StreetView />
+      <StreetViewLP />
       <Footer />
     </div>
   );
