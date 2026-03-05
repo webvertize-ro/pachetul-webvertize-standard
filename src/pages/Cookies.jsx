@@ -6,6 +6,7 @@ import CookiesInfoSection from '../components/CookiesInfoSection';
 import { useEffect } from 'react';
 import cookies from '../data/cookies.json';
 import Group from '../components/Group';
+import { Helmet } from 'react-helmet-async';
 
 const StyledCookies = styled.div`
   @media (min-width: 576px) and (max-width: 992px) {
@@ -14,21 +15,29 @@ const StyledCookies = styled.div`
 `;
 
 function Cookies() {
-  useEffect(() => {
-    document.title = 'Afacere Locală | Politica de cookies';
-  }, []);
-
   return (
-    <StyledCookies>
-      <Group bgImg={cookiesImg}>
-        <Hero
-          heroTitle="Politica noastră privind cookie-urile"
-          heroDesc="Cookie-urile sunt fișiere mici stocate pe dispozitivul tău atunci când vizitezi un site web. Ele ajută site-ul să funcționeze corect, să îți ofere o experiență personalizată și să colecteze informații statistice despre modul în care este folosit. Folosind site-ul nostru, accepți utilizarea cookie-urilor conform acestei politici."
+    <>
+      <Helmet>
+        <title>Afacere Locală | Pagina de Cookies</title>
+        <meta
+          name="description"
+          content="Află cum folosește [Numele Afacerii] cookie-urile pentru a-ți îmbunătăți experiența pe site. Transparență totală privind datele tale. Confidențialitatea ta contează."
         />
-        <Accordion data={cookies} title="Informații generale despre cookies" />
-      </Group>
-      <CookiesInfoSection />
-    </StyledCookies>
+      </Helmet>
+      <StyledCookies>
+        <Group bgImg={cookiesImg}>
+          <Hero
+            heroTitle="Politica noastră privind cookie-urile"
+            heroDesc="Cookie-urile sunt fișiere mici stocate pe dispozitivul tău atunci când vizitezi un site web. Ele ajută site-ul să funcționeze corect, să îți ofere o experiență personalizată și să colecteze informații statistice despre modul în care este folosit. Folosind site-ul nostru, accepți utilizarea cookie-urilor conform acestei politici."
+          />
+          <Accordion
+            data={cookies}
+            title="Informații generale despre cookies"
+          />
+        </Group>
+        <CookiesInfoSection />
+      </StyledCookies>
+    </>
   );
 }
 

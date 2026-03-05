@@ -6,6 +6,7 @@ import CTA from '../components/CTA';
 import { useEffect } from 'react';
 import Group from '../components/Group';
 import StreetView from '../components/StreetView';
+import { Helmet } from 'react-helmet-async';
 
 const StyledContact = styled.div`
   /* height: 650px; */
@@ -18,25 +19,30 @@ const StyledContact = styled.div`
  */
 
 function Contact() {
-  useEffect(() => {
-    document.title = 'Afacere Locală | Contact';
-  }, []);
-
   return (
-    <StyledContact>
-      <Group bgImg={contactImg}>
-        <Hero
-          heroTitle="Hai să discutăm despre proiectul tău"
-          heroDesc="Ne face plăcere să răspundem la întrebările tale și să găsim soluții adaptate nevoilor afacerii tale. Completează formularul sau folosește datele de contact de mai jos."
+    <>
+      <Helmet>
+        <title>Afacere Locală | Contact</title>
+        <meta
+          name="description"
+          content="Contactează echipa [Numele Afacerii] din [orașul tău]. Suntem disponibili pentru întrebări, programări sau oferte personalizate. Răspundem rapid!"
         />
-        <ContactSection />
-      </Group>
-      <StreetView />
-      <CTA
-        title="Vrei să lucrăm împreună?"
-        text="Completează formularul sau contactează-ne direct și hai să discutăm cum putem să-ți transformăm ideile în proiecte concrete."
-      />
-    </StyledContact>
+      </Helmet>
+      <StyledContact>
+        <Group bgImg={contactImg}>
+          <Hero
+            heroTitle="Hai să discutăm despre proiectul tău"
+            heroDesc="Ne face plăcere să răspundem la întrebările tale și să găsim soluții adaptate nevoilor afacerii tale. Completează formularul sau folosește datele de contact de mai jos."
+          />
+          <ContactSection />
+        </Group>
+        <StreetView />
+        <CTA
+          title="Vrei să lucrăm împreună?"
+          text="Completează formularul sau contactează-ne direct și hai să discutăm cum putem să-ți transformăm ideile în proiecte concrete."
+        />
+      </StyledContact>
+    </>
   );
 }
 

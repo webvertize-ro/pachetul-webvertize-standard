@@ -4,6 +4,7 @@ import ShortIntro from '../components/ShortIntro';
 import CertificationsList from '../components/CertificationsList';
 import OurCommitment from '../components/OurCommitment';
 import CTA from '../components/CTA';
+import { Helmet } from 'react-helmet-async';
 
 function Certifications() {
   /**
@@ -16,6 +17,13 @@ function Certifications() {
    */
   return (
     <div>
+      <Helmet>
+        <title>Afacere Locală | Certificări</title>
+        <meta
+          name="description"
+          content="[Numele Afacerii] activează cu autorizații și certificări recunoscute în domeniu. Lucrezi cu o echipă competentă, verificată și responsabilă. Calitatea nu e o promisiune, e o dovadă."
+        />
+      </Helmet>{' '}
       <Hero
         heroBg={certificationImg}
         heroTitle="Certificări"

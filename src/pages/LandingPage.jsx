@@ -9,6 +9,7 @@ import StickyButtons from '../components/LandingPage/StickyButtons';
 import GoogleMapsSection from '../components/LandingPage/GoogleMapsSection';
 import StreetViewLP from '../components/LandingPage/StreetViewLP';
 import DiscountHeader from '../components/LandingPage/DiscountHeader';
+import { Helmet } from 'react-helmet-async';
 
 function LandingPage() {
   const features = [
@@ -18,6 +19,13 @@ function LandingPage() {
   ];
   return (
     <div>
+      <Helmet>
+        <title>Afacere Locală | Ofertă specială</title>
+        <meta
+          name="description"
+          content="Cauți un specialist în [domeniu] în [orașul tău]? [Numele Afacerii] oferă soluții rapide, profesioniste și garantate. Contactează-ne azi și rezolvăm împreună!"
+        />
+      </Helme>
       <DiscountHeader />
       <MainContent
         img={landingImg}

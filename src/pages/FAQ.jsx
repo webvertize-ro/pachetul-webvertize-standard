@@ -5,10 +5,18 @@ import CTA from '../components/CTA';
 import { faqData } from '../data/faq';
 import styled from 'styled-components';
 import Group from '../components/Group';
+import { Helmet } from 'react-helmet-async';
 
 function FAQ() {
   return (
     <div>
+      <Helmet>
+        <title>Afacere Locală | Întrebări Frecvente</title>
+        <meta
+          name="description"
+          content="Ai întrebări despre serviciile sau produsele [Numele Afacerii]? Găsești aici răspunsuri clare la cele mai comune nelămuriri. Transparent, simplu, la obiect."
+        />
+      </Helmet>
       {/* The items in the Group share the same background image */}
       <Group bgImg={faqImage}>
         <Hero

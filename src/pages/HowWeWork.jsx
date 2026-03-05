@@ -5,6 +5,7 @@ import WhyOurProcessWorks from '../components/WhyOurProcessWorks';
 import CTA from '../components/CTA';
 import PhotoGallery from '../components/PhotoGallery';
 import { images } from '../data/gallery3.js';
+import { Helmet } from 'react-helmet-async';
 
 function HowWeWork() {
   /**
@@ -16,6 +17,13 @@ function HowWeWork() {
    */
   return (
     <div>
+      <Helmet>
+        <title>Afacere Locală | Cum lucrăm</title>
+        <meta
+          name="description"
+          content="Descoperă procesul simplu și transparent prin care [Numele Afacerii] livrează rezultate. De la prima discuție până la finalizare – știi la ce să te aștepți la fiecare pas."
+        />
+      </Helmet>
       <Hero
         heroBg={howWeWorkImg}
         heroTitle={'Cum lucrăm'}

@@ -31,18 +31,24 @@ const StyledP = styled.p`
 
 function NotFound() {
   return (
-    <StyledNotFound>
-      <div className="container-fluid d-flex flex-column align-items-center gap-2">
-        <Logo />
-        <TextContent>
-          <StyledH3>404 – Pagina nu a fost găsită</StyledH3>
-          <StyledP>
-            Pagina pe care o cauți nu există sau a fost mutată. Te rugăm să
-            verifici adresa sau să revii la pagina principală.
-          </StyledP>
-        </TextContent>
-      </div>
-    </StyledNotFound>
+    <>
+      <Helmet>
+        <title>Pagina nu a fost găsită</title>
+        <meta name="description" content="Pagina căutată nu a fost găsită!" />
+      </Helmet>
+      <StyledNotFound>
+        <div className="container-fluid d-flex flex-column align-items-center gap-2">
+          <Logo />
+          <TextContent>
+            <StyledH3>404 – Pagina nu a fost găsită</StyledH3>
+            <StyledP>
+              Pagina pe care o cauți nu există sau a fost mutată. Te rugăm să
+              verifici adresa sau să revii la pagina principală.
+            </StyledP>
+          </TextContent>
+        </div>
+      </StyledNotFound>
+    </>
   );
 }
 

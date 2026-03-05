@@ -54,19 +54,25 @@ function TooManyRequests() {
   if (!allowed) return null;
 
   return (
-    <StyledTooManyRequests>
-      <Logo />
-      <StyledP>
-        Din motive de securitate, limităm numărul de solicitări care pot fi
-        trimise într-un anumit interval de timp. Vă rugăm să reîncercați după 24
-        de ore.
-      </StyledP>
-      <StyledP>
-        Dacă este o urgență, ne puteți contacta direct la numărul de telefon
-        0712345678. Mulțumim pentru înțelegere!
-      </StyledP>
-      <StyledButton to="/">Înapoi la pagina principală</StyledButton>
-    </StyledTooManyRequests>
+    <>
+      <Helmet>
+        <title>Prea multe solicitări</title>
+        <meta name="description" content="Prea multe solicitări!" />
+      </Helmet>
+      <StyledTooManyRequests>
+        <Logo />
+        <StyledP>
+          Din motive de securitate, limităm numărul de solicitări care pot fi
+          trimise într-un anumit interval de timp. Vă rugăm să reîncercați după
+          24 de ore.
+        </StyledP>
+        <StyledP>
+          Dacă este o urgență, ne puteți contacta direct la numărul de telefon
+          0712345678. Mulțumim pentru înțelegere!
+        </StyledP>
+        <StyledButton to="/">Înapoi la pagina principală</StyledButton>
+      </StyledTooManyRequests>
+    </>
   );
 }
 

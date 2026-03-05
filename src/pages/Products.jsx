@@ -6,6 +6,7 @@ import WhyChooseOurProducts from '../components/WhyChooseOurProducts';
 import CTA from '../components/CTA';
 import PhotoGallery from '../components/PhotoGallery';
 import { images } from '../data/gallery4';
+import { Helmet } from 'react-helmet-async';
 
 function Products() {
   /**
@@ -18,6 +19,13 @@ function Products() {
 
   return (
     <div>
+      <Helmet>
+        <title>Afacere Locală | Produse</title>
+        <meta
+          name="description"
+          content="Descoperă gama de produse [Numele Afacerii] – calitate testată, disponibilitate locală și consiliere personalizată. Găsești exact ce ai nevoie, fără bătăi de cap."
+        />
+      </Helmet>
       <Hero
         heroBg={productsHeader}
         heroTitle="Produsele noastre"

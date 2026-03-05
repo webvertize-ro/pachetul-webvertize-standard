@@ -3,10 +3,18 @@ import aboutUsImage from '../assets/images/about_us_image.avif';
 import OurTeam from '../components/OurTeam';
 import OurMission from '../components/OurMission';
 import CTA from '../components/CTA';
+import { Helmet } from 'react-helmet-async';
 
 function AboutUs() {
   return (
     <div>
+      <Helmet>
+        <title>Afacere Locală | Despre Noi</title>
+        <meta
+          name="description"
+          content="Află povestea echipei [Numele Afacerii]. Cine suntem, ce ne motivează și de ce sute de clienți din [orașul tău] ne-au ales. Oameni serioși, rezultate reale."
+        />
+      </Helmet>
       <Hero
         heroBg={aboutUsImage}
         heroTitle={'Cine suntem'}

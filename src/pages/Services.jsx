@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { images } from '../data/gallery2';
 import PhotoGallery from '../components/PhotoGallery';
 import Group from '../components/Group';
+import { Helmet } from 'react-helmet-async';
 
 const StyledServices = styled.div`
   /* height: 650px; */
@@ -14,29 +15,34 @@ const StyledServices = styled.div`
 `;
 
 function Services() {
-  useEffect(() => {
-    document.title = 'Afacere Locală | Servicii';
-  }, []);
-
   return (
-    <StyledServices>
-      <Hero
-        heroTitle="Servicii de încredere, aproape de tine"
-        heroDesc="Punem la dispoziție o gamă variată de servicii, adaptate nevoilor tale, cu accent pe calitate, seriozitate și atenție la detalii."
-        heroBg={heroBg}
-      />
-      <ServicesDetails />
-      <PhotoGallery
-        title="Serviciile noastre, în imagini"
-        text="O selecție de imagini care ilustrează modul în care oferim serviciile noastre și atenția acordată fiecărui proiect."
-        images={images}
-      />
-      <CTA
-        title="Ai un proiect în minte?"
-        text="Spune-ne ce îți dorești, iar noi te vom ajuta să găsești soluția potrivită pentru afacerea ta."
-        bgColor="green"
-      />
-    </StyledServices>
+    <>
+      <Helmet>
+        <title>Afacere Locală | Servicii</title>
+        <meta
+          name="description"
+          content="Explorează toate serviciile oferite de [Numele Afacerii] în [orașul tău]. Soluții complete pentru nevoile tale, livrate profesionist și la prețuri corecte."
+        />
+      </Helmet>
+      <StyledServices>
+        <Hero
+          heroTitle="Servicii de încredere, aproape de tine"
+          heroDesc="Punem la dispoziție o gamă variată de servicii, adaptate nevoilor tale, cu accent pe calitate, seriozitate și atenție la detalii."
+          heroBg={heroBg}
+        />
+        <ServicesDetails />
+        <PhotoGallery
+          title="Serviciile noastre, în imagini"
+          text="O selecție de imagini care ilustrează modul în care oferim serviciile noastre și atenția acordată fiecărui proiect."
+          images={images}
+        />
+        <CTA
+          title="Ai un proiect în minte?"
+          text="Spune-ne ce îți dorești, iar noi te vom ajuta să găsești soluția potrivită pentru afacerea ta."
+          bgColor="green"
+        />
+      </StyledServices>
+    </>
   );
 }
 

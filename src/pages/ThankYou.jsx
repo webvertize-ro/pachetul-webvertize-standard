@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Logo from '../components/Logo';
 import { Link, useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const StyledThankYou = styled.div`
   height: 100vh;
@@ -54,15 +55,24 @@ function ThankYou() {
   if (!allowed) return null;
 
   return (
-    <StyledThankYou>
-      <Logo />
-      <StyledP>Vă mulțumim pentru completarea formularului!</StyledP>
-      <StyledP>
-        Urmează să vă contactăm în cel mai scurt timp în legătură cu solicitarea
-        dumneavoastră!
-      </StyledP>
-      <StyledButton to="/">Înapoi pe pagina principală</StyledButton>
-    </StyledThankYou>
+    <>
+      <Helmet>
+        <title>Formular trimis | Mulțumim!</title>
+        <meta
+          name="description"
+          content="Mulțumim pentru completarea formularului!"
+        />
+      </Helmet>
+      <StyledThankYou>
+        <Logo />
+        <StyledP>Vă mulțumim pentru completarea formularului!</StyledP>
+        <StyledP>
+          Urmează să vă contactăm în cel mai scurt timp în legătură cu
+          solicitarea dumneavoastră!
+        </StyledP>
+        <StyledButton to="/">Înapoi pe pagina principală</StyledButton>
+      </StyledThankYou>
+    </>
   );
 }
 
