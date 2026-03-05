@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import whyWorkWithUsPic from '../assets/images/why_work_with_us_pic.avif';
+import img400 from '../assets/images/why_work_with_us_pic-400.avif';
+import img800 from '../assets/images/why_work_with_us_pic-800.avif';
+import img1200 from '../assets/images/why_work_with_us_pic-1200.avif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Form from './Form';
@@ -39,7 +42,15 @@ const StyledImg = styled.img`
   border-radius: 1.5rem;
 
   @media (max-width: 576px) {
-    max-width: 275px;
+    width: 275px;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    width: 500px;
+  }
+
+  @media (min-width: 992px) {
+    width: 600px;
   }
 `;
 
@@ -113,7 +124,13 @@ function WhyWorkWithUs() {
         <div className="row d-flex align-items-center">
           <div className="col-lg-6">
             <div className="image-container d-flex justify-content-center">
-              <StyledImg src={whyWorkWithUsPic} alt="" className="img-fluid" />
+              <StyledImg
+                src={whyWorkWithUsPic}
+                alt=""
+                className="img-fluid"
+                srcset={`${img400} 400w, ${img800} 800w, ${img1200} 1200w`}
+                sizes="(max-width: 576px) 33vw, (max-width: 992px) 33vw, calc(33vw - 4rem)"
+              />
             </div>
           </div>
           <div className="col-lg-6">

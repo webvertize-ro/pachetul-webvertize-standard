@@ -1,5 +1,8 @@
 import Modal from './Modal';
-import shortServicesPic from '../assets/images/short_services_pic.avif';
+
+import img400 from '../assets/images/short_services_pic-400.avif';
+import img800 from '../assets/images/short_services_pic-800.avif';
+import img1200 from '../assets/images/short_services_pic-1200.avif';
 import Form from './Form';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,13 +40,21 @@ const VideoContainer = styled.div`
 `;
 
 const StyledImg = styled.img`
-  max-width: 425px;
+  max-width: 475px;
   border-radius: 1.5rem;
   border: 4px solid rgba(255, 255, 255, 0.5);
   position: relative;
 
   @media (max-width: 576px) {
-    max-width: 275px;
+    width: 275px;
+  }
+
+  @media (min-width: 576px) and (max-width: 992px) {
+    width: 500px;
+  }
+
+  @media (min-width: 992px) {
+    width: 600px;
   }
 `;
 
@@ -262,9 +273,14 @@ function ShortServices() {
       <div className="container">
         <Row className="row d-flex align-items-center">
           {/* Image with Play Button */}
-          <VideoContainer className="col-lg-6" bgimg={shortServicesPic}>
+          <VideoContainer className="col-lg-6">
             <ImageWrapper>
-              <StyledImg src={shortServicesPic} alt="" className="img-fluid" />
+              <StyledImg
+                srcset={`${img400} 400w, ${img800} 800w, ${img1200} 1200w`}
+                sizes="(max-width: 576px) 33vw, (max-width: 992px) 33vw, calc(33vw - 4rem)"
+                alt=""
+                className="img-fluid"
+              />
             </ImageWrapper>
             <Modal>
               <Modal.Open opens="video-modal">
