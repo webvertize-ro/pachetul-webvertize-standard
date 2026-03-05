@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import styled from 'styled-components';
 import Logo from '../components/Logo';
+import { Helmet } from 'react-helmet-async';
 
 const StyledTooManyRequests = styled.div`
   height: 100vh;
