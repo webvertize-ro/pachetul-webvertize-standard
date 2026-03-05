@@ -88,22 +88,41 @@ function Footer() {
           <div className="col-md-4 my-3">
             <h5 className="fw-bold">Rețele de socializare</h5>
             <div className="mb-4 d-flex gap-2">
-              <a href="#" className="text-decoration-none">
+              <a
+                href="#"
+                className="text-decoration-none"
+                aria-label="Pagina de facebook a afacerii"
+              >
                 <StyledFontAwesomeIcon icon={faFacebook} />
               </a>
-              <a href="#" className="text-decoration-none">
+              <a
+                href="#"
+                className="text-decoration-none"
+                aria-label="Pagina de twitter a afacerii"
+              >
                 <StyledFontAwesomeIcon icon={faTwitter} />
               </a>
-              <a href="#" className="text-decoration-none">
+              <a
+                href="#"
+                className="text-decoration-none"
+                aria-label="Pagina de instagram a afacerii"
+              >
                 <StyledFontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="#" className="text-decoration-none">
+              <a
+                href="#"
+                className="text-decoration-none"
+                aria-label="Pagina de Pinterest a afacerii"
+              >
                 <StyledFontAwesomeIcon icon={faPinterest} />
               </a>
             </div>
             <p>
               Ne poți scrie direct pe email la
-              <a href="mailto:contact@site.com">
+              <a
+                href="mailto:contact@site.com"
+                aria-label="Click pentru a scrie un email pe adresa afacerii"
+              >
                 <StrongEmail> contact@afacerea_ta.ro</StrongEmail>
               </a>
             </p>

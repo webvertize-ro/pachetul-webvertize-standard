@@ -236,10 +236,18 @@ function Navigation() {
             </StyledNavUl>
           </StyledNavCollapse>
           <StyledSocialLinks>
-            <StyledAnchor href="https://facebook.com" target="_blank">
+            <StyledAnchor
+              href="https://facebook.com"
+              target="_blank"
+              aria-label="Pagina de facebook a afacerii"
+            >
               <StyledFontAwesomeIcon icon={faFacebook} />
             </StyledAnchor>
-            <StyledAnchor href="https://instagram.com" target="_blank">
+            <StyledAnchor
+              href="https://instagram.com"
+              target="_blank"
+              aria-label="Pagina de instagram a afacerii"
+            >
               <StyledFontAwesomeIcon icon={faInstagram} />
             </StyledAnchor>
           </StyledSocialLinks>
