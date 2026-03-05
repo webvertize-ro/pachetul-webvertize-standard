@@ -139,6 +139,7 @@ function StreetView() {
                     src="https://www.youtube.com/embed/eNSM5gVe10s?si=_y-hX8k3uIScBKsT"
                     frameborder="0"
                     allowfullscreen
+                    title="Hartă Google Maps cu locația afacerii"
                   ></StyledIframe>
                 </IframeWrapper>
               </ModalWindowInner>
