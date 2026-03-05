@@ -38,7 +38,7 @@ const StyledDropdown = styled.div`
   }
 `;
 
-const StyledButton = styled.a`
+const StyledButton = styled.div`
   border: none;
   height: 100%;
   background-color: transparent;
