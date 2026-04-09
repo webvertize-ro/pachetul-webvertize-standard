@@ -90,7 +90,7 @@ export default async function handler(req, res) {
 
   // Inserting the submission in the database
   const { data, errorInsert } = await supabase
-    .from('submmissions')
+    .from('submissions')
     .insert({ ...body, ip: ip, website_id: WEBSITE_ID, package: PACKAGE })
     .select();
 
