@@ -94,7 +94,7 @@ const Button = styled(Link)`
   }
 `;
 
-function Hero({ heroBg, heroTitle, heroDesc }) {
+function Hero({ heroBg, heroTitle, heroDesc, btnTxt }) {
   return (
     <StyledHero heroBg={heroBg}>
       <div className="container">
@@ -104,7 +104,7 @@ function Hero({ heroBg, heroTitle, heroDesc }) {
           {heroTitle !== 'Politica noastră privind cookie-urile' && (
             <Modal>
               <Modal.Open opens="form-modal">
-                <Button>Cere o ofertă de preț</Button>
+                <Button>{btnTxt}</Button>
               </Modal.Open>
               <Modal.Window name="form-modal" bgColor="rgba(59, 94, 117, 0.5)">
                 <Form />

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import commitmentImg from '../assets/images/commitment_img.avif';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledOurCommitment = styled.div`
   background-color: #2a4657;
@@ -35,21 +37,23 @@ const StyledP = styled.p`
 `;
 
 function OurCommitment() {
+  const { contentMap } = useContent();
+
   return (
     <StyledOurCommitment className="container-fluid">
       <div className="container">
-        <StyledH2>Angajamentul Nostru</StyledH2>
+        <StyledH2>{c(contentMap, 'certifications.assignment_title')}</StyledH2>
         <div className="row">
           <div className="col-md-3 mb-4">
-            <StyledImg src={commitmentImg} alt="" className="img-fluid" />
+            <StyledImg
+              src={c(contentMap, 'certifications.assignment_image')}
+              alt=""
+              className="img-fluid"
+            />
           </div>
           <div className="col-md-9 d-flex align-items-center">
             <StyledP>
-              Certificările și acreditările noastre nu reprezintă doar
-              formalități, ci reflectă standardele pe care ni le asumăm în
-              fiecare proiect. Ne concentrăm pe îmbunătățire continuă,
-              responsabilitate și livrarea unor servicii care respectă cele mai
-              înalte cerințe de calitate.
+              {c(contentMap, 'certifications.assignment_description')}
             </StyledP>
           </div>
         </div>

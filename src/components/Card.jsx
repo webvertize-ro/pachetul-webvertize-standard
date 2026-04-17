@@ -1,6 +1,8 @@
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
+import { iconMap } from '../../utils/iconMap';
+import { cssClass } from 'yet-another-react-lightbox';
 
 const StyledCard = styled.div`
   position: relative;
@@ -77,7 +79,7 @@ function Card({ title, text, bg_img, icon }) {
   return (
     <StyledCard img={bg_img}>
       <TextContent>
-        <StyledFontAwesomeIcon icon={icon} />
+        <StyledFontAwesomeIcon icon={iconMap[icon]} />
         <StyledH4 className="card-title">{title}</StyledH4>
         <StyledP className="card-text">{text}</StyledP>
       </TextContent>

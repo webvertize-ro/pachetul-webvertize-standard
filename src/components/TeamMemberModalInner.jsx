@@ -55,6 +55,7 @@ const Socials = styled.div`
 `;
 
 function TeamMemberModalInner({ img, long_desc, name }) {
+  console.log('long_desc in TeamMemberModalInner: ', long_desc);
   return (
     <StyledTeamMemberModalInner>
       <Layout>

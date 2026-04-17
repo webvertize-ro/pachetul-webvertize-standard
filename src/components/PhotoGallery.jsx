@@ -98,9 +98,9 @@ function PhotoGallery({ title, text, images }) {
 
   const slides = images.map((i) => {
     return {
-      src: i.img,
-      title: i.title,
-      alt: i.alt,
+      src: i.image,
+      title: i.description,
+      alt: i.description,
     };
   });
 

@@ -6,6 +6,8 @@ import CTA from '../components/CTA';
 import PhotoGallery from '../components/PhotoGallery';
 import { images } from '../data/gallery3.js';
 import { Helmet } from 'react-helmet-async';
+import { useContent } from '../hooks/useContent.js';
+import c from '../../utils/content.js';
 
 function HowWeWork() {
   /**
@@ -15,6 +17,13 @@ function HowWeWork() {
    * 3. Why Our Process Works
    * 4. Logical CTA
    */
+  const { contentMap } = useContent();
+
+  const images = [1, 2, 3, 4, 5, 6].map((n) => ({
+    image: c(contentMap, `how_we_work.gallery_image_${n}`),
+    description: c(contentMap, `how_we_work.gallery_image_${n}_alt`),
+  }));
+
   return (
     <div>
       <Helmet>
@@ -25,23 +34,22 @@ function HowWeWork() {
         />
       </Helmet>
       <Hero
-        heroBg={howWeWorkImg}
-        heroTitle={'Cum lucrăm'}
-        heroDesc={
-          'Un proces clar și eficient, construit pentru a oferi rezultate sigure și colaborări transparente'
-        }
+        heroBg={c(contentMap, 'how_we_work.header_bg_image')}
+        heroTitle={c(contentMap, 'how_we_work.header_title')}
+        heroDesc={c(contentMap, 'how_we_work.header_description')}
+        btnTxt={c(contentMap, 'how_we_work.header_button_text')}
       />
       <TimelineHowWeWork />
       <WhyOurProcessWorks />
       <PhotoGallery
-        title="Cum arată o zi la noi"
-        text="Momente din activitatea noastră zilnică"
+        title={c(contentMap, 'how_we_work.gallery_title')}
+        text={c(contentMap, 'how_we_work.gallery_description')}
         images={images}
       />
       <CTA
-        title="Pregătit să începem?"
-        text="Contactează-ne pentru a discuta despre proiectul tău și pentru a primi o ofertă personalizată."
-        textBtn="Programează o discuție"
+        title={c(contentMap, 'how_we_work.cta_title')}
+        text={c(contentMap, 'how_we_work.cta_description')}
+        textBtn={c(contentMap, 'how_we_work.cta_button_text')}
       />
     </div>
   );

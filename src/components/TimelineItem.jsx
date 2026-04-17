@@ -39,6 +39,11 @@ const StyledTimelineItem = styled.li`
 `;
 
 const Badge = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  aspect-ratio: 1/1;
   position: absolute;
   top: 36px;
   left: 50%;
@@ -93,12 +98,10 @@ const StyledButton = styled(Link)`
   text-transform: uppercase;
 `;
 
-function TimelineItem({ iconNum, icon, title, desc, CTAtext, btnLink }) {
+function TimelineItem({ iconNum, icon, title, desc }) {
   return (
     <StyledTimelineItem>
-      <Badge>
-        <FontAwesomeIcon icon={iconNum} />
-      </Badge>
+      <Badge>{iconNum}</Badge>
       <StyledH4 className="pt-2">
         <StyledFontAwesomeIcon icon={icon} />
         <div>{title}</div>

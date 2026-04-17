@@ -1,4 +1,5 @@
 import {
+  faArrowUpRightDots,
   faHourglass,
   faHourglassHalf,
   faStar,
@@ -8,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Counter from './Counter';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledSection = styled.section`
   padding: 2rem;
@@ -46,8 +49,15 @@ const CouterItem = styled.p`
 `;
 
 function Stats() {
+  const { contentMap } = useContent();
   const sectionRef = useRef(null);
   const [startCounters, setStartCounters] = useState(false);
+  const stats = [1, 2, 3].map((n) => ({
+    number: c(contentMap, `home.stat_${n}_number`),
+    achivement: c(contentMap, `home.stat_${n}_label`),
+  }));
+
+  console.log('stats: ', stats);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,35 +83,19 @@ function Stats() {
     <StyledSection className="stats" ref={sectionRef}>
       <div className="container">
         <StyledSectionTitle>
-          Câteva cifre despre experiența noastră
+          {c(contentMap, 'home.stats_title')}
         </StyledSectionTitle>
         <div className="row my-6">
-          <div className="col-md-4 col-sm-6 text-center">
-            <div className="d-flex justify-content-center align-items-center gap-2">
-              <StyledFontAwesomeIcon icon={faHourglassHalf} />
+          {stats.map((stat) => (
+            <div className="col-md-4 col-sm-6 text-center">
+              <div className="d-flex justify-content-center align-items-center gap-2">
+                <StyledFontAwesomeIcon icon={faArrowUpRightDots} />
 
-              <Counter target={12} start={startCounters} />
+                <Counter target={stat.number} start={startCounters} />
+              </div>
+              <CouterItem>{stat.achivement}</CouterItem>
             </div>
-            <CouterItem>Ani de activitate</CouterItem>
-          </div>
-
-          <div className="col-md-4 col-sm-6 text-center">
-            <div className="d-flex justify-content-center align-items-center gap-2">
-              <StyledFontAwesomeIcon icon={faUser} />
-
-              <Counter target={275} start={startCounters} />
-            </div>
-            <CouterItem>Clienți mulțumiți</CouterItem>
-          </div>
-
-          <div className="col-md-4 col-sm-6 text-center">
-            <div className="d-flex justify-content-center align-items-center gap-2">
-              <StyledFontAwesomeIcon icon={faStar} />
-
-              <Counter target={150} start={startCounters} />
-            </div>
-            <CouterItem>Recenzii pozitive</CouterItem>
-          </div>
+          ))}
         </div>
       </div>
     </StyledSection>

@@ -4,13 +4,16 @@ import portfolioBackground from '../assets/images/portfolio_background.avif';
 import Projects from '../components/Projects';
 import ReasonsToChooseUs from '../components/ReasonsToChooseUs';
 import CTA from '../components/CTA';
-import { useEffect } from 'react';
 import Group from '../components/Group';
 import { Helmet } from 'react-helmet-async';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledPortfolio = styled.div``;
 
 function Portfolio() {
+  const { contentMap } = useContent();
+
   return (
     <>
       <Helmet>
@@ -24,15 +27,17 @@ function Portfolio() {
       <StyledPortfolio>
         <Group bgImg={portfolioBackground}>
           <Hero
-            heroTitle="Proiectele noastre"
-            heroDesc="O selecție de lucrări care reflectă experiența, calitatea și modul nostru de lucru."
+            heroTitle={c(contentMap, 'portfolio.header_title')}
+            heroDesc={c(contentMap, 'portfolio.header_description')}
+            btnTxt={c(contentMap, 'portfolio.header_button_text')}
           />
           <Projects />
           <ReasonsToChooseUs />
         </Group>
         <CTA
-          title="Ai un proiect în plan?"
-          text="Suntem gata să transformăm ideile tale în rezultate reale. Contactează-ne pentru o ofertă personalizată."
+          title={c(contentMap, 'portfolio.cta_title')}
+          text={c(contentMap, 'portfolio.cta_description')}
+          textBtn={c(contentMap, 'portfolio.cta_button_text')}
         />
       </StyledPortfolio>
     </>

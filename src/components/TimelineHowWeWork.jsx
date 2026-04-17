@@ -5,6 +5,8 @@ import { timeline } from '../data/timeline';
 import TimelineItem from './TimelineItem';
 import Modal from './Modal';
 import Form from './Form';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledTimelineHowWeWork = styled.div`
   padding: 3rem 0;
@@ -89,34 +91,39 @@ const Row = styled.div`
 `;
 
 function TimelineHowWeWork() {
+  const { contentMap } = useContent();
+
+  const steps = [1, 2, 3, 4].map((n) => ({
+    number: c(contentMap, `how_we_work.step_${n}_number`),
+    icon: c(contentMap, `how_we_work.step_${n}_icon`),
+    title: c(contentMap, `how_we_work.step_${n}_title`),
+    description: c(contentMap, `how_we_work.step_${n}_description`),
+  }));
+
   return (
     <StyledTimelineHowWeWork>
       <div className="container">
-        <StyledH2>Procesul nostru</StyledH2>
-        <StyledP>
-          Credem că un proiect reușit începe cu un proces bine definit. De
-          aceea, fiecare etapă este planificată atent, pentru a asigura
-          transparență, eficiență și rezultate de calitate.
-        </StyledP>
+        <StyledH2>{c(contentMap, 'how_we_work.process_title')}</StyledH2>
+        <StyledP>{c(contentMap, 'how_we_work.process_description')}</StyledP>
 
         <Row className="row">
           <div className="col-lg-12">
             <HorizontalTimeline className="horizontal-timeline">
               <ul className="list-inline items">
-                {timeline.map((timeline, i) => (
+                {steps.map((step, i) => (
                   <TimelineItem
-                    iconNum={timeline.iconNum}
-                    icon={timeline.icon}
-                    title={timeline.title}
-                    desc={timeline.desc}
-                    CTAtext={timeline.CTAtext}
-                    btnLink={timeline.btnLink}
+                    iconNum={step.number}
+                    icon={step.icon}
+                    title={step.title}
+                    desc={step.description}
                   />
                 ))}
               </ul>
               <Modal>
                 <Modal.Open opens="form-modal">
-                  <StyledButton>Cere o ofertă de pret</StyledButton>
+                  <StyledButton>
+                    {c(contentMap, 'how_we_work.process_button_text')}
+                  </StyledButton>
                 </Modal.Open>
                 <Modal.Window
                   name="form-modal"

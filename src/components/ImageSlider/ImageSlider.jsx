@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { images } from '../../data/sliderImages';
+// import { images } from '../../data/sliderImages';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircle,
@@ -10,6 +10,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import React from 'react';
+import c from '../../../utils/content';
+import { useContent } from '../../hooks/useContent';
 
 const StyledImageSlider = styled.div`
   width: 100%;
@@ -151,6 +153,13 @@ const Dot = styled.button`
 `;
 
 function ImageSlider() {
+  const { contentMap } = useContent();
+  const images = [1, 2, 3, 4, 5].map((n) => ({
+    image: c(contentMap, `home.slide_${n}_bg_image`),
+    description: c(contentMap, `home.slide_${n}_description`),
+    title: c(contentMap, `home.slide_${n}_title`),
+  }));
+
   const [imageIndex, setImageIndex] = useState(0);
 
   function showPrevImage() {
@@ -195,20 +204,20 @@ function ImageSlider() {
   return (
     <StyledImageSlider onMouseEnter={stopAutoplay} onMouseLeave={startAutoplay}>
       <ImageContainer>
-        {images.map(({ url, alt, title, desc, caption, srcSet }, index) => (
-          <React.Fragment key={url}>
+        {images.map(({ image, description, title }, index) => (
+          <React.Fragment key={index}>
             <StyledImg
-              srcSet={srcSet}
+              srcSet={image}
               sizes="(max-width: 576px) 33vw, (max-width: 992px) 33vw, calc(33vw - 4rem)"
-              src={url}
-              alt={alt}
+              src={image}
+              alt={description}
               style={{ translate: `${-100 * imageIndex}%` }}
             />
             <CaptionWrapper>
               {index === imageIndex && (
                 <Caption>
-                  <StyledH2>{caption.title}</StyledH2>
-                  <StyledP>{caption.subtitle}</StyledP>
+                  <StyledH2>{title}</StyledH2>
+                  <StyledP>{description}</StyledP>
                 </Caption>
               )}
             </CaptionWrapper>

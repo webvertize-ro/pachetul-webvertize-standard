@@ -10,7 +10,7 @@ const Card = styled.div`
   border-radius: 0.5rem;
   padding-top: 5rem;
   display: flex;
-  padding: 7.5rem 0.75rem 0.75rem;
+  padding: 12.5rem 0.75rem 0.75rem;
   cursor: pointer;
   height: 100%;
 `;
@@ -50,24 +50,22 @@ const StyledButton = styled.button`
 `;
 
 function Product({ product }) {
-  console.log('product: ', product);
-
   return (
     <Modal>
       <Modal.Open opens="form-modal">
-        <Card bgImg={product.img}>
+        <Card bgImg={product.bg_image}>
           <CardInfo>
-            <StyledH4>{product.product_title}</StyledH4>
-            <StyledP>{product.short_desc}</StyledP>
-            <StyledButton>Vezi detalii</StyledButton>
+            <StyledH4>{product.title}</StyledH4>
+            <StyledP>{product.description}</StyledP>
+            <StyledButton>{product.button_text}</StyledButton>
           </CardInfo>
         </Card>
       </Modal.Open>
-      <Modal.Window name="form-modal" title={product.product_title}>
+      <Modal.Window name="form-modal" title={product.title}>
         <ProductModalInner
           title={product.product_title}
           features={product.features}
-          img={product.img}
+          img={product.bg_image}
         />
       </Modal.Window>
     </Modal>

@@ -9,6 +9,8 @@ import {
   faPinterest,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -46,6 +48,10 @@ const StrongEmail = styled.strong`
 `;
 
 function Footer() {
+  const { contentMap } = useContent();
+
+  console.log('contentMap in Footer: ', contentMap);
+
   return (
     <StyledFooter className="footer py-6">
       <div className="container">
@@ -55,38 +61,49 @@ function Footer() {
               <StyledH6 className="fw-bold">Despre</StyledH6>
               <Logo width="100" />
             </div>
-            <p>
-              Acesta este un mic paragraf despre afacerea ta. Poate fi un scurt
-              text descriptiv, un motto sau orice altceva ți se pare relevant.
-            </p>
+            <p>{c(contentMap, 'global.footer_description')}</p>
           </div>
           <div className="col-md-4 my-3">
-            <h5 className="fw-bold">Link-uri Utile</h5>
+            <h5 className="fw-bold">
+              {c(contentMap, 'footer.footer_links_title')}
+            </h5>
             <ul className="list-unstyled">
               <li>
                 <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to="/">Acasă</StyledNavLink>
+                <StyledNavLink to={c(contentMap, 'global.footer_link_1_route')}>
+                  {c(contentMap, 'global.footer_link_1_text')}
+                </StyledNavLink>
               </li>
               <li>
                 <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to="/services">Servicii</StyledNavLink>
+                <StyledNavLink to={c(contentMap, 'global.footer_link_2_route')}>
+                  {c(contentMap, 'global.footer_link_2_text')}
+                </StyledNavLink>
               </li>
               <li>
                 <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to="/portfolio">Portfoliu</StyledNavLink>
+                <StyledNavLink to={c(contentMap, 'global.footer_link_3_route')}>
+                  {c(contentMap, 'global.footer_link_3_text')}
+                </StyledNavLink>
               </li>
               <li>
                 <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to="/contact">Contact</StyledNavLink>
+                <StyledNavLink to={c(contentMap, 'global.footer_link_4_route')}>
+                  {c(contentMap, 'global.footer_link_4_text')}
+                </StyledNavLink>
               </li>
               <li>
                 <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to="/cookies">Politica de Cookies</StyledNavLink>
+                <StyledNavLink to={c(contentMap, 'global.footer_link_5_route')}>
+                  {c(contentMap, 'global.footer_link_5_text')}
+                </StyledNavLink>
               </li>
             </ul>
           </div>
           <div className="col-md-4 my-3">
-            <h5 className="fw-bold">Rețele de socializare</h5>
+            <h5 className="fw-bold">
+              {c(contentMap, 'global.footer_social_title')}
+            </h5>
             <div className="mb-4 d-flex gap-2">
               <a
                 href="#"
@@ -118,12 +135,15 @@ function Footer() {
               </a>
             </div>
             <p>
-              Ne poți scrie direct pe email la
+              {c(contentMap, 'global.footer_paragraph')}
               <a
-                href="mailto:contact@site.com"
+                href={c(contentMap, 'global.footer_paragraph_link_url')}
                 aria-label="Click pentru a scrie un email pe adresa afacerii"
               >
-                <StrongEmail> contact@afacerea_ta.ro</StrongEmail>
+                <StrongEmail>
+                  {' '}
+                  {c(contentMap, 'global.footer_paragraph_link_text')}
+                </StrongEmail>
               </a>
             </p>
           </div>

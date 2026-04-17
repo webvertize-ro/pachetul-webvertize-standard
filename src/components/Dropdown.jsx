@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router';
 import styled from 'styled-components';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledDropdown = styled.div`
   display: flex;
@@ -111,6 +113,8 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function Dropdown() {
+  const { contentMap } = useContent();
+
   const [open, setOpen] = useState(false);
 
   // Close the dropdown when clicking outside
@@ -148,21 +152,27 @@ function Dropdown() {
         <DropdownItemsContainer>
           <DropdownItems>
             <StyledLi>
-              <StyledNavLink to="/about-us" onClick={() => setOpen(false)}>
-                Despre Noi
-              </StyledNavLink>
-            </StyledLi>
-            <StyledLi>
-              <StyledNavLink to="/how-we-work" onClick={() => setOpen(false)}>
-                Cum Lucrăm
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_2_route')}
+                onClick={() => setOpen(false)}
+              >
+                {c(contentMap, 'global.navbar_link_2_text')}
               </StyledNavLink>
             </StyledLi>
             <StyledLi>
               <StyledNavLink
-                to="/certifications"
+                to={c(contentMap, 'global.navbar_link_3_route')}
                 onClick={() => setOpen(false)}
               >
-                Certificări
+                {c(contentMap, 'global.navbar_link_3_text')}
+              </StyledNavLink>
+            </StyledLi>
+            <StyledLi>
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_4_route')}
+                onClick={() => setOpen(false)}
+              >
+                {c(contentMap, 'global.navbar_link_4_text')}
               </StyledNavLink>
             </StyledLi>
           </DropdownItems>

@@ -1,6 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { partners } from '../data/partners.js';
+// import { partners } from '../data/partners.js';
 import { useEffect, useState } from 'react';
+import { useContent } from '../hooks/useContent.js';
+import c from '../../utils/content.js';
 
 const ContainerFluid = styled.div`
   background-color: #1f3745;
@@ -49,6 +51,12 @@ const ScrollerInner = styled.ul`
 `;
 
 function OurPartners() {
+  const { contentMap } = useContent();
+  const partners = [1, 2, 3, 4, 5, 6].map((n) => ({
+    logo: c(contentMap, `home.partner_logo_${n}`),
+    alt: c(contentMap, `home.partner_logo_${n}_alt`),
+  }));
+
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -71,7 +79,7 @@ function OurPartners() {
           >
             {duplicatedPartners.map((partner, index) => (
               <li key={index}>
-                <img src={partner.img} alt="" />
+                <img src={partner.logo} alt="" />
               </li>
             ))}
           </ScrollerInner>

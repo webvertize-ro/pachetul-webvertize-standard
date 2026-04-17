@@ -1,13 +1,10 @@
 import styled from 'styled-components';
-import whyWorkWithUsPic from '../assets/images/why_work_with_us_pic.avif';
-import img400 from '../assets/images/why_work_with_us_pic-400.avif';
-import img800 from '../assets/images/why_work_with_us_pic-800.avif';
-import img1200 from '../assets/images/why_work_with_us_pic-1200.avif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Form from './Form';
 import Modal from './Modal';
-import reasons from '../data/reasons.json';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledSection = styled.section`
   padding: 3rem 0;
@@ -115,6 +112,12 @@ const StyledButton = styled.button`
 `;
 
 function WhyWorkWithUs() {
+  const { contentMap } = useContent();
+  const reasons = [1, 2, 3, 4].map((n) => ({
+    title: c(contentMap, `home.why_reason_${n}_title`),
+    description: c(contentMap, `home.why_reason_${n}_description`),
+  }));
+
   return (
     <StyledSection
       id="details"
@@ -125,10 +128,9 @@ function WhyWorkWithUs() {
           <div className="col-lg-6">
             <div className="image-container d-flex justify-content-center">
               <StyledImg
-                src={whyWorkWithUsPic}
+                src={c(contentMap, 'home.why_image')}
                 alt=""
                 className="img-fluid"
-                srcSet={`${img400} 400w, ${img800} 800w, ${img1200} 1200w`}
                 sizes="(max-width: 576px) 33vw, (max-width: 992px) 33vw, calc(33vw - 4rem)"
               />
             </div>
@@ -136,23 +138,24 @@ function WhyWorkWithUs() {
           <div className="col-lg-6">
             <StyledTextContent className="mt-4">
               <StyledTitle className="mb-4">
-                De ce să alegi serviciile{' '}
-                <span className="text-primary">afacerii noastre</span>
+                {c(contentMap, 'home.why_title')}
               </StyledTitle>
               <StyledUl className="list-unstyled">
-                {reasons.map((reason) => (
-                  <ListItem className="d-flex mb-3" key={reason.strong}>
+                {reasons.map((reason, index) => (
+                  <ListItem className="d-flex mb-3" key={index}>
                     <StyledFontAwesomeIcon icon={faCheck} />
                     <StyledP>
-                      <StyledStrong>{reason.strong}: </StyledStrong>
-                      {reason.desc}
+                      <StyledStrong>{reason.title}: </StyledStrong>
+                      {reason.description}
                     </StyledP>
                   </ListItem>
                 ))}
               </StyledUl>
               <Modal>
                 <Modal.Open opens="form-modal">
-                  <StyledButton>Obține o ofertă de preț</StyledButton>
+                  <StyledButton>
+                    {c(contentMap, 'home.why_button_text')}
+                  </StyledButton>
                 </Modal.Open>
                 <Modal.Window
                   name="form-modal"

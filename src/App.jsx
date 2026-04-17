@@ -17,31 +17,42 @@ import HowWeWork from './pages/HowWeWork';
 import Certifications from './pages/Certifications';
 import FAQ from './pages/FAQ';
 import Products from './pages/Products';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cookies" element={<Cookies />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/how-we-work" element={<HowWeWork />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/products" element={<Products />} />
-          </Route>
-          <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/too-many-requests" element={<TooManyRequests />} />
-          <Route path="/landingPage" element={<LandingPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cookies" element={<Cookies />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/how-we-work" element={<HowWeWork />} />
+              <Route path="/certifications" element={<Certifications />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/products" element={<Products />} />
+            </Route>
+            <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/too-many-requests" element={<TooManyRequests />} />
+            <Route path="/landingPage" element={<LandingPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </div>
   );
 }

@@ -4,6 +4,8 @@ import Avatar from './Avatar';
 import RatingStars from './RatingStars';
 import TestimonialContent from './TestimonialContent';
 import ReviewGoogleButton from './ReviewGoogleButton';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledTestimonials = styled.section`
   padding: 4rem 0;
@@ -58,12 +60,23 @@ const StyledRow = styled.div`
 `;
 
 function Testimonials() {
+  const { contentMap } = useContent();
+  const testimonials = [1, 2, 3, 4, 5].map((n) => ({
+    image: c(contentMap, `home.review_${n}_image`),
+    stars: c(contentMap, `home.review_${n}_stars`),
+    quote: c(contentMap, `home.review_${n}_quote`),
+  }));
+
+  console.log('testimonials: ', testimonials);
+
   return (
     <StyledTestimonials>
       <div className="d-flex flex-column align-items-center">
-        <TestimonialsHeading>Ce spun clienții noștri</TestimonialsHeading>
+        <TestimonialsHeading>
+          {c(contentMap, 'home.reviews_title')}
+        </TestimonialsHeading>
         <TestimonialsSubtitle>
-          Experiențe reale de la cei care ne cunosc
+          {c(contentMap, 'home.reviews_description')}
         </TestimonialsSubtitle>
       </div>
 
@@ -76,11 +89,12 @@ function Testimonials() {
             >
               {/* Avatar and Stars */}
               <div className="d-flex flex-column justify-content-center align-items-center">
-                <Avatar img={t.profile_pic} />
+                <Avatar img={t.image} />
+
                 <RatingStars stars={t.stars} />
               </div>
               {/* Testimonial Text */}
-              <TestimonialContent content={t.testimonial_content} />
+              <TestimonialContent content={t.quote} />
             </div>
           ))}
         </StyledRow>

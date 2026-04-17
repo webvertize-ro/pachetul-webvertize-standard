@@ -1,3 +1,4 @@
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
@@ -32,12 +33,12 @@ const Title = styled.div`
   }
 `;
 
-function ListItem({ icon, title, subtitle }) {
+function ListItem({ title, subtitle }) {
   return (
     <StyledLi>
       <Top>
         <div>
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon icon={faBriefcase} />
         </div>
         <Title>{title}</Title>
       </Top>

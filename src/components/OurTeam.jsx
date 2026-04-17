@@ -2,6 +2,8 @@ import Card from './Card';
 import { ourTeam } from '../data/ourTeam';
 import CardTeamMember from './CardTeamMember';
 import styled from 'styled-components';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledOurTeam = styled.div`
   padding: 5rem 0;
@@ -20,24 +22,34 @@ const StyledP = styled.p`
 `;
 
 function OurTeam() {
+  const { contentMap } = useContent();
+  const members = [1, 2, 3, 4].map((n) => ({
+    name: c(contentMap, `about.member_${n}_name`),
+    function: c(contentMap, `about.member_${n}_function`),
+    description: c(contentMap, `about.member_${n}_description`),
+    long_description: c(contentMap, `about.member_${n}_long_description`),
+    image: c(contentMap, `about.member_${n}_image`),
+    linkedin: c(contentMap, `about.member_${n}_linkedin`),
+    facebook: c(contentMap, `about.member_${n}_facebook`),
+    instagram: c(contentMap, `about.member_${n}_instagram`),
+  }));
+
+  console.log('members: ', members);
+
   return (
     <StyledOurTeam>
       <div className="container">
-        <StyledH2>Echipa noastră</StyledH2>
-        <StyledP>
-          Cunoaște oamenii care fac posibilă activitatea noastră de zi cu zi —
-          profesioniști dedicați, fiecare cu experiența și rolul său, gata să
-          aducă valoare afacerii tale.
-        </StyledP>
+        <StyledH2>{c(contentMap, 'about.team_title')}</StyledH2>
+        <StyledP>{c(contentMap, 'about.team_description')}</StyledP>
         <div className="row">
-          {ourTeam.map((member) => (
+          {members.map((member) => (
             <div className="col-sm-6 col-lg-3 d-flex mb-4">
               <CardTeamMember
-                img={member.img}
+                img={member.image}
                 name={member.name}
-                short_desc={member.short_desc}
-                long_desc={member.long_desc}
-                role={member.role}
+                short_desc={member.description}
+                long_desc={member.long_description}
+                role={member.function}
               />
             </div>
           ))}

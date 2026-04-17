@@ -5,6 +5,8 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from './Logo';
 import Dropdown from './Dropdown';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const NavigationHeader = styled.header`
   transition: all 0.3s ease-in-out;
@@ -135,6 +137,8 @@ const BurgerLine = styled.div`
 `;
 
 function Navigation() {
+  const { contentMap, isLoading, error } = useContent();
+
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigation = useRef(null);
@@ -211,27 +215,45 @@ function Navigation() {
             id="menuLinks"
           >
             <StyledNavUl className="navbar-nav ms-auto">
-              <StyledNavLink to="/" className="nav-item nav-link">
-                Acasă
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_1_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_1_text')}
               </StyledNavLink>
               {/* Dropdown Button */}
 
               <Dropdown className="my-dropdown" />
 
-              <StyledNavLink to="/services" className="nav-item nav-link">
-                Servicii
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_5_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_5_text')}
               </StyledNavLink>
-              <StyledNavLink to="/products" className="nav-item nav-link">
-                Produse
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_6_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_6_text')}
               </StyledNavLink>
-              <StyledNavLink to="/portfolio" className="nav-item nav-link">
-                Portofoliu
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_7_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_7_text')}
               </StyledNavLink>
-              <StyledNavLink to="/faq" className="nav-item nav-link">
-                Întrebări Frecvente
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_8_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_8_text')}
               </StyledNavLink>
-              <StyledNavLink to="/contact" className="nav-item nav-link">
-                Contact
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_9_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_9_text')}
               </StyledNavLink>
             </StyledNavUl>
           </StyledNavCollapse>

@@ -6,6 +6,8 @@ import Modal from './Modal';
 import Form from './Form';
 import { whyOurProcessWorks } from '../data/listData';
 import ListItem from './ListItem';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledWhyOurProcessWorks = styled.div`
   background-color: #365764;
@@ -79,20 +81,27 @@ const StyledLi = styled.li`
 `;
 
 function WhyOurProcessWorks() {
+  const { contentMap } = useContent();
+  const reasons = [1, 2, 3, 4].map((n) => ({
+    title: c(contentMap, `how_we_work.why_reason_${n}`),
+  }));
+
   return (
     <StyledWhyOurProcessWorks className="container-fluid">
       <div className="container">
-        <StyledH3>De ce funcționează procesul nostru?</StyledH3>
+        <StyledH3>{c(contentMap, 'how_we_work.why_title')}</StyledH3>
         <div className="row">
           <div className="col-lg-6 d-flex flex-column mb-4">
             <StyledUl>
-              {whyOurProcessWorks.map((item) => (
+              {reasons.map((item) => (
                 <ListItem icon={item.icon} title={item.title} />
               ))}
             </StyledUl>
             <Modal>
               <Modal.Open opens="form-modal">
-                <StyledButton>Cere o ofertă de pret</StyledButton>
+                <StyledButton>
+                  {c(contentMap, 'how_we_work.why_button_text')}
+                </StyledButton>
               </Modal.Open>
               <Modal.Window name="form-modal" bgColor="rgba(59, 94, 117, 0.5)">
                 <Form />
@@ -100,7 +109,11 @@ function WhyOurProcessWorks() {
             </Modal>
           </div>
           <div className="col-lg-6 mb-4">
-            <StyledImg src={whyItWorksImg} className="img-fluid" alt="" />
+            <StyledImg
+              src={c(contentMap, 'how_we_work.why_image')}
+              className="img-fluid"
+              alt=""
+            />
           </div>
         </div>
       </div>

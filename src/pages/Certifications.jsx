@@ -5,6 +5,8 @@ import CertificationsList from '../components/CertificationsList';
 import OurCommitment from '../components/OurCommitment';
 import CTA from '../components/CTA';
 import { Helmet } from 'react-helmet-async';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 function Certifications() {
   /**
@@ -15,6 +17,8 @@ function Certifications() {
    * 4. Our Commitment
    * 5. Final CTA
    */
+  const { contentMap } = useContent();
+
   return (
     <div>
       <Helmet>
@@ -25,17 +29,18 @@ function Certifications() {
         />
       </Helmet>{' '}
       <Hero
-        heroBg={certificationImg}
-        heroTitle="Certificări"
-        heroDesc="Standardele și acreditările care confirmă angajamentul nostru pentru calitate și profesionalism."
+        heroBg={c(contentMap, 'certifications.header_bg_image')}
+        heroTitle={c(contentMap, 'certifications.header_title')}
+        heroDesc={c(contentMap, 'certifications.header_description')}
+        btnTxt={c(contentMap, 'certifications.header_button_text')}
       />
       <ShortIntro />
       <CertificationsList />
       <OurCommitment />
       <CTA
-        title="Vrei să afli mai multe despre serviciile noastre?"
-        text="Contactează-ne pentru informații suplimentare sau pentru o ofertă personalizată."
-        textBtn="Contactează-ne"
+        title={c(contentMap, 'certifications.cta_title')}
+        text={c(contentMap, 'certifications.cta_description')}
+        textBtn={c(contentMap, 'certifications.cta_button_text')}
       />
     </div>
   );

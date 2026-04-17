@@ -70,7 +70,7 @@ function CertificationCard({ title, desc, cert }) {
         <StyledLink href={cert} target="blank" rel="noopener noreferrer">
           Vizualizează
         </StyledLink>
-        <StyledLink href={cert} download>
+        <StyledLink href={`${cert}?download`} download>
           Descarcă
         </StyledLink>
       </Buttons>

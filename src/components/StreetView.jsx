@@ -3,6 +3,8 @@ import businessStreetViewImg from '../assets/images/business_street_view.avif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledStreetView = styled.div`
   color: #fff;
@@ -115,13 +117,19 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 `;
 
 function StreetView() {
+  const { contentMap } = useContent();
+
   return (
     <StyledStreetView>
       <Container className="container">
-        <StyledH2>Vedere stradală</StyledH2>
-        <StyledP>Vezi exact unde poți găsi sediul nostru</StyledP>
+        <StyledH2>{c(contentMap, 'contact.street_view_title')}</StyledH2>
+        <StyledP>{c(contentMap, 'contact.street_view_description')}</StyledP>
         <ImageContainer>
-          <StyledImg src={businessStreetViewImg} className="img-fluid" alt="" />
+          <StyledImg
+            src={c(contentMap, 'contact.street_view_image')}
+            className="img-fluid"
+            alt=""
+          />
           <Modal>
             <Modal.Open opens="form-modal">
               <StyledButton aria-label="Deschide modalul cu videoclipul cu vederea stradală a afacerii">
@@ -130,13 +138,13 @@ function StreetView() {
             </Modal.Open>
             <Modal.Window
               name="form-modal"
-              title="Vedere stradală"
+              title={c(contentMap, 'contact.street_view_modal_title')}
               bgColor="rgba(59, 94, 117, 0.3)"
             >
               <ModalWindowInner>
                 <IframeWrapper>
                   <StyledIframe
-                    src="https://www.youtube.com/embed/eNSM5gVe10s?si=_y-hX8k3uIScBKsT"
+                    src={c(contentMap, 'contact.street_view_modal_video_url')}
                     frameborder="0"
                     allowfullscreen
                   ></StyledIframe>

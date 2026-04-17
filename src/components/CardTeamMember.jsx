@@ -32,15 +32,18 @@ const StyledCard = styled.div`
 `;
 
 const GlassCard = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem;
   margin-top: auto;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(100, 100, 100, 0.45);
   border-radius: 0.5rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   /* border: 1px solid rgba(255, 255, 255, 0.64); */
   width: 90%;
+  height: 40%;
 `;
 
 const GlassCardTitle = styled.div`
@@ -73,6 +76,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 const SocialsContainer = styled.div`
   display: flex;
+  margin-top: auto;
 `;
 
 const StyledLink = styled.a`

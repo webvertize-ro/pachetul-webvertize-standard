@@ -8,7 +8,7 @@ const StyledImg = styled.img`
 
 function Avatar({ img }) {
   return (
-    <div>
+    <div className="mb-2">
       <StyledImg src={img} alt="avatar" />
     </div>
   );

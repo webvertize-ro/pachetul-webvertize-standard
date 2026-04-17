@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router';
 import styled from 'styled-components';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledCookiePopup = styled.div`
   position: fixed;
@@ -55,6 +57,13 @@ const ButtonsContainer = styled.div`
 `;
 
 function CookiePopup() {
+  const { contentMap } = useContent();
+
+  console.log(
+    'cookie-pop-up-paragraph: ',
+    c(contentMap, 'global.cookie-pop-up-paragraph'),
+  );
+
   const [popupOpen, setPopupOpen] = useState(
     localStorage.getItem('acceptedCookies') !== 'true',
   );
@@ -70,17 +79,16 @@ function CookiePopup() {
     popupOpen && (
       <StyledCookiePopup>
         <Container className="container">
-          <Text>
-            Acest website nu folosește cookies în prezent. În cazul în care
-            acestea vor fi implementate, ne vom asigura că îi vom anunța pe
-            utilizatori. Vă încurajăm să verificați periodic{' '}
-            <Link to="/cookies">pagina de cookies</Link> pentru a afla cele mai
-            recente informații legate de utilizarea acestora.
-          </Text>
+          <Text>{c(contentMap, 'global.cookie-pop-up-paragraph')}</Text>
           <ButtonsContainer className="d-flex gap-1">
-            <Button onClick={() => handlePopup()}>Ok</Button>
-            <Button to="/cookies" target="_blank">
-              Află mai multe
+            <Button onClick={() => handlePopup()}>
+              {c(contentMap, 'global.cookie-pop-up-button-1-text')}
+            </Button>
+            <Button
+              to={c(contentMap, 'global.cookie-pop-up-button-2-route')}
+              target="_blank"
+            >
+              {c(contentMap, 'global.cookie-pop-up-button-2-text')}
             </Button>
           </ButtonsContainer>
         </Container>

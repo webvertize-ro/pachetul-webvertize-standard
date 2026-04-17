@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router';
 import styled from 'styled-components';
 import Logo from '../components/Logo';
 import { Helmet } from 'react-helmet-async';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledTooManyRequests = styled.div`
   height: 100vh;
@@ -39,6 +41,7 @@ const StyledButton = styled(Link)`
 function TooManyRequests() {
   const [allowed, setAllowed] = useState(false);
   const navigate = useNavigate();
+  const { contentMap } = useContent();
 
   useEffect(() => {
     const tooManyRequests = sessionStorage.getItem('tooManyRequests');
@@ -63,15 +66,16 @@ function TooManyRequests() {
       <StyledTooManyRequests>
         <Logo />
         <StyledP>
-          Din motive de securitate, limităm numărul de solicitări care pot fi
-          trimise într-un anumit interval de timp. Vă rugăm să reîncercați după
-          24 de ore.
+          {c(contentMap, 'too-many-requests.too-many-requests-paragraph-1')}
         </StyledP>
         <StyledP>
-          Dacă este o urgență, ne puteți contacta direct la numărul de telefon
-          0712345678. Mulțumim pentru înțelegere!
+          {c(contentMap, 'too-many-requests.too-many-requests-paragraph-2')}
         </StyledP>
-        <StyledButton to="/">Înapoi la pagina principală</StyledButton>
+        <StyledButton
+          to={c(contentMap, 'too-many-requests.too-many-requests-button-route')}
+        >
+          {c(contentMap, 'too-many-requests.too-many-requests-button-text')}
+        </StyledButton>
       </StyledTooManyRequests>
     </>
   );

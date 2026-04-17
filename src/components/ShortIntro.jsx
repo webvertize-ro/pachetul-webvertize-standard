@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import shortIntroImg from '../assets/images/short_intro_img.avif';
+import { useContent } from '../hooks/useContent';
+import c from '../../utils/content';
 
 const StyledShortIntro = styled.div`
   background-color: #ac9584;
@@ -39,21 +41,24 @@ const StyledP = styled.p`
 `;
 
 function ShortIntro() {
+  const { contentMap } = useContent();
+
   return (
     <StyledShortIntro className="container-fluid">
       <div className="container">
-        <StyledH2>Standardele care ne definesc</StyledH2>
+        <StyledH2>{c(contentMap, 'certifications.standards_title')}</StyledH2>
         <div className="row d-flex align-items-center">
           <div className="col-md-9">
             <StyledP>
-              Ne desfășurăm activitatea în conformitate cu standardele și
-              reglementările relevante din domeniu. Certificările obținute
-              reflectă angajamentul nostru pentru calitate, siguranță și
-              respectarea celor mai bune practici profesionale.
+              {c(contentMap, 'certifications.standards_description')}
             </StyledP>
           </div>
           <div className="col-md-3">
-            <StyledImg src={shortIntroImg} alt="" className="img-fluid" />
+            <StyledImg
+              src={c(contentMap, 'certifications.standards_image')}
+              alt=""
+              className="img-fluid"
+            />
           </div>
         </div>
       </div>
