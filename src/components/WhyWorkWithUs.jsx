@@ -35,7 +35,8 @@ const StyledSection = styled.section`
 `;
 
 const StyledImg = styled.img`
-  max-width: 425px;
+  max-width: 375px;
+  max-height: 650px;
   border-radius: 1.5rem;
 
   @media (max-width: 576px) {

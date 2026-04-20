@@ -1,16 +1,21 @@
 import styled, { keyframes } from 'styled-components';
-// import { partners } from '../data/partners.js';
 import { useEffect, useState } from 'react';
 import { useContent } from '../hooks/useContent.js';
 import c from '../../utils/content.js';
 
 const ContainerFluid = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: #1f3745;
 `;
 
 const scroll = keyframes`
+  from {
+    transform: translateX(0);
+  }
+
   to {
-    transform: translate(calc(-50% - 0.5rem));
+    transform: translateX(-50%);
   }
 `;
 
@@ -39,15 +44,19 @@ const ScrollerInner = styled.ul`
   gap: 1rem;
   width: max-content;
   margin: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   list-style: none;
   padding: 1rem 0;
 
   animation: ${scroll}
     ${({ speed }) =>
       speed === 'fast' ? '20s' : speed === 'slow' ? '120s' : '40s'}
-    linear infinite
-    ${({ direction }) => (direction === 'right' ? 'reverse' : 'forwards')};
+    linear infinite;
+`;
+
+const StyledImg = styled.img`
+  max-width: 160px;
+  max-height: 80px;
 `;
 
 function OurPartners() {
@@ -66,6 +75,7 @@ function OurPartners() {
   }, []);
 
   const duplicatedPartners = [...partners, ...partners];
+  console.log('duplicatedPartners: ', duplicatedPartners);
 
   return (
     <ContainerFluid className="container-fluid">
@@ -73,15 +83,16 @@ function OurPartners() {
         <Scroller>
           <StyledH5>Partenerii noștri</StyledH5>
           <ScrollerInner
-            speed="slow"
-            direction="left"
+            speed="fast"
             style={{ animation: reducedMotion ? 'none' : undefined }}
           >
-            {duplicatedPartners.map((partner, index) => (
-              <li key={index}>
-                <img src={partner.logo} alt="" />
-              </li>
-            ))}
+            {duplicatedPartners
+              .filter((partner) => partner.logo)
+              .map((partner, index) => (
+                <li key={index}>
+                  <StyledImg src={partner.logo} alt="" />
+                </li>
+              ))}
           </ScrollerInner>
         </Scroller>
       </div>

@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const StyledImg = styled.img`
   max-width: 950px;
+  max-height: 500px;
   border-radius: 1rem;
 
   @media (max-width: 576px) {
@@ -66,7 +67,6 @@ const ModalWindowInner = styled.div`
 `;
 
 const StyledIframe = styled.iframe`
-  /* border-radius: 1rem; */
   width: 100%;
   height: 100%;
   border: none;

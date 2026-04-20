@@ -17,7 +17,7 @@ const StyledWhyOurProcessWorks = styled.div`
   display: flex;
 
   @media (max-width: 576px) {
-    padding: 1.5rem 0;
+    padding: 3rem 1.5rem;
   }
 `;
 
@@ -29,6 +29,8 @@ const StyledH3 = styled.h3`
 
 const StyledImg = styled.img`
   border-radius: 1rem;
+  max-width: 600px;
+  max-height: 500px;
 `;
 
 const StyledUl = styled.ul`
@@ -108,7 +110,7 @@ function WhyOurProcessWorks() {
               </Modal.Window>
             </Modal>
           </div>
-          <div className="col-lg-6 mb-4">
+          <div className="col-lg-6 mb-4 d-flex justify-content-center">
             <StyledImg
               src={c(contentMap, 'how_we_work.why_image')}
               className="img-fluid"

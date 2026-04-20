@@ -145,8 +145,6 @@ function ContactSection() {
     link: c(contentMap, `contact.contact_item_${n}_link`),
   }));
 
-  console.log('contactItems: ', contactItems);
-
   return (
     <StyledContactSection>
       <Container className="container">

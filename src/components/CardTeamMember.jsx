@@ -29,6 +29,10 @@ const StyledCard = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 576px) {
+    height: 450px;
+  }
 `;
 
 const GlassCard = styled.div`

@@ -6,12 +6,15 @@ import CTA from '../components/CTA';
 import { Helmet } from 'react-helmet-async';
 import { useContent } from '../hooks/useContent';
 import c from '../../utils/content';
+import styled from 'styled-components';
+
+const StyledAboutUs = styled.div``;
 
 function AboutUs() {
   const { contentMap } = useContent();
 
   return (
-    <div>
+    <StyledAboutUs>
       <Helmet>
         <title>Afacere Locală | Despre Noi</title>
         <meta
@@ -32,7 +35,7 @@ function AboutUs() {
         text={c(contentMap, 'about.cta_description')}
         textBtn={c(contentMap, 'about.cta_button_text')}
       />
-    </div>
+    </StyledAboutUs>
   );
 }
 

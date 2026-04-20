@@ -8,6 +8,10 @@ import c from '../../utils/content';
 const StyledOurTeam = styled.div`
   padding: 5rem 0;
   background-color: #365764;
+
+  @media (max-width: 576px) {
+    padding: 3rem 1.5rem;
+  }
 `;
 
 const StyledH2 = styled.h2`
@@ -16,6 +20,7 @@ const StyledH2 = styled.h2`
 `;
 
 const StyledP = styled.p`
+  text-align: justify;
   font-size: 1.2rem;
   font-weight: 500;
   color: #fff;
@@ -33,8 +38,6 @@ function OurTeam() {
     facebook: c(contentMap, `about.member_${n}_facebook`),
     instagram: c(contentMap, `about.member_${n}_instagram`),
   }));
-
-  console.log('members: ', members);
 
   return (
     <StyledOurTeam>

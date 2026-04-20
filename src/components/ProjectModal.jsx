@@ -27,6 +27,8 @@ const StyledImg = styled.img`
   border-radius: 0.75rem;
   border: 2px solid #142b3e;
   cursor: pointer;
+  max-width: 150px;
+  max-height: 120px;
 `;
 
 const StyledH3 = styled.h3`

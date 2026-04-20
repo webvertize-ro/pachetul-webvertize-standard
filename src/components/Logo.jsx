@@ -3,6 +3,7 @@ import logoImg from '../assets/images/basic-business-logo.svg';
 
 const StyledImg = styled.img`
   max-width: ${(props) => (props.width ? props.width : '160px')};
+  max-height: ${(props) => (props.width ? props.width : '60px')};
 `;
 
 function Logo({ width }) {

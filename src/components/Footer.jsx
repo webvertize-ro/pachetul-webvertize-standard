@@ -18,6 +18,10 @@ const StyledFooter = styled.footer`
   padding: 2rem 0;
   background-color: #142b3e;
   color: #fff;
+
+  @media (max-width: 576px) {
+    padding: 3rem 1.5rem;
+  }
 `;
 
 const StyledH6 = styled.h6`
@@ -49,8 +53,6 @@ const StrongEmail = styled.strong`
 
 function Footer() {
   const { contentMap } = useContent();
-
-  console.log('contentMap in Footer: ', contentMap);
 
   return (
     <StyledFooter className="footer py-6">

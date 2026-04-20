@@ -81,7 +81,7 @@ function CookiePopup() {
         <Container className="container">
           <Text>{c(contentMap, 'global.cookie-pop-up-paragraph')}</Text>
           <ButtonsContainer className="d-flex gap-1">
-            <Button onClick={() => handlePopup()}>
+            <Button onClick={() => handlePopup()} className="ok-cookie-pop-up">
               {c(contentMap, 'global.cookie-pop-up-button-1-text')}
             </Button>
             <Button

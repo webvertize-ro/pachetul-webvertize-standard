@@ -42,7 +42,8 @@ const VideoContainer = styled.div`
 `;
 
 const StyledImg = styled.img`
-  max-width: 475px;
+  max-width: 375px;
+  max-height: 650px;
   border-radius: 1.5rem;
   border: 4px solid rgba(255, 255, 255, 0.5);
   position: relative;
@@ -113,7 +114,7 @@ const PlayButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 99;
   border: none;
   border-radius: 50%;
   padding: 1rem;

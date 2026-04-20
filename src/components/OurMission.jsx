@@ -10,6 +10,10 @@ const StyledOurMission = styled.div`
   padding: 3rem 0;
   background-color: #1f3745;
   color: #fff;
+
+  @media (max-width: 576px) {
+    padding: 3rem 1.5rem;
+  }
 `;
 
 const TextContent = styled.div`
@@ -20,7 +24,8 @@ const TextContent = styled.div`
 
 const StyledImg = styled.img`
   border-radius: 1rem;
-  max-width: 425px;
+  max-width: 375px;
+  max-height: 650px;
 
   @media (max-width: 576px) {
     max-width: 300px;
@@ -102,9 +107,8 @@ function OurMission() {
     c(contentMap, `about.mission_paragraph_${n}`),
   );
 
-  console.log('paragraphs: ', paragraphs);
   return (
-    <StyledOurMission>
+    <StyledOurMission className="container-fluid">
       <div className="container">
         <div className="row d-flex align-items-center">
           {/* Text */}

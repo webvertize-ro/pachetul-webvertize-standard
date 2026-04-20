@@ -65,8 +65,6 @@ function ProjectsCard({
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [indexImg, setIndexImg] = useState(0);
 
-  console.log('imageGallery: ', imageGallery);
-
   return (
     <>
       <Modal>

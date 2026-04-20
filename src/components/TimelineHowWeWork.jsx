@@ -14,11 +14,7 @@ const StyledTimelineHowWeWork = styled.div`
   color: #fff;
 
   @media (max-width: 576px) {
-    padding: 1.5rem 0;
-  }
-
-  @media (min-width: 576px) and (max-width: 992px) {
-    padding: 2rem 0;
+    padding: 3rem 1.5rem;
   }
 `;
 
@@ -77,7 +73,9 @@ const StyledH2 = styled.h2`
 `;
 
 const StyledP = styled.p`
-  font-size: 1.25rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: justify;
 
   @media (min-width: 576px) and (max-width: 992px) {
     text-align: center;

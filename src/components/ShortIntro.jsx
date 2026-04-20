@@ -24,6 +24,8 @@ const StyledH2 = styled.h2`
 
 const StyledImg = styled.img`
   border-radius: 1rem;
+  max-width: 300px;
+  max-height: 300px;
 
   @media (max-width: 576px) {
     width: 350px;
