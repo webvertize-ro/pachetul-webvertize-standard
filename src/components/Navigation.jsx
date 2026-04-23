@@ -1,4 +1,10 @@
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faTiktok,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
@@ -182,6 +188,27 @@ function Navigation() {
     setIsNavbarOpen(false);
   }
 
+  // Social links
+  const socialLinks = [1, 2, 3, 4]
+    .map((n) => {
+      const raw = c(contentMap, `navbar_social_${n}`);
+      if (!raw) return null;
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return null;
+      }
+    })
+    .filter(Boolean);
+
+  const iconMap = {
+    facebook: faFacebook,
+    instagram: faInstagram,
+    tiktok: faTiktok,
+    youtube: faYoutube,
+    linkedin: faLinkedin,
+  };
+
   return (
     <NavigationHeader
       $isScrolled={isScrolled}
@@ -258,20 +285,16 @@ function Navigation() {
             </StyledNavUl>
           </StyledNavCollapse>
           <StyledSocialLinks>
-            <StyledAnchor
-              href="https://facebook.com"
-              target="_blank"
-              aria-label="Pagina de facebook a afacerii"
-            >
-              <StyledFontAwesomeIcon icon={faFacebook} />
-            </StyledAnchor>
-            <StyledAnchor
-              href="https://instagram.com"
-              target="_blank"
-              aria-label="Pagina de instagram a afacerii"
-            >
-              <StyledFontAwesomeIcon icon={faInstagram} />
-            </StyledAnchor>
+            {socialLinks.map((link) => (
+              <StyledAnchor
+                key={link.platform}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <StyledFontAwesomeIcon icon={iconMap[link.platform]} />
+              </StyledAnchor>
+            ))}
           </StyledSocialLinks>
         </StyledNavContainer>
       </StyledNav>
