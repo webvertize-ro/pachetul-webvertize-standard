@@ -27,6 +27,7 @@ function Portfolio() {
       <StyledPortfolio>
         <Group bgImg={portfolioBackground}>
           <Hero
+            heroBg={c(contentMap, 'portfolio.header_bg_image')}
             heroTitle={c(contentMap, 'portfolio.header_title')}
             heroDesc={c(contentMap, 'portfolio.header_description')}
             btnTxt={c(contentMap, 'portfolio.header_button_text')}
