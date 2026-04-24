@@ -25,9 +25,9 @@ function Portfolio() {
       </Helmet>
 
       <StyledPortfolio>
-        <Group bgImg={portfolioBackground}>
+        <Group bgImg={c(contentMap, 'portfolio.header_bg_image')}>
           <Hero
-            heroBg={c(contentMap, 'portfolio.header_bg_image')}
+            // heroBg={c(contentMap, 'portfolio.header_bg_image')}
             heroTitle={c(contentMap, 'portfolio.header_title')}
             heroDesc={c(contentMap, 'portfolio.header_description')}
             btnTxt={c(contentMap, 'portfolio.header_button_text')}
