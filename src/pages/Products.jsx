@@ -34,7 +34,7 @@ function Products() {
         />
       </Helmet>
       <Hero
-        heroBg={productsHeader}
+        heroBg={c(contentMap, 'products.header_bg_image')}
         heroTitle={c(contentMap, 'products.header_title')}
         heroDesc={c(contentMap, 'products.header_description')}
         btnTxt={c(contentMap, 'products.header_button_text')}
