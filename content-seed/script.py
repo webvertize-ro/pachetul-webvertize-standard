@@ -1,6 +1,6 @@
 import re
 
-with open("seed-new.sql", "r") as f:
+with open("seed.sql", "r") as f:
     lines = f.readlines()
 
 counter = 1
@@ -15,5 +15,5 @@ for line in lines:
     else:
         output.append(line)
 
-with open("seed-new.sql", "w") as f:
+with open("seed.sql", "w") as f:
     f.writelines(output)

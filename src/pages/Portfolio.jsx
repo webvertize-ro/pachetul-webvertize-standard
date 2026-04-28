@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Hero from '../components/Hero';
-import portfolioBackground from '../assets/images/portfolio_background.avif';
 import Projects from '../components/Projects';
 import ReasonsToChooseUs from '../components/ReasonsToChooseUs';
 import CTA from '../components/CTA';
@@ -27,7 +26,6 @@ function Portfolio() {
       <StyledPortfolio>
         <Group bgImg={c(contentMap, 'portfolio.header_bg_image')}>
           <Hero
-            // heroBg={c(contentMap, 'portfolio.header_bg_image')}
             heroTitle={c(contentMap, 'portfolio.header_title')}
             heroDesc={c(contentMap, 'portfolio.header_description')}
             btnTxt={c(contentMap, 'portfolio.header_button_text')}

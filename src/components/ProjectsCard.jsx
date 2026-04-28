@@ -4,6 +4,8 @@ import ProjectModal from './ProjectModal';
 import { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
+import c from '../../utils/content';
+import { useContent } from '../hooks/useContent';
 
 const StyledProjectsCard = styled.div`
   width: 100%;
@@ -64,6 +66,7 @@ function ProjectsCard({
 }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [indexImg, setIndexImg] = useState(0);
+  const {contentMap} = useContent();
 
   return (
     <>
@@ -82,6 +85,7 @@ function ProjectsCard({
           name="form-modal"
           bgColor="rgba(59, 94, 117, 0.5)"
           lightboxOpen={lightboxOpen}
+          title={c(contentMap, 'portfolio.project_1_modal_title')}
         >
           <ProjectModal
             projectLongDesc={projectLongDesc}
