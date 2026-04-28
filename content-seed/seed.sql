@@ -1,5 +1,3 @@
--- Standard package extension seed
--- Run AFTER the basic seed
 -- website_id: 1db4c0bf-0450-436f-820c-a6198727905e
 
 insert into content (website_id, page, section, key, label, value, content_type, display_order) values
@@ -10,25 +8,25 @@ insert into content (website_id, page, section, key, label, value, content_type,
 -- ============================================================
 
 -- home / carousel (replaces header section from basic)
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_1_bg_image', 'Carusel — slide 1 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 400),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_1_title', 'Carusel — slide 1 titlu', 'Titlul primului slide', 'text', 401),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_1_description', 'Carusel — slide 1 descriere', 'Descrierea primului slide din carusel.', 'text', 402),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_2_bg_image', 'Carusel — slide 2 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 403),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_2_title', 'Carusel — slide 2 titlu', 'Titlul celui de-al doilea slide', 'text', 404),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_2_description', 'Carusel — slide 2 descriere', 'Descrierea celui de-al doilea slide din carusel.', 'text', 405),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_3_bg_image', 'Carusel — slide 3 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 406),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_3_title', 'Carusel — slide 3 titlu', 'Titlul celui de-al treilea slide', 'text', 407),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_3_description', 'Carusel — slide 3 descriere', 'Descrierea celui de-al treilea slide din carusel.', 'text', 408),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_4_bg_image', 'Carusel — slide 4 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 409),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_4_title', 'Carusel — slide 4 titlu', 'Titlul celui de-al patrulea slide', 'text', 410),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_4_description', 'Carusel — slide 4 descriere', 'Descrierea celui de-al patrulea slide din carusel.', 'text', 411),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_5_bg_image', 'Carusel — slide 5 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 412),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_5_title', 'Carusel — slide 5 titlu', 'Titlul celui de-al cincilea slide', 'text', 413),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_5_description', 'Carusel — slide 5 descriere', 'Descrierea celui de-al cincilea slide din carusel.', 'text', 414),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_1_bg_image', 'Carusel — slide 1 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 1),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_1_title', 'Carusel — slide 1 titlu', 'Titlul primului slide', 'text', 2),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_1_description', 'Carusel — slide 1 descriere', 'Descrierea primului slide din carusel.', 'text', 3),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_2_bg_image', 'Carusel — slide 2 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 4),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_2_title', 'Carusel — slide 2 titlu', 'Titlul celui de-al doilea slide', 'text', 5),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_2_description', 'Carusel — slide 2 descriere', 'Descrierea celui de-al doilea slide din carusel.', 'text', 6),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_3_bg_image', 'Carusel — slide 3 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 7),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_3_title', 'Carusel — slide 3 titlu', 'Titlul celui de-al treilea slide', 'text', 8),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_3_description', 'Carusel — slide 3 descriere', 'Descrierea celui de-al treilea slide din carusel.', 'text', 9),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_4_bg_image', 'Carusel — slide 4 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 10),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_4_title', 'Carusel — slide 4 titlu', 'Titlul celui de-al patrulea slide', 'text', 11),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_4_description', 'Carusel — slide 4 descriere', 'Descrierea celui de-al patrulea slide din carusel.', 'text', 12),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_5_bg_image', 'Carusel — slide 5 imagine fundal', 'https://placehold.co/1920x800', 'image_url', 13),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_5_title', 'Carusel — slide 5 titlu', 'Titlul celui de-al cincilea slide', 'text', 14),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'carousel', 'slide_5_description', 'Carusel — slide 5 descriere', 'Descrierea celui de-al cincilea slide din carusel.', 'text', 15),
 
 -- home / services section video modal (addition to basic services section)
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'services', 'services_video_url', 'Servicii — URL video prezentare', 'https://www.youtube.com/embed/YOUR_VIDEO_ID', 'text', 415),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'services', 'services_video_button_text', 'Servicii — text buton video', 'Vezi prezentarea video', 'text', 416),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'services', 'services_video_modal_title', 'Servicii — titlu modal', 'Video de prezentare', 'text', 416),
 
 -- ============================================================
 -- CONTACT PAGE MODIFICATIONS
@@ -420,7 +418,6 @@ insert into content (website_id, page, section, key, label, value, content_type,
 -- navbar
 
 insert into content (website_id, page, section, key, label, value, content_type, display_order) values
--- global / footer
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'global', 'navbar', 'navbar_link_1_text', 'Navbar — link 1 text', 'Acasă', 'text', 740),
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'global', 'navbar', 'navbar_link_1_route', 'Navbar — link 1 rută', '/', 'text', 741),
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'global', 'navbar', 'navbar_link_2_text', 'Navbar — link 2 text', 'Despre noi', 'text', 742),
