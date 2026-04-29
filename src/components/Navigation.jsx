@@ -10,7 +10,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from './Logo';
-import Dropdown from './Dropdown';
 import { useContent } from '../hooks/useContent';
 import c from '../../utils/content';
 
@@ -248,9 +247,14 @@ function Navigation() {
               >
                 {c(contentMap, 'global.navbar_link_1_text')}
               </StyledNavLink>
-              {/* Dropdown Button */}
-
-              <Dropdown className="my-dropdown" />
+              
+              {/* Despre Noi */}
+              <StyledNavLink
+                to={c(contentMap, 'global.navbar_link_2_route')}
+                className="nav-item nav-link"
+              >
+                {c(contentMap, 'global.navbar_link_2_text')}
+              </StyledNavLink>
 
               <StyledNavLink
                 to={c(contentMap, 'global.navbar_link_5_route')}

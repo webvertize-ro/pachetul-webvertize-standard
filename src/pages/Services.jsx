@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 import Hero from '../components/Hero';
-import heroBg from '../assets/images/services-hero.avif';
 import ServicesDetails from '../components/ServicesDetails';
 import CTA from '../components/CTA';
-import { useEffect } from 'react';
-import { images } from '../data/gallery2';
 import PhotoGallery from '../components/PhotoGallery';
 import Group from '../components/Group';
 import { Helmet } from 'react-helmet-async';
 import { useContent } from '../hooks/useContent';
 import c from '../../utils/content';
+import TimelineHowWeWork from '../components/TimelineHowWeWork';
+import CertificationsList from '../components/CertificationsList';
 
 const StyledServices = styled.div`
   /* height: 650px; */
@@ -40,11 +39,13 @@ function Services() {
           btnTxt={c(contentMap, 'services.header_button_text')}
         />
         <ServicesDetails />
+        <TimelineHowWeWork />
         <PhotoGallery
           title={c(contentMap, 'services.gallery_title')}
           text={c(contentMap, 'services.gallery_description')}
           images={images}
         />
+        <CertificationsList />
         <CTA
           title={c(contentMap, 'services.cta_title')}
           text={c(contentMap, 'services.cta_description')}
