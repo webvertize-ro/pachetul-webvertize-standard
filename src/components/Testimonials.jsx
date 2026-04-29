@@ -59,10 +59,19 @@ const StyledRow = styled.div`
   gap: 1.5rem;
 `;
 
+const ReviewName = styled.div`
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+`;
+
 function Testimonials() {
   const { contentMap } = useContent();
-  const testimonials = [1, 2, 3, 4, 5].map((n) => ({
+
+  const reviews = [1, 2, 3, 4, 5].map((n) => ({
     image: c(contentMap, `home.review_${n}_image`),
+    name: c(contentMap, `home.review_${n}_name`),
     stars: c(contentMap, `home.review_${n}_stars`),
     quote: c(contentMap, `home.review_${n}_quote`),
   }));
@@ -82,19 +91,19 @@ function Testimonials() {
 
       <StyledTestimonialsContainer className="container">
         <StyledRow className="row d-flex justify-content-center">
-          {testimonials.map((t, index) => (
+          {reviews.map((review, index) => (
             <div
               key={index}
               className="col-md-4 col-lg-2 d-flex flex-column align-items-center gap-3"
             >
               {/* Avatar and Stars */}
               <div className="d-flex flex-column justify-content-center align-items-center">
-                <Avatar img={t.image} />
-
-                <RatingStars stars={t.stars} />
+                <Avatar img={review.image} />
+                <ReviewName>{review.name}</ReviewName>
+                <RatingStars stars={review.stars} />
               </div>
               {/* Testimonial Text */}
-              <TestimonialContent content={t.quote} />
+              <TestimonialContent content={review.quote} />
             </div>
           ))}
         </StyledRow>
