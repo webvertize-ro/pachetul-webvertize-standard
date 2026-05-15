@@ -4,27 +4,27 @@ import {
   faLinkedin,
   faTiktok,
   faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import Logo from './Logo';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import styled from "styled-components";
+import Logo from "./Logo";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const NavigationHeader = styled.header`
   transition: all 0.3s ease-in-out;
   top: 0;
   width: 100%;
   z-index: 100;
-  padding: ${({ $isScrolled }) => ($isScrolled ? '0.75rem 3rem' : '0')};
+  padding: ${({ $isScrolled }) => ($isScrolled ? "0.75rem 3rem" : "0")};
   ${({ $isScrolled }) =>
     $isScrolled
       ? `filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));`
       : `filter: none`}
   @media (max-width: 576px) {
-    padding: ${({ $isScrolled }) => ($isScrolled ? '0.5rem 1.25rem' : '0')};
+    padding: ${({ $isScrolled }) => ($isScrolled ? "0.5rem 1.25rem" : "0")};
   }
 `;
 
@@ -34,15 +34,15 @@ const StyledNav = styled.nav`
   z-index: 101;
   font-size: 0.9rem;
   background-color: ${({ $isScrolled }) =>
-    $isScrolled ? 'rgba(31, 55, 69, 0.9)' : 'transparent'};
+    $isScrolled ? "rgba(31, 55, 69, 0.9)" : "transparent"};
   box-shadow: ${({ $isScrolled }) =>
-    $isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'unset'};
+    $isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "unset"};
   backdrop-filter: ${({ $isScrolled }) =>
-    $isScrolled ? 'blur(20px)' : 'unset'};
+    $isScrolled ? "blur(20px)" : "unset"};
   -webkit-backdrop-filter: ${({ $isScrolled }) =>
-    $isScrolled ? 'blur(20px)' : 'unset'};
+    $isScrolled ? "blur(20px)" : "unset"};
   border: ${({ $isScrolled }) =>
-    $isScrolled ? '1px solid rgba(255, 255, 255, 0.3)' : 'unset'};
+    $isScrolled ? "1px solid rgba(255, 255, 255, 0.3)" : "unset"};
   transition: all 0.5s ease-in-out;
   border-radius: 1rem;
 
@@ -80,7 +80,7 @@ const StyledNavUl = styled.ul`
 const StyledNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 600;
   text-transform: uppercase;
   color: #fff;
@@ -154,14 +154,14 @@ function Navigation() {
       setIsScrolled(myBool);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Run once on mount
     handleScroll();
 
     // clean up
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -173,16 +173,16 @@ function Navigation() {
     }
 
     if (isNavbarOpen) {
-      document.addEventListener('mousedown', closeNavigation);
+      document.addEventListener("mousedown", closeNavigation);
     }
 
     return () => {
-      document.removeEventListener('mousedown', closeNavigation);
+      document.removeEventListener("mousedown", closeNavigation);
     };
   }, [isNavbarOpen]);
 
   function handleNavClick(e) {
-    const link = e.target.closest('a');
+    const link = e.target.closest("a");
     if (!link) return;
     setIsNavbarOpen(false);
   }
@@ -190,7 +190,7 @@ function Navigation() {
   // Social links
   const socialLinks = [1, 2, 3, 4]
     .map((n) => {
-      const raw = c(contentMap, `navbar_social_${n}`);
+      const raw = c(contentMap, `global.navbar_social_${n}`);
       if (!raw) return null;
       try {
         return JSON.parse(raw);
@@ -237,54 +237,54 @@ function Navigation() {
             </Burger>
           </StyledButton>
           <StyledNavCollapse
-            className={`collapse navbar-collapse ${isNavbarOpen ? 'show' : ''}`}
+            className={`collapse navbar-collapse ${isNavbarOpen ? "show" : ""}`}
             id="menuLinks"
           >
             <StyledNavUl className="navbar-nav ms-auto">
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_1_route')}
+                to={c(contentMap, "global.navbar_link_1_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_1_text')}
+                {c(contentMap, "global.navbar_link_1_text")}
               </StyledNavLink>
-              
+
               {/* Despre Noi */}
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_2_route')}
+                to={c(contentMap, "global.navbar_link_2_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_2_text')}
+                {c(contentMap, "global.navbar_link_2_text")}
               </StyledNavLink>
 
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_5_route')}
+                to={c(contentMap, "global.navbar_link_5_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_5_text')}
+                {c(contentMap, "global.navbar_link_5_text")}
               </StyledNavLink>
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_6_route')}
+                to={c(contentMap, "global.navbar_link_6_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_6_text')}
+                {c(contentMap, "global.navbar_link_6_text")}
               </StyledNavLink>
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_7_route')}
+                to={c(contentMap, "global.navbar_link_7_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_7_text')}
+                {c(contentMap, "global.navbar_link_7_text")}
               </StyledNavLink>
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_8_route')}
+                to={c(contentMap, "global.navbar_link_8_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_8_text')}
+                {c(contentMap, "global.navbar_link_8_text")}
               </StyledNavLink>
               <StyledNavLink
-                to={c(contentMap, 'global.navbar_link_9_route')}
+                to={c(contentMap, "global.navbar_link_9_route")}
                 className="nav-item nav-link"
               >
-                {c(contentMap, 'global.navbar_link_9_text')}
+                {c(contentMap, "global.navbar_link_9_text")}
               </StyledNavLink>
             </StyledNavUl>
           </StyledNavCollapse>
