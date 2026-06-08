@@ -1,9 +1,8 @@
-import Card from './Card';
-import { ourTeam } from '../data/ourTeam';
-import CardTeamMember from './CardTeamMember';
-import styled from 'styled-components';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import Card from "./Card";
+import CardTeamMember from "./CardTeamMember";
+import styled from "styled-components";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledOurTeam = styled.div`
   padding: 5rem 0;
@@ -42,8 +41,8 @@ function OurTeam() {
   return (
     <StyledOurTeam>
       <div className="container">
-        <StyledH2>{c(contentMap, 'about.team_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'about.team_description')}</StyledP>
+        <StyledH2>{c(contentMap, "about.team_title")}</StyledH2>
+        <StyledP>{c(contentMap, "about.team_description")}</StyledP>
         <div className="row">
           {members.map((member) => (
             <div className="col-sm-6 col-lg-3 d-flex mb-4">

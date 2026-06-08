@@ -1,10 +1,8 @@
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { whyChooseOurProducts } from '../data/listData';
-import ListItem from './ListItem';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListItem from "./ListItem";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledWhyChooseOurProducts = styled.div`
   padding: 3rem 0;
@@ -50,8 +48,8 @@ function WhyChooseOurProducts() {
   return (
     <StyledWhyChooseOurProducts className="container-fluid">
       <div className="container">
-        <StyledH2>{c(contentMap, 'products.quality_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'products.quality_description')}</StyledP>
+        <StyledH2>{c(contentMap, "products.quality_title")}</StyledH2>
+        <StyledP>{c(contentMap, "products.quality_description")}</StyledP>
         <div className="row">
           <div className="col-12">
             <StyledUl>

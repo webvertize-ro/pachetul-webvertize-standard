@@ -1,7 +1,5 @@
-import { fa1, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import { timeline } from "../data/timeline";
 import TimelineItem from "./TimelineItem";
 import Modal from "./Modal";
 import Form from "./Form";

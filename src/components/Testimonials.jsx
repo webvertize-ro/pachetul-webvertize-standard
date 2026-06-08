@@ -1,11 +1,10 @@
-import styled from 'styled-components';
-import testimonials from '../data/testimonials.json';
-import Avatar from './Avatar';
-import RatingStars from './RatingStars';
-import TestimonialContent from './TestimonialContent';
-import ReviewGoogleButton from './ReviewGoogleButton';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import Avatar from "./Avatar";
+import RatingStars from "./RatingStars";
+import TestimonialContent from "./TestimonialContent";
+import ReviewGoogleButton from "./ReviewGoogleButton";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledTestimonials = styled.section`
   padding: 4rem 0;
@@ -76,16 +75,14 @@ function Testimonials() {
     quote: c(contentMap, `home.review_${n}_quote`),
   }));
 
-  console.log('testimonials: ', testimonials);
-
   return (
     <StyledTestimonials>
       <div className="d-flex flex-column align-items-center">
         <TestimonialsHeading>
-          {c(contentMap, 'home.reviews_title')}
+          {c(contentMap, "home.reviews_title")}
         </TestimonialsHeading>
         <TestimonialsSubtitle>
-          {c(contentMap, 'home.reviews_description')}
+          {c(contentMap, "home.reviews_description")}
         </TestimonialsSubtitle>
       </div>
 

@@ -1,12 +1,11 @@
-import styled from 'styled-components';
-import CustomizableItem from './CustomizableItem';
-import { contact } from '../data/contactInfo';
-import ContactDataItem from './ContactDataItem';
-import Modal from './Modal';
-import Form from './Form';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
-import { iconMap } from '../../utils/iconMap';
+import styled from "styled-components";
+import CustomizableItem from "./CustomizableItem";
+import ContactDataItem from "./ContactDataItem";
+import Modal from "./Modal";
+import Form from "./Form";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
+import { iconMap } from "../../utils/iconMap";
 
 const StyledContactSection = styled.div`
   padding: 3rem 0;
@@ -15,7 +14,7 @@ const StyledContactSection = styled.div`
   border-top: 3px solid rgba(107, 117, 128, 0.5);
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
@@ -148,8 +147,8 @@ function ContactSection() {
   return (
     <StyledContactSection>
       <Container className="container">
-        <StyledH2>{c(contentMap, 'contact.contact_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'contact.contact_description')}</StyledP>
+        <StyledH2>{c(contentMap, "contact.contact_title")}</StyledH2>
+        <StyledP>{c(contentMap, "contact.contact_description")}</StyledP>
         <Row className="row d-flex">
           <LeftSide className="col-lg-6 d-flex flex-column gap-3">
             {contactItems.map((c) => (
@@ -163,7 +162,7 @@ function ContactSection() {
             <Modal>
               <Modal.Open opens="form-modal">
                 <StyledButton>
-                  {c(contentMap, 'contact.contact_button_text')}
+                  {c(contentMap, "contact.contact_button_text")}
                 </StyledButton>
               </Modal.Open>
               <Modal.Window name="form-modal">
@@ -173,7 +172,7 @@ function ContactSection() {
           </LeftSide>
           <RightSide className="col-lg-6 d-flex justify-content-center">
             <StyledIFrame
-              src={c(contentMap, 'contact.contact_maps_url')}
+              src={c(contentMap, "contact.contact_maps_url")}
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"

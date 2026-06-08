@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import { projects } from '../data/projects';
-import ProjectsCard from './ProjectsCard';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import ProjectsCard from "./ProjectsCard";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledProjects = styled.div`
   padding: 5rem 0;
@@ -11,7 +10,7 @@ const StyledProjects = styled.div`
   border-top: 3px solid rgba(255, 255, 255, 0.3);
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -82,8 +81,8 @@ function Projects() {
   return (
     <StyledProjects>
       <Container className="container">
-        <StyledH2>{c(contentMap, 'portfolio.projects_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'portfolio.projects_description')}</StyledP>
+        <StyledH2>{c(contentMap, "portfolio.projects_title")}</StyledH2>
+        <StyledP>{c(contentMap, "portfolio.projects_description")}</StyledP>
         <div className="row">
           {projects.map((project) => (
             <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4 d-flex">

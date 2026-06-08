@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import { products } from '../data/products';
-import Product from './Product';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import Product from "./Product";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledProducts = styled.div`
   padding-top: 3rem;
@@ -53,13 +52,13 @@ function ProductsSection() {
     ),
   }));
 
-  console.log('products: ', products);
+  console.log("products: ", products);
 
   return (
     <StyledProducts>
       <div className="container">
-        <StyledH2>{c(contentMap, 'products.products_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'products.products_description')}</StyledP>
+        <StyledH2>{c(contentMap, "products.products_title")}</StyledH2>
+        <StyledP>{c(contentMap, "products.products_description")}</StyledP>
         <Row className="row g-4">
           {products.map((product) => (
             <div className="col-sm-6 col-md-4 ">

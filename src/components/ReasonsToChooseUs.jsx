@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import { reasonsToChooseUs } from '../data/listData';
-import ListItem from './ListItem';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import ListItem from "./ListItem";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledWhatRecommendsUs = styled.div`
   display: flex;
@@ -15,7 +14,7 @@ const StyledWhatRecommendsUs = styled.div`
   border-top: 3px solid rgba(255, 255, 255, 0.3);
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -99,9 +98,9 @@ function ReasonsToChooseUs() {
   return (
     <StyledWhatRecommendsUs>
       <Container className="container">
-        <StyledH2>{c(contentMap, 'portfolio.what_recommends_title')}</StyledH2>
+        <StyledH2>{c(contentMap, "portfolio.what_recommends_title")}</StyledH2>
         <StyledP>
-          {c(contentMap, 'portfolio.what_recommends_description')}
+          {c(contentMap, "portfolio.what_recommends_description")}
         </StyledP>
 
         <div className="row">
