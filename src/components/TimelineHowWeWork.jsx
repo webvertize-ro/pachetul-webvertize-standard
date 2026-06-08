@@ -1,12 +1,12 @@
-import { fa1, faComment } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
-import { timeline } from '../data/timeline';
-import TimelineItem from './TimelineItem';
-import Modal from './Modal';
-import Form from './Form';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import { fa1, faComment } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
+import { timeline } from "../data/timeline";
+import TimelineItem from "./TimelineItem";
+import Modal from "./Modal";
+import Form from "./Form";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledTimelineHowWeWork = styled.div`
   padding: 3rem 0;
@@ -92,17 +92,19 @@ function TimelineHowWeWork() {
   const { contentMap } = useContent();
 
   const steps = [1, 2, 3, 4].map((n) => ({
-    number: c(contentMap, `how_we_work.step_${n}_number`),
-    icon: c(contentMap, `how_we_work.step_${n}_icon`),
-    title: c(contentMap, `how_we_work.step_${n}_title`),
-    description: c(contentMap, `how_we_work.step_${n}_description`),
+    number: c(contentMap, `services.step_${n}_number`),
+    icon: c(contentMap, `services.step_${n}_icon`),
+    title: c(contentMap, `services.step_${n}_title`),
+    description: c(contentMap, `services.step_${n}_description`),
   }));
+
+  console.log("steps in TimelineHowWeWork: ", steps);
 
   return (
     <StyledTimelineHowWeWork>
       <div className="container">
-        <StyledH2>{c(contentMap, 'how_we_work.process_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'how_we_work.process_description')}</StyledP>
+        <StyledH2>{c(contentMap, "services.how_we_work_title")}</StyledH2>
+        <StyledP>{c(contentMap, "services.how_we_work_description")}</StyledP>
 
         <Row className="row">
           <div className="col-lg-12">
@@ -120,7 +122,7 @@ function TimelineHowWeWork() {
               <Modal>
                 <Modal.Open opens="form-modal">
                   <StyledButton>
-                    {c(contentMap, 'how_we_work.process_button_text')}
+                    {c(contentMap, "services.process_button_text")}
                   </StyledButton>
                 </Modal.Open>
                 <Modal.Window

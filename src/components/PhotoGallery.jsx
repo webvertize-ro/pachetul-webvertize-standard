@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import Lightbox from 'yet-another-react-lightbox';
-import { Captions } from 'yet-another-react-lightbox/plugins';
+import { useState } from "react";
+import styled from "styled-components";
+import Lightbox from "yet-another-react-lightbox";
+import { Captions } from "yet-another-react-lightbox/plugins";
 
 const StyledPhotoGallery = styled.div`
   padding: 3rem 0;

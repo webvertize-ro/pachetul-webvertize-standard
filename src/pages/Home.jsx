@@ -1,18 +1,18 @@
-import styled from 'styled-components';
-import SplitSection from '../components/SplitSection';
-import Stats from '../components/Stats';
-import CTA from '../components/CTA';
-import OurPartners from '../components/OurPartners';
-import WhyWorkWithUs from '../components/WhyWorkWithUs';
-import Testimonials from '../components/Testimonials';
-import ShortServices from '../components/ShortServices';
-import { useEffect } from 'react';
-import PhotoGallery from '../components/PhotoGallery';
+import styled from "styled-components";
+import SplitSection from "../components/SplitSection";
+import Stats from "../components/Stats";
+import CTA from "../components/CTA";
+import OurPartners from "../components/OurPartners";
+import WhyWorkWithUs from "../components/WhyWorkWithUs";
+import Testimonials from "../components/Testimonials";
+import ShortServices from "../components/ShortServices";
+import { useEffect } from "react";
+import PhotoGallery from "../components/PhotoGallery";
 // import { images } from '../data/gallery1.js';
-import SliderWrapper from '../components/ImageSlider/SliderWrapper.jsx';
-import { Helmet } from 'react-helmet-async';
-import { useContent } from '../hooks/useContent.js';
-import c from '../../utils/content.js';
+import SliderWrapper from "../components/ImageSlider/SliderWrapper.jsx";
+import { Helmet } from "react-helmet-async";
+import { useContent } from "../hooks/useContent.js";
+import c from "../../utils/content.js";
 
 const StyledHome = styled.div`
   /* overflow-x: hidden; */
@@ -40,8 +40,8 @@ function Home() {
         <SliderWrapper />
         <Stats />
         <PhotoGallery
-          title={c(contentMap, 'home.gallery_title')}
-          text={c(contentMap, 'home.gallery_description')}
+          title={c(contentMap, "home.gallery_title")}
+          text={c(contentMap, "home.gallery_description")}
           images={images}
         />
         <ShortServices />
@@ -49,9 +49,9 @@ function Home() {
         <WhyWorkWithUs />
         <Testimonials />
         <CTA
-          title={c(contentMap, 'home.cta_title')}
-          text={c(contentMap, 'home.cta_description')}
-          textBtn={c(contentMap, 'home.cta_button_text')}
+          title={c(contentMap, "home.cta_title")}
+          text={c(contentMap, "home.cta_description")}
+          textBtn={c(contentMap, "home.cta_button_text")}
         />
       </StyledHome>
     </>
