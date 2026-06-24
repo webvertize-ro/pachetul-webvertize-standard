@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const StyledCounter = styled.div`
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #fff;
   margin-bottom: 0;
 

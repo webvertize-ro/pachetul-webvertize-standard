@@ -14,88 +14,126 @@ import { useContent } from "../hooks/useContent";
 import c from "../../utils/content";
 
 const NavigationHeader = styled.header`
-  transition: all 0.3s ease-in-out;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
-  padding: ${({ $isScrolled }) => ($isScrolled ? "0.75rem 3rem" : "0")};
-  ${({ $isScrolled }) =>
-    $isScrolled
-      ? `filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));`
-      : `filter: none`}
-  @media (max-width: 576px) {
-    padding: ${({ $isScrolled }) => ($isScrolled ? "0.5rem 1.25rem" : "0")};
-  }
 `;
 
 const StyledNav = styled.nav`
-  height: 80px;
-  padding: 0;
-  z-index: 101;
-  font-size: 0.9rem;
-  background-color: ${({ $isScrolled }) =>
-    $isScrolled ? "rgba(31, 55, 69, 0.9)" : "transparent"};
-  box-shadow: ${({ $isScrolled }) =>
-    $isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "unset"};
-  backdrop-filter: ${({ $isScrolled }) =>
-    $isScrolled ? "blur(20px)" : "unset"};
-  -webkit-backdrop-filter: ${({ $isScrolled }) =>
-    $isScrolled ? "blur(20px)" : "unset"};
-  border: ${({ $isScrolled }) =>
-    $isScrolled ? "1px solid rgba(255, 255, 255, 0.3)" : "unset"};
-  transition: all 0.5s ease-in-out;
-  border-radius: 1rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  background: rgba(26, 46, 42, 0.96);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(126, 200, 176, 0.1);
 
   @media (max-width: 992px) {
-    height: unset;
-    padding: 0.5rem;
+    height: auto;
+    padding: 0.6rem 1rem;
   }
 `;
 
 const StyledNavContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.5rem;
+
   @media (max-width: 992px) {
-    max-width: unset;
+    flex-wrap: wrap;
+    padding: 0;
   }
 `;
 
 const StyledButton = styled.button`
-  color: #fff;
-  border-color: #fff;
-  padding: 0.5rem;
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(126, 200, 176, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+
+  @media (max-width: 992px) {
+    display: flex;
+  }
 `;
 
 const StyledNavCollapse = styled.div`
   height: 100%;
 
-  @media (max-width: 576px) {
-    margin-right: 0 !important;
+  @media (max-width: 992px) {
+    display: ${({ $open }) => ($open ? "block" : "none")};
+    width: 100%;
+    height: auto;
+    order: 3;
   }
 `;
 
 const StyledNavUl = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
   height: 100%;
+  gap: 0.25rem;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 0.5rem 0 0.75rem;
+    gap: 0;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  font-family: "Montserrat";
+  height: 100%;
+  padding: 0 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+
   &:hover {
-    background-color: #2c5870;
     color: #fff;
+    border-bottom-color: rgba(126, 200, 176, 0.4);
   }
 
   &.active {
-    background-color: #2c5870;
-    color: #fff !important;
+    color: #fff;
+    border-bottom-color: #7ec8b0;
   }
 
   @media (max-width: 992px) {
-    justify-content: center;
+    height: auto;
+    padding: 0.7rem 0.5rem;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+
+    &:hover {
+      border-bottom: none;
+      border-left-color: rgba(126, 200, 176, 0.4);
+    }
+
+    &.active {
+      border-bottom: none;
+      border-left-color: #7ec8b0;
+    }
   }
 `;
 
@@ -105,65 +143,45 @@ const StyledSocialLinks = styled.div`
   @media (min-width: 992px) {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
 `;
 
 const StyledAnchor = styled.a`
-  color: #000;
-  &:hover {
-    text-decoration: none;
-  }
+  display: flex;
+  text-decoration: none;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  font-size: 1.2rem;
-  background-color: #456882;
-  color: #fff;
-  padding: 0.25rem;
-  border-radius: 0.35rem;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: rgba(126, 200, 176, 0.12);
+  color: #7ec8b0;
+  padding: 0.45rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
 
   &:hover {
-    background-color: #1b3c53;
+    background: rgba(126, 200, 176, 0.22);
   }
 `;
 
 const Burger = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.3rem;
 `;
 
 const BurgerLine = styled.div`
-  height: 4px;
-  width: 25px;
-  background-color: #fff;
+  height: 2px;
+  width: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
 `;
 
 function Navigation() {
-  const { contentMap, isLoading, error } = useContent();
+  const { contentMap, isLoading } = useContent();
 
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const navigation = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const myBool = window.scrollY > 0;
-      setIsScrolled(myBool);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Run once on mount
-    handleScroll();
-
-    // clean up
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     function closeNavigation(e) {
@@ -209,18 +227,10 @@ function Navigation() {
   };
 
   return (
-    <NavigationHeader
-      $isScrolled={isScrolled}
-      onClick={handleNavClick}
-      className="sticky-top"
-    >
-      <StyledNav
-        className="navbar navbar-expand-lg sticky-top"
-        ref={navigation}
-        $isScrolled={isScrolled}
-      >
-        <StyledNavContainer className="container">
-          <Link to="/" className="navbar-brand">
+    <NavigationHeader onClick={handleNavClick}>
+      <StyledNav ref={navigation}>
+        <StyledNavContainer>
+          <Link to="/">
             <Logo />
           </Link>
 
@@ -228,66 +238,46 @@ function Navigation() {
             type="button"
             onClick={() => setIsNavbarOpen((prev) => !prev)}
             aria-label="Toggle navigation"
-            className="navbar-toggler"
           >
             <Burger>
-              <BurgerLine></BurgerLine>
-              <BurgerLine></BurgerLine>
-              <BurgerLine></BurgerLine>
+              <BurgerLine />
+              <BurgerLine />
+              <BurgerLine />
             </Burger>
           </StyledButton>
-          <StyledNavCollapse
-            className={`collapse navbar-collapse ${isNavbarOpen ? "show" : ""}`}
-            id="menuLinks"
-          >
-            <StyledNavUl className="navbar-nav ms-auto">
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_1_route")}
-                className="nav-item nav-link"
-              >
+
+          <StyledNavCollapse $open={isNavbarOpen}>
+            <StyledNavUl>
+              <StyledNavLink to={c(contentMap, "global.navbar_link_1_route")}>
                 {c(contentMap, "global.navbar_link_1_text")}
               </StyledNavLink>
 
-              {/* Despre Noi */}
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_2_route")}
-                className="nav-item nav-link"
-              >
+              <StyledNavLink to={c(contentMap, "global.navbar_link_2_route")}>
                 {c(contentMap, "global.navbar_link_2_text")}
               </StyledNavLink>
 
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_5_route")}
-                className="nav-item nav-link"
-              >
+              <StyledNavLink to={c(contentMap, "global.navbar_link_5_route")}>
                 {c(contentMap, "global.navbar_link_5_text")}
               </StyledNavLink>
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_6_route")}
-                className="nav-item nav-link"
-              >
+
+              <StyledNavLink to={c(contentMap, "global.navbar_link_6_route")}>
                 {c(contentMap, "global.navbar_link_6_text")}
               </StyledNavLink>
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_7_route")}
-                className="nav-item nav-link"
-              >
+
+              <StyledNavLink to={c(contentMap, "global.navbar_link_7_route")}>
                 {c(contentMap, "global.navbar_link_7_text")}
               </StyledNavLink>
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_8_route")}
-                className="nav-item nav-link"
-              >
+
+              <StyledNavLink to={c(contentMap, "global.navbar_link_8_route")}>
                 {c(contentMap, "global.navbar_link_8_text")}
               </StyledNavLink>
-              <StyledNavLink
-                to={c(contentMap, "global.navbar_link_9_route")}
-                className="nav-item nav-link"
-              >
+
+              <StyledNavLink to={c(contentMap, "global.navbar_link_9_route")}>
                 {c(contentMap, "global.navbar_link_9_text")}
               </StyledNavLink>
             </StyledNavUl>
           </StyledNavCollapse>
+
           <StyledSocialLinks>
             {socialLinks.map((link) => (
               <StyledAnchor

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Link } from 'react-router';
-import styled from 'styled-components';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import { useState } from "react";
+import { Link } from "react-router";
+import styled from "styled-components";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledCookiePopup = styled.div`
   position: fixed;
@@ -17,18 +17,16 @@ const StyledCookiePopup = styled.div`
   display: flex;
   z-index: 9999;
   /* glassmorphism styling */
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(26, 58, 50, 0.97);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 0.5px solid rgba(126, 200, 176, 0.15);
   margin-left: auto;
   margin-right: auto;
 
   @media (max-width: 576px) {
     width: 96%;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
   }
 `;
 
@@ -44,12 +42,21 @@ const Text = styled.div`
 
 const Button = styled(Link)`
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background-color: transparent;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
+  color: #7ec8b0;
   border-radius: 0.75rem;
   padding: 0.5rem;
   display: flex;
   justify-content: center;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(126, 200, 176, 0.1);
+    border-color: rgba(126, 200, 176, 0.5);
+  }
 `;
 
 const ButtonsContainer = styled.div`
@@ -59,18 +66,13 @@ const ButtonsContainer = styled.div`
 function CookiePopup() {
   const { contentMap } = useContent();
 
-  console.log(
-    'cookie-pop-up-paragraph: ',
-    c(contentMap, 'global.cookie-pop-up-paragraph'),
-  );
-
   const [popupOpen, setPopupOpen] = useState(
-    localStorage.getItem('acceptedCookies') !== 'true',
+    localStorage.getItem("acceptedCookies") !== "true",
   );
 
   function handlePopup() {
     setPopupOpen(false);
-    localStorage.setItem('acceptedCookies', 'true');
+    localStorage.setItem("acceptedCookies", "true");
   }
 
   if (!popupOpen) return;
@@ -79,16 +81,16 @@ function CookiePopup() {
     popupOpen && (
       <StyledCookiePopup>
         <Container className="container">
-          <Text>{c(contentMap, 'global.cookie-pop-up-paragraph')}</Text>
+          <Text>{c(contentMap, "global.cookie-pop-up-paragraph")}</Text>
           <ButtonsContainer className="d-flex gap-1">
             <Button onClick={() => handlePopup()} className="ok-cookie-pop-up">
-              {c(contentMap, 'global.cookie-pop-up-button-1-text')}
+              {c(contentMap, "global.cookie-pop-up-button-1-text")}
             </Button>
             <Button
-              to={c(contentMap, 'global.cookie-pop-up-button-2-route')}
+              to={c(contentMap, "global.cookie-pop-up-button-2-route")}
               target="_blank"
             >
-              {c(contentMap, 'global.cookie-pop-up-button-2-text')}
+              {c(contentMap, "global.cookie-pop-up-button-2-text")}
             </Button>
           </ButtonsContainer>
         </Container>

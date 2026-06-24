@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
-import styled from 'styled-components';
-import Logo from '../components/Logo';
-import { Helmet } from 'react-helmet-async';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import styled from "styled-components";
+import Logo from "../components/Logo";
+import { Helmet } from "react-helmet-async";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledTooManyRequests = styled.div`
   height: 100vh;
@@ -18,7 +18,7 @@ const StyledTooManyRequests = styled.div`
 `;
 
 const StyledP = styled.p`
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
@@ -44,15 +44,15 @@ function TooManyRequests() {
   const { contentMap } = useContent();
 
   useEffect(() => {
-    const tooManyRequests = sessionStorage.getItem('tooManyRequests');
+    const tooManyRequests = sessionStorage.getItem("tooManyRequests");
     if (!tooManyRequests) {
-      navigate('/');
+      navigate("/");
       return;
     }
     setAllowed(true);
 
     // clear sessionStorage (such that it won't load on refresh
-    sessionStorage.removeItem('tooManyRequests');
+    sessionStorage.removeItem("tooManyRequests");
   }, [navigate]);
 
   if (!allowed) return null;
@@ -66,15 +66,15 @@ function TooManyRequests() {
       <StyledTooManyRequests>
         <Logo />
         <StyledP>
-          {c(contentMap, 'too-many-requests.too-many-requests-paragraph-1')}
+          {c(contentMap, "too-many-requests.too-many-requests-paragraph-1")}
         </StyledP>
         <StyledP>
-          {c(contentMap, 'too-many-requests.too-many-requests-paragraph-2')}
+          {c(contentMap, "too-many-requests.too-many-requests-paragraph-2")}
         </StyledP>
         <StyledButton
-          to={c(contentMap, 'too-many-requests.too-many-requests-button-route')}
+          to={c(contentMap, "too-many-requests.too-many-requests-button-route")}
         >
-          {c(contentMap, 'too-many-requests.too-many-requests-button-text')}
+          {c(contentMap, "too-many-requests.too-many-requests-button-text")}
         </StyledButton>
       </StyledTooManyRequests>
     </>

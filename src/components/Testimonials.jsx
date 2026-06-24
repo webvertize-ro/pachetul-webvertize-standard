@@ -12,7 +12,8 @@ const StyledTestimonials = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  background-color: rgb(32, 32, 32);
+  background-color: #243d38;
+  border-top: 1px solid rgba(126, 200, 176, 0.12);
 
   @media (max-width: 576px) {
     padding-top: 1.5rem;

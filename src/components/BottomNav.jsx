@@ -2,6 +2,8 @@ import { faClock, faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
+import program from "../data/program.json";
+import c from "../../utils/content";
 
 const StyledBottomNav = styled.div`
   display: none;
@@ -23,12 +25,9 @@ const StyledBottomNav = styled.div`
     padding: 0.75rem;
     z-index: 110;
     gap: 0.5rem;
-    /* glassmorphism effect */
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(26, 58, 50, 0.97);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border: 0.5px solid rgba(126, 200, 176, 0.15);
   }
 `;
 
@@ -46,21 +45,29 @@ const ButtonsContainer = styled.div`
 
 const StyledLink = styled.a`
   text-decoration: none;
-  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #142b3e;
-  color: #fff;
+  background-color: transparent;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
+  color: #7ec8b0;
   padding: 0.5rem;
   border-radius: 0.75rem;
   flex: 1;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(126, 200, 176, 0.1);
+    border-color: rgba(126, 200, 176, 0.5);
+  }
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 1.25rem;
-  color: #fff;
+  color: #7ec8b0;
 `;
 
 const CallNow = styled.div`
@@ -76,22 +83,29 @@ const Schedule = styled.div`
 `;
 
 const ProgramButton = styled.button`
-  border: none;
-  background-color: #1b3c53;
+  background-color: transparent;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
   padding: 0.5rem;
   border-radius: 0.75rem;
   display: flex;
   gap: 0.5rem;
   flex: 1;
-  display: flex;
   align-items: center;
   justify-content: center;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(126, 200, 176, 0.1);
+    border-color: rgba(126, 200, 176, 0.5);
+  }
 `;
 
 const ScheduleText = styled.div`
   font-size: 1rem;
   font-weight: 500;
-  color: #fff;
+  color: #7ec8b0;
 `;
 
 const ProgramBox = styled.div`
@@ -99,25 +113,20 @@ const ProgramBox = styled.div`
   bottom: 4.25rem;
   left: 0;
   right: 0;
-  background-color: #e9e0d8;
+  background-color: rgba(26, 58, 50, 0.97);
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
   width: 100%;
-  display: flex;
-
-  /* glassmorphism effect */
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 0.5px solid rgba(126, 200, 176, 0.15);
 `;
 
 const StyledH5 = styled.h5`
   display: flex;
   justify-content: center;
+  color: #fff;
 `;
 
 const StyledUl = styled.ul`
@@ -129,6 +138,7 @@ const ProgramLine = styled.li`
   display: flex;
   gap: 0.25rem;
   font-size: 1.1rem;
+  color: #fff;
   font-weight: ${(props) => (props.currenDay ? "800" : "400")};
 `;
 
@@ -151,10 +161,7 @@ function BottomNav() {
     "Sâmbătă",
   ];
   const currentDate = new Date();
-  // currentDate.setTime(currentDate.getTime() + 24 * 60 * 60 * 1000);
   const currentDay = days[currentDate.getDay()];
-
-  console.log();
 
   function useClickOutside(ref, callback) {
     useEffect(() => {
@@ -181,7 +188,6 @@ function BottomNav() {
         </StyledLink>
 
         {/* Schedule */}
-
         <ProgramButton onClick={() => setProgramOpen((o) => !o)}>
           <StyledFontAwesomeIcon icon={faClock} />
           <ScheduleText>{programOpen ? "Închide" : "Program"}</ScheduleText>
@@ -192,7 +198,7 @@ function BottomNav() {
         <ProgramBox>
           <StyledH5>Program de lucru</StyledH5>
           <StyledUl>
-            {progrm.map((p) => (
+            {program.map((p) => (
               <ProgramLine key={p.day} currenDay={currentDay === p.day}>
                 <DayName>{p.day}</DayName>
                 <DayHours>{p.schedule}</DayHours>

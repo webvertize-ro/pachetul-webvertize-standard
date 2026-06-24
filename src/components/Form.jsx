@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
-import styled from 'styled-components';
-import LoadingSpinner from './LoadingSpinner';
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
+import styled from "styled-components";
+import LoadingSpinner from "./LoadingSpinner";
 
 const StyledForm = styled.form`
+  border-radius: 12px;
+
   @media (max-width: 576px) {
     width: unset;
     padding: 1rem 2rem;
@@ -14,25 +16,39 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
-  background-color: rgba(74, 112, 137, 0.5);
+  background-color: rgba(255, 255, 255, 0.06);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(126, 200, 176, 0.2);
 
   &:focus {
-    background-color: rgba(74, 112, 137, 0.5);
+    background-color: rgba(255, 255, 255, 0.35);
     color: #fff;
+    box-shadow: none;
+    outline: none;
   }
 `;
 
 const StyledTextarea = styled.textarea`
-  background-color: rgba(74, 112, 137, 0.5);
+  background-color: rgba(255, 255, 255, 0.06);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(168, 212, 245, 0.25);
 
   &:focus {
-    background-color: rgba(74, 112, 137, 0.5);
+    background-color: rgba(255, 255, 255, 0.35);
+    border-color: rgba(126, 200, 176, 0.2);
     color: #fff;
+    box-shadow: none;
+    outline: none;
   }
+`;
+
+const StyledLabel = styled.label`
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  display: block;
 `;
 
 const FormButtons = styled.div`
@@ -42,25 +58,41 @@ const FormButtons = styled.div`
 `;
 
 const SubmitButton = styled.button`
-  flex: 1;
+  background-color: rgb(26, 46, 42, 0.5);
   border: none;
-  background-color: #234c6a;
-  color: #fff;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px;
+  color: #e8f2ff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background-color: rgb(26, 46, 42, 0.75);
+  }
 `;
 
 const CancelButton = styled.button`
-  flex: 1;
-  border: none;
-  background-color: #88304e;
-  color: #fff;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  background-color: transparent;
+  border: 0.5px solid rgba(168, 212, 245, 0.25);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: rgba(168, 212, 245, 0.7);
+  padding: 10px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(168, 212, 245, 0.6);
+    color: #fff;
+  }
 `;
 
 const ErrorMsg = styled.div`
-  color: #8a0000;
+  color: #f87171;
 `;
 
 const CfTurnstile = styled.div``;
@@ -78,17 +110,17 @@ function Form({ onCloseModal }) {
     reset,
   } = useForm({
     defaultValues: {
-      cf_turnstile_token: '',
+      cf_turnstile_token: "",
     },
   });
 
   // registering the virtual field
   useEffect(() => {
-    register('cf_turnstile_token', { required: true });
+    register("cf_turnstile_token", { required: true });
   }, [register]);
 
   const onTurnstileSuccess = (token) => {
-    setValue('cf_turnstile_token', token, {
+    setValue("cf_turnstile_token", token, {
       shouldValidate: true,
     });
   };
@@ -96,27 +128,26 @@ function Form({ onCloseModal }) {
   useEffect(() => {
     if (!window.turnstile) return;
 
-    window.turnstile.render('.cf-turnstile', {
-      sitekey: '0x4AAAAAACfdFhOhxvEVfluw',
+    window.turnstile.render(".cf-turnstile", {
+      sitekey: "0x4AAAAAACqzGpzOkJGRhCHZ",
       callback: onTurnstileSuccess,
     });
   }, []);
 
   async function onSubmit(data) {
-    console.log('submitting data: ', data);
     try {
       setIsLoadding(true);
-      const res = await fetch('/api/sendEmail', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       // if there are too many requests, redirect
 
       if (res.status === 429) {
-        sessionStorage.setItem('tooManyRequests', 'true');
-        navigate('/too-many-requests');
+        sessionStorage.setItem("tooManyRequests", "true");
+        navigate("/too-many-requests");
       }
 
       const result = await res.json();
@@ -124,13 +155,13 @@ function Form({ onCloseModal }) {
       setIsLoadding(false);
 
       if (!res.ok) {
-        throw new Error(result.message || 'Something went wrong');
+        throw new Error(result.message || "Something went wrong");
       }
       // set a sessionStorage for having fiiled out the form
-      sessionStorage.setItem('formFilledOut', 'true');
+      sessionStorage.setItem("formFilledOut", "true");
 
       reset();
-      navigate('/thank-you');
+      navigate("/thank-you");
     } catch (err) {
       console.error(err.message);
     }
@@ -138,57 +169,49 @@ function Form({ onCloseModal }) {
 
   return (
     <StyledForm
-      type={onCloseModal ? 'modal' : 'regular'}
+      type={onCloseModal ? "modal" : "regular"}
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="mb-4">
-        <label htmlFor="name" className="form-lable">
-          Nume
-        </label>
+        <StyledLabel>Nume</StyledLabel>
         <StyledInput
           type="text"
           name="name"
           className="form-control"
-          {...register('name', { required: 'Numele este obligatoriu!' })}
+          {...register("name", { required: "Numele este obligatoriu!" })}
         />
         {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
       </div>
       <div className="mb-4">
-        <label htmlFor="phone" className="form-label">
-          Număr de telefon
-        </label>
+        <StyledLabel>Număr de telefon</StyledLabel>
         <StyledInput
           type="text"
           name="phone"
           className="form-control"
-          {...register('phone', {
-            required: 'Numarul de telefon este obligatoriu!',
+          {...register("phone", {
+            required: "Numarul de telefon este obligatoriu!",
           })}
         />
         {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="form-label">
-          Adresă de email
-        </label>
+        <StyledLabel>Adresă de email</StyledLabel>
         <StyledInput
           type="text"
           name="email"
           className="form-control"
-          {...register('email', { required: 'Email-ul este obligatoriu!' })}
+          {...register("email", { required: "Email-ul este obligatoriu!" })}
         />
         {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
       </div>
       <div className="mb-4">
-        <label htmlFor="message" className="form-label">
-          Mesaj (Opțional)
-        </label>
+        <StyledLabel>Mesaj (Opțional)</StyledLabel>
         <StyledTextarea
           type="text"
           rows={3}
           name="message"
           className="form-control"
-          {...register('message')}
+          {...register("message")}
         />
       </div>
       {/* Turnstile Widget */}
@@ -206,7 +229,7 @@ function Form({ onCloseModal }) {
               <LoadingSpinner /> Se trimite...
             </>
           ) : (
-            'Trimite'
+            "Trimite"
           )}
         </SubmitButton>
         <CancelButton onClick={() => onCloseModal?.()}>Anulează</CancelButton>

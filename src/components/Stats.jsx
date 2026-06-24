@@ -1,63 +1,68 @@
-import {
-  faArrowUpRightDots,
-  faHourglass,
-  faHourglassHalf,
-  faStar,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import Counter from './Counter';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import { faArrowUpRightDots } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import Counter from "./Counter";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledSection = styled.section`
-  padding: 2rem;
-  background-color: #2d5775;
+  padding: 4rem 0;
+  background-color: #243d38;
   color: #fff;
+  border-bottom: 0.5px solid rgba(126, 200, 176, 0.12);
 
   @media (max-width: 576px) {
-    padding: 1.2rem;
+    padding: 2.5rem 1rem;
   }
 
   @media (min-width: 576px) and (max-width: 992px) {
-    padding: 1.5rem;
+    padding: 3rem 1.25rem;
   }
 `;
 
 const StyledSectionTitle = styled.h2`
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   text-align: center;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
 
   @media (max-width: 576px) {
     font-size: 1.75rem;
   }
 `;
 
+const StatItem = styled.div`
+  @media (min-width: 992px) {
+    border-right: 0.5px solid rgba(168, 212, 245, 0.15);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+`;
+
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  font-size: 1.6rem;
-  color: #b09888;
+  font-size: 1.75rem;
+  color: #7ec8b0;
 `;
 
 const CouterItem = styled.p`
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 `;
 
 function Stats() {
-  const { contentMap } = useContent();
   const sectionRef = useRef(null);
   const [startCounters, setStartCounters] = useState(false);
-  const stats = [1, 2, 3].map((n) => ({
-    number: c(contentMap, `home.stat_${n}_number`),
-    achivement: c(contentMap, `home.stat_${n}_label`),
-  }));
+  const { contentMap } = useContent();
 
-  console.log('stats: ', stats);
+  const statItems = [1, 2, 3].map((i) => ({
+    number: c(contentMap, `home.stat_${i}_number`),
+    label: c(contentMap, `home.stat_${i}_label`),
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,18 +88,18 @@ function Stats() {
     <StyledSection className="stats" ref={sectionRef}>
       <div className="container">
         <StyledSectionTitle>
-          {c(contentMap, 'home.stats_title')}
+          {c(contentMap, `home.stats_title`)}
         </StyledSectionTitle>
         <div className="row my-6">
-          {stats.map((stat) => (
-            <div className="col-md-4 col-sm-6 text-center">
+          {statItems.map((item) => (
+            <StatItem className="col-md-4 col-sm-6 text-center">
               <div className="d-flex justify-content-center align-items-center gap-2">
                 <StyledFontAwesomeIcon icon={faArrowUpRightDots} />
 
-                <Counter target={stat.number} start={startCounters} />
+                <Counter target={item.number} start={startCounters} />
               </div>
-              <CouterItem>{stat.achivement}</CouterItem>
-            </div>
+              <CouterItem>{item.label}</CouterItem>
+            </StatItem>
           ))}
         </div>
       </div>

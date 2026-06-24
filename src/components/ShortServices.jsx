@@ -1,30 +1,26 @@
-import Modal from './Modal';
-
-import img400 from '../assets/images/short_services_pic-400.avif';
-import img800 from '../assets/images/short_services_pic-800.avif';
-import img1200 from '../assets/images/short_services_pic-1200.avif';
-import Form from './Form';
-import styled, { keyframes } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router';
-// import { shortServices } from '../data/listData';
-import ListItem from './ListItem';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import Modal from "./Modal";
+import Form from "./Form";
+import styled, { keyframes } from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router";
+import ListItem from "./ListItem";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledShortServices = styled.div`
-  padding: 3rem;
-  background-color: rgb(44, 44, 44);
+  padding: 4rem 0;
+  background-color: #1a2e2a;
   color: #fff;
+  border-top: 1px solid rgba(126, 200, 176, 0.12);
 
   @media (max-width: 576px) {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   @media (min-width: 576px) and (max-width: 992px) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 `;
 
@@ -42,10 +38,9 @@ const VideoContainer = styled.div`
 `;
 
 const StyledImg = styled.img`
-  max-width: 375px;
-  max-height: 650px;
-  border-radius: 1.5rem;
-  border: 4px solid rgba(255, 255, 255, 0.5);
+  max-width: 475px;
+  border-radius: 0.75rem;
+  border: 0.5px solid rgba(168, 212, 245, 0.2);
   position: relative;
 
   @media (max-width: 576px) {
@@ -61,18 +56,9 @@ const StyledImg = styled.img`
   }
 `;
 
-const myAnimation = keyframes`
-  0% {
-    opacity: 0;
-  } 
-  100%{
-    opacity: 1;
-  }
-`;
-
 const ImageWrapper = styled.div`
   position: relative;
-  border-radius: 1.5rem;
+  border-radius: 0.75rem;
   overflow: hidden;
 `;
 
@@ -93,43 +79,63 @@ const StyledIframe = styled.iframe`
   border: none;
 `;
 
-const WaveAnimation = keyframes`
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1.3);
-        opacity: 0;
-    }
+const arcSweep = keyframes`
+  0% {transform: rotate(-40deg); opacity: 0;}
+  15% {opacity: 1;}
+  85% {opacity: 1;}
+  100% {transform: rotate(200deg); opacity: 0;}
 `;
 
 const PlayButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   color: #fff;
   position: absolute;
+  overflow: hidden;
+  isolation: isolate;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 99;
+  z-index: 90;
   border: none;
   border-radius: 50%;
   padding: 1rem;
-
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    inset: 0;
+    top: -10%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.35) 0%,
+      transparent 70%
+    );
     border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.75);
-    animation: ${WaveAnimation} 2s ease-in-out infinite;
+    transform-origin: 90% 90%;
+    animation: ${arcSweep} 3.2s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      animation: none;
+    }
   }
 `;
 
@@ -139,7 +145,8 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 const StyledH2 = styled.h2`
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 
   @media (max-width: 576px) {
     font-size: 1.6rem;
@@ -154,7 +161,6 @@ const StyledP = styled.p`
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
   font-weight: 300;
-  text-align: justify;
 
   @media (max-width: 576px) {
     font-size: 1rem;
@@ -175,26 +181,10 @@ const StyledUl = styled.ul`
   padding: 0;
 `;
 
-const StyledLi = styled.li`
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #1b3c53;
-  color: #fff;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.5rem;
-  cursor: default;
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
-  }
-`;
-
 const ButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 0.25rem;
+  gap: 0.75rem;
 
   @media (max-width: 576px) {
     flex-direction: column;
@@ -203,13 +193,14 @@ const ButtonsContainer = styled.div`
 
 const Button1 = styled(Link)`
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: transparent;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
+  color: #7ec8b0;
+  border-radius: 8px;
+
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  font-size: 1.25rem;
-  border-radius: 0.75rem;
+  font-size: 1rem;
   padding: 1rem;
   transition: all 0.2s ease;
   display: flex;
@@ -224,23 +215,22 @@ const Button1 = styled(Link)`
   @media (min-width: 992px) {
     flex: 1;
     &:hover {
-      background-color: rgba(0, 0, 0, 1);
-      backdrop-filter: blur(7.5px);
-      -webkit-backdrop-filter: blur(7.5px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-color: rgba(126, 200, 176, 0.5);
+      color: #fff;
+      background-color: transparent;
     }
   }
 `;
 
 const Button2 = styled(Link)`
+  background-color: rgba(126, 200, 176, 0.45);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
   text-decoration: none;
-  background-color: rgb(177, 44, 0);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(42, 70, 87, 0.3);
   color: #fff;
-  font-size: 1.25rem;
-  border-radius: 0.75rem;
   padding: 1rem;
   transition: all 0.3s ease;
   display: flex;
@@ -251,10 +241,8 @@ const Button2 = styled(Link)`
   }
 
   &:hover {
-    background-color: rgb(200, 44, 0);
-    backdrop-filter: blur(7.5px);
-    -webkit-backdrop-filter: blur(7.5px);
-    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(126, 200, 176, 0.65);
+    border: none;
   }
 
   @media (max-width: 576px) {
@@ -275,8 +263,9 @@ const TextContent = styled.div`
 
 function ShortServices() {
   const { contentMap } = useContent();
-  const shortServices = [1, 2, 3, 4, 5].map((n) => ({
-    title: c(contentMap, `home.services_item_${n}`),
+
+  const services = [1, 2, 3, 4, 5].map((i) => ({
+    service: c(contentMap, `home.services_item_${i}`),
   }));
 
   return (
@@ -287,8 +276,7 @@ function ShortServices() {
           <VideoContainer className="col-lg-6">
             <ImageWrapper>
               <StyledImg
-                src={c(contentMap, 'home.services_image')}
-                sizes="(max-width: 576px) 33vw, (max-width: 992px) 33vw, calc(33vw - 4rem)"
+                src={c(contentMap, "home.services_image")}
                 alt=""
                 className="img-fluid"
               />
@@ -301,16 +289,13 @@ function ShortServices() {
               </Modal.Open>
               <Modal.Window
                 name="video-modal"
-                bgColor="rgba(59, 94, 117, 0.3)"
+                bgColor="rgba(26, 46, 42, 0.3)"
                 title="Video de prezentare"
               >
                 <ModalWindowInner>
                   <IframeWrapper>
                     <StyledIframe
-                      src={c(
-                        contentMap,
-                        'home.services_video_presentation_url',
-                      )}
+                      src={c(contentMap, "home.services_video_url")}
                       frameborder="0"
                       allowfullscreen
                     ></StyledIframe>
@@ -321,31 +306,28 @@ function ShortServices() {
           </VideoContainer>
           {/* Text */}
           <TextContent className="col-lg-6">
-            <StyledH2>{c(contentMap, 'home.services_title')}</StyledH2>
-            <StyledP>{c(contentMap, 'home.services_description')}</StyledP>
+            <StyledH2>{c(contentMap, "home.services_title")}</StyledH2>
+            <StyledP>{c(contentMap, "home.services_description")}</StyledP>
 
             <StyledUl>
-              {shortServices.map((item, index) => (
-                <ListItem title={item.title} key={index} />
+              {services.map((item, index) => (
+                <ListItem title={item.service} key={index} />
               ))}
             </StyledUl>
             <ButtonsContainer>
               <Button1
-                to="/services"
+                to={c(contentMap, "home.services_button_more_route")}
                 aria-label="navighează la pagina cu servicii"
               >
-                {c(contentMap, 'home.services_button_more_text')}
+                {c(contentMap, "home.services_button_more_text")}
               </Button1>
               <Modal>
                 <Modal.Open opens="form-modal">
                   <Button2>
-                    {c(contentMap, 'home.services_button_offer_text')}
+                    {c(contentMap, "home.services_button_offer_text")}
                   </Button2>
                 </Modal.Open>
-                <Modal.Window
-                  name="form-modal"
-                  bgColor="rgba(59, 94, 117, 0.3)"
-                >
+                <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.3)">
                   <Form />
                 </Modal.Window>
               </Modal>

@@ -5,7 +5,6 @@ import {
   createContext,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from "react";
 import { createPortal } from "react-dom";
@@ -18,19 +17,13 @@ const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${(props) =>
-    props.bgColor ? props.bgColor : "rgba(74, 112, 137, 0.75)"};
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.7px);
-  -webkit-backdrop-filter: blur(8.7px);
-  border: 1px solid rgba(74, 112, 137, 0.01);
-  box-shadow:
-    0,
-    2.4rem 3.2rem rgba(0, 0, 0, 0.12);
-  border-radius: 1rem;
+    props.bgColor ? props.bgColor : "rgba(26, 58, 50, 0.97)"};
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 18px;
   transition: all 0.5s;
   z-index: 91;
   color: #fff;
-  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(126, 200, 176, 0.15);
 
   @media (max-width: 576px) {
     width: 320px;
@@ -43,7 +36,7 @@ const Header = styled.div`
   justify-content: space-between;
   position: relative;
   padding: 1rem;
-  /* border-bottom: 1px solid grey; */
+  border-bottom: 0.5px solid rgba(126, 200, 176, 0.1);
   color: #fff;
 `;
 
@@ -51,18 +44,16 @@ const ModalContent = styled.div`
   max-height: 750px;
 
   @media (max-width: 576px) {
-    /* max-height: 550px; */
-    /* overflow-y: scroll; */
     max-height: 525px;
     overflow: scroll;
-  }
-
-  @media (max-width: 992px) {
-    /* overflow-y: scroll; */
   }
 `;
 
 const StyledH4 = styled.h4`
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   margin: 0;
   @media (max-width: 576px) {
     font-size: 1rem;
@@ -75,10 +66,9 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  z-index: 110;
-  transition: all 0.5s;
+  background-color: rgba(20, 35, 32, 0.8);
+  z-index: 102;
+  transition: all 0.2s;
 `;
 
 const Button = styled.button`
@@ -92,7 +82,7 @@ const Button = styled.button`
   color: #fff;
 
   &:hover {
-    background-color: #2a4657;
+    background-color: rgba(126, 200, 176, 0.1);
   }
 
   & svg {
@@ -138,7 +128,6 @@ function Window({
 }) {
   const { openName, close } = useContext(ModalContext);
 
-  // const ref = useOutsideClick(lightboxOpen || openName ? {} : close);
   const ref = useOutsideClick(lightboxOpen ? {} : openName ? close : {});
 
   if (name !== openName) return null;

@@ -1,47 +1,26 @@
-import { faMessage } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled, { css, keyframes } from 'styled-components';
-import Form from './Form';
-import Modal from './Modal';
-
-const wave = keyframes`
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.3);
-    opacity: 0;
-  }
-`;
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
+import Form from "./Form";
+import Modal from "./Modal";
 
 const StyledFormButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  color: #1c4d8d;
+  color: #7ec8b0;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
   font-size: 1.4rem;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: #1a2e2a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   padding: 0.75rem;
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: ${(props) => (props.isOpenModal ? 'none' : '4px solid #bfc6c4')};
-    animation: ${(props) =>
-      props.isOpenModal
-        ? 'unset'
-        : css`
-            ${wave} 2s ease-out infinite
-          `};
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+  &:hover {
+    background-color: rgba(126, 200, 176, 0.1);
   }
 `;
 
@@ -54,7 +33,7 @@ function FormButton() {
             <FontAwesomeIcon icon={faMessage} />
           </StyledFormButton>
         </Modal.Open>
-        <Modal.Window name="form-modal" bgColor="rgba(59, 94, 117, 0.3)">
+        <Modal.Window name="form-modal" bgColor="rgba(26, 58, 50, 0.75)">
           <Form />
         </Modal.Window>
       </Modal>

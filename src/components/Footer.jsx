@@ -1,23 +1,24 @@
-import { NavLink } from 'react-router';
-import Logo from './Logo';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components';
+import { NavLink } from "react-router";
+import Logo from "./Logo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
 import {
   faFacebook,
   faInstagram,
   faPinterest,
   faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+} from "@fortawesome/free-brands-svg-icons";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   padding: 2rem 0;
-  background-color: #142b3e;
+  background-color: rgba(26, 58, 50, 0.97);
   color: #fff;
+  border-top: 0.5px solid rgba(126, 200, 176, 0.12);
 
   @media (max-width: 576px) {
     padding: 3rem 1.5rem;
@@ -35,20 +36,24 @@ const StyledNavLink = styled(NavLink)`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 1.5rem;
-  background-color: #456882;
-  color: #fff;
+  background-color: transparent;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
+  color: #7ec8b0;
   padding: 0.25rem;
   border-radius: 0.35rem;
-  transition: all 0.3s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 
   &:hover {
-    background-color: #1b3c53;
+    background-color: rgba(126, 200, 176, 0.1);
+    border-color: rgba(126, 200, 176, 0.5);
   }
 `;
 
 const StrongEmail = styled.strong`
-  color: #fff;
-  text-decoration: underline white;
+  color: #7ec8b0;
+  text-decoration: underline #7ec8b0;
 `;
 
 const Copyright = styled.div`
@@ -56,6 +61,7 @@ const Copyright = styled.div`
   justify-content: center;
   font-size: 0.8rem;
   border-radius: 0.5rem;
+  color: rgba(126, 200, 176, 0.5);
 `;
 
 function Footer() {
@@ -70,48 +76,48 @@ function Footer() {
               <StyledH6 className="fw-bold">Despre</StyledH6>
               <Logo width="100" />
             </div>
-            <p>{c(contentMap, 'global.footer_description')}</p>
+            <p>{c(contentMap, "global.footer_description")}</p>
           </div>
           <div className="col-md-4 my-3">
             <h5 className="fw-bold">
-              {c(contentMap, 'footer.footer_links_title')}
+              {c(contentMap, "footer.footer_links_title")}
             </h5>
             <ul className="list-unstyled">
               <li>
-                <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to={c(contentMap, 'global.footer_link_1_route')}>
-                  {c(contentMap, 'global.footer_link_1_text')}
+                <FontAwesomeIcon icon={faCheck} style={{ color: "#7ec8b0" }} />
+                <StyledNavLink to={c(contentMap, "global.footer_link_1_route")}>
+                  {c(contentMap, "global.footer_link_1_text")}
                 </StyledNavLink>
               </li>
               <li>
-                <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to={c(contentMap, 'global.footer_link_2_route')}>
-                  {c(contentMap, 'global.footer_link_2_text')}
+                <FontAwesomeIcon icon={faCheck} style={{ color: "#7ec8b0" }} />
+                <StyledNavLink to={c(contentMap, "global.footer_link_2_route")}>
+                  {c(contentMap, "global.footer_link_2_text")}
                 </StyledNavLink>
               </li>
               <li>
-                <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to={c(contentMap, 'global.footer_link_3_route')}>
-                  {c(contentMap, 'global.footer_link_3_text')}
+                <FontAwesomeIcon icon={faCheck} style={{ color: "#7ec8b0" }} />
+                <StyledNavLink to={c(contentMap, "global.footer_link_3_route")}>
+                  {c(contentMap, "global.footer_link_3_text")}
                 </StyledNavLink>
               </li>
               <li>
-                <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to={c(contentMap, 'global.footer_link_4_route')}>
-                  {c(contentMap, 'global.footer_link_4_text')}
+                <FontAwesomeIcon icon={faCheck} style={{ color: "#7ec8b0" }} />
+                <StyledNavLink to={c(contentMap, "global.footer_link_4_route")}>
+                  {c(contentMap, "global.footer_link_4_text")}
                 </StyledNavLink>
               </li>
               <li>
-                <FontAwesomeIcon icon={faCheck} />
-                <StyledNavLink to={c(contentMap, 'global.footer_link_5_route')}>
-                  {c(contentMap, 'global.footer_link_5_text')}
+                <FontAwesomeIcon icon={faCheck} style={{ color: "#7ec8b0" }} />
+                <StyledNavLink to={c(contentMap, "global.footer_link_5_route")}>
+                  {c(contentMap, "global.footer_link_5_text")}
                 </StyledNavLink>
               </li>
             </ul>
           </div>
           <div className="col-md-4 my-3">
             <h5 className="fw-bold">
-              {c(contentMap, 'global.footer_social_title')}
+              {c(contentMap, "global.footer_social_title")}
             </h5>
             <div className="mb-4 d-flex gap-2">
               <a
@@ -122,15 +128,15 @@ function Footer() {
                 <StyledFontAwesomeIcon icon={faFacebook} />
               </a>
               <a
-                href="#"
                 className="text-decoration-none"
+                href="#"
                 aria-label="Pagina de twitter a afacerii"
               >
                 <StyledFontAwesomeIcon icon={faTwitter} />
               </a>
               <a
-                href="#"
                 className="text-decoration-none"
+                href="#"
                 aria-label="Pagina de instagram a afacerii"
               >
                 <StyledFontAwesomeIcon icon={faInstagram} />
@@ -144,21 +150,22 @@ function Footer() {
               </a>
             </div>
             <p>
-              {c(contentMap, 'global.footer_paragraph')}
+              {c(contentMap, "global.footer_paragraph")}
+
               <a
-                href={c(contentMap, 'global.footer_paragraph_link_url')}
+                href={c(contentMap, "global.footer_paragraph_link_url")}
                 aria-label="Click pentru a scrie un email pe adresa afacerii"
               >
                 <StrongEmail>
-                  {' '}
-                  {c(contentMap, 'global.footer_paragraph_link_text')}
+                  {" "}
+                  {c(contentMap, "global.footer_paragraph_link_text")}
                 </StrongEmail>
               </a>
             </p>
           </div>
         </div>
         {/* Copyright */}
-        <Copyright>{c(contentMap, 'global.footer_copyright')}</Copyright>
+        <Copyright>{c(contentMap, "global.footer_copyright")}</Copyright>
       </div>
     </StyledFooter>
   );

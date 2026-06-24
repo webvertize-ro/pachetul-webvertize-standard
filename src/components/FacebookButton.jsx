@@ -1,20 +1,6 @@
-import {
-  faFacebookMessenger,
-  faWhatsappSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled, { css, keyframes } from 'styled-components';
-
-const wave = keyframes`
-  0%{
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.3);
-  }
-`;
+import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 
 const StyledAnchor = styled.a`
   border: none;
@@ -23,26 +9,19 @@ const StyledAnchor = styled.a`
   align-items: center;
   font-size: 1.4rem;
   border-radius: 50%;
-  color: #0084ff;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  color: #7ec8b0;
+  border: 0.5px solid rgba(126, 200, 176, 0.3);
+  background-color: #1a2e2a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
   padding: 0.75rem;
   position: relative;
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: ${(props) => (props.isOpenModal ? 'none' : '4px solid #bfc6c4')};
-    animation: ${(props) =>
-      props.isOpenModal
-        ? 'none'
-        : css`
-            ${wave} 2s ease-out infinite
-          `};
+  &:hover {
+    background-color: rgba(126, 200, 176, 0.1);
+    border-color: rgba(126, 200, 176, 0.5);
   }
 `;
 
