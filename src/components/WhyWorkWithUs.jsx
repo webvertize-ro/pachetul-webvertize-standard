@@ -7,12 +7,12 @@ import { useContent } from "../hooks/useContent";
 import c from "../../utils/content";
 
 const StyledSection = styled.section`
-  padding: 4rem 0;
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
   color: #fff;
-  background-color: rgb(36, 61, 56);
+  background-color: #243d38;
 
   @media (max-width: 576px) {
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
 
   @media (min-width: 576px) and (max-width: 992px) {
@@ -22,31 +22,26 @@ const StyledSection = styled.section`
 `;
 
 const StyledImg = styled.img`
-  max-width: 425px;
+  width: 100%;
+  max-width: 500px;
   border-radius: 0.75rem;
+  border: 1px solid rgba(126, 200, 176, 0.14);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
   z-index: 20;
 
   @media (max-width: 576px) {
-    width: 275px;
-  }
-
-  @media (min-width: 576px) and (max-width: 992px) {
-    width: 500px;
+    max-width: 320px;
   }
 
   @media (min-width: 992px) {
-    width: 600px;
+    max-width: 560px;
   }
 `;
 
 const StyledTitle = styled.h2`
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   font-weight: 500;
   letter-spacing: -0.01em;
-
-  @media (max-width: 576px) {
-    font-size: 1.6rem;
-  }
 
   @media (min-width: 576px) and (max-width: 992px) {
     text-align: center;
@@ -63,24 +58,34 @@ const StyledTextContent = styled.div`
 
 const StyledUl = styled.ul``;
 
+const IconBadge = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(126, 200, 176, 0.12);
+`;
+
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #7ec8b0;
 `;
 
 const ListItem = styled.li`
   display: flex;
-  gap: 0.75rem;
+  align-items: flex-start;
+  gap: 0.85rem;
 `;
 
 const StyledP = styled.p`
   margin: 0;
   font-size: 1rem;
   font-weight: 300;
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
-  }
+  line-height: 1.55;
+  padding-top: 0.35rem;
 `;
 
 const StyledStrong = styled.strong`
@@ -88,28 +93,30 @@ const StyledStrong = styled.strong`
 `;
 
 const StyledButton = styled.button`
-  background-color: rgba(26, 46, 42, 0.5);
-  border: none;
+  background-color: rgba(126, 200, 176, 0.1);
+  border: 1px solid rgba(126, 200, 176, 0.25);
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   padding: 12px 28px;
-  color: #e8f2ff;
-  transition: background 0.2s ease;
+  color: #a3d9c7;
   cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
 
   &:hover {
-    background-color: rgba(26, 46, 42, 0.9);
-  }
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
+    background-color: rgba(126, 200, 176, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
   }
 `;
 
 function WhyWorkWithUs() {
   const { contentMap } = useContent();
   const reasons = [1, 2, 3, 4].map((i) => ({
+    id: i,
     title: c(contentMap, `home.why_reason_${i}_title`),
     description: c(contentMap, `home.why_reason_${i}_description`),
   }));
@@ -137,8 +144,10 @@ function WhyWorkWithUs() {
               </StyledTitle>
               <StyledUl className="list-unstyled">
                 {reasons.map((reason) => (
-                  <ListItem className="d-flex mb-3" key={reason.strong}>
-                    <StyledFontAwesomeIcon icon={faCheck} />
+                  <ListItem className="mb-3" key={reason.id}>
+                    <IconBadge>
+                      <StyledFontAwesomeIcon icon={faCheck} />
+                    </IconBadge>
                     <StyledP>
                       <StyledStrong>{reason.title}: </StyledStrong>
                       {reason.description}
@@ -152,7 +161,7 @@ function WhyWorkWithUs() {
                 </Modal.Open>
                 <Modal.Window
                   name="form-modal"
-                  bgColor="rgba(59, 94, 117, 0.3)"
+                  bgColor="rgba(26, 46, 42, 0.85)"
                 >
                   <Form />
                 </Modal.Window>

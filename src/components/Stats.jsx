@@ -35,7 +35,7 @@ const StyledSectionTitle = styled.h2`
 
 const StatItem = styled.div`
   @media (min-width: 992px) {
-    border-right: 0.5px solid rgba(168, 212, 245, 0.15);
+    border-right: 0.5px solid rgba(126, 200, 176, 0.15);
 
     &:last-child {
       border-right: none;

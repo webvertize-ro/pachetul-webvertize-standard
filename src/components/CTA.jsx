@@ -5,18 +5,18 @@ import { useContent } from "../hooks/useContent";
 import c from "../../utils/content";
 
 const StyledCTA = styled.div`
-  padding: 6rem 0;
-  background-color: rgba(36, 61, 56, 0.75);
-  border-top: 0.5px solid rgba(168, 212, 245, 0.1);
-  border-bottom: 0.5px solid rgba(168, 212, 245, 0.1);
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background-color: #243d38;
+  border-top: 1px solid rgba(126, 200, 176, 0.12);
+  border-bottom: 1px solid rgba(126, 200, 176, 0.12);
   color: #fff;
 
   @media (max-width: 576px) {
-    padding: 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
 
   @media (min-width: 576px) and (max-width: 992px) {
-    padding: 1.75rem;
+    padding: 3rem 1.75rem;
   }
 `;
 
@@ -25,45 +25,39 @@ const TextContent = styled.div`
 `;
 
 const StyledH2 = styled.h2`
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-weight: 500;
   letter-spacing: -0.01em;
-
-  @media (max-width: 576px) {
-    font-size: 1.6rem;
-  }
 `;
 
 const StyledP = styled.p`
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
-  color: rgba(168, 212, 245, 0.75);
+  color: rgba(163, 217, 199, 0.75);
   max-width: 480px;
   margin: 0 auto 2rem;
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
-  }
+  line-height: 1.5;
 `;
 
 const StyledButton = styled.button`
-  background-color: #1a4f8a;
-  border: none;
+  background-color: #7ec8b0;
+  border: 1px solid transparent;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 14px 36px;
-  color: #e8f2ff;
+  color: #101f1c;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
 
   &:hover {
-    background-color: #2563b0;
-  }
-
-  @media (max-width: 576px) {
-    font-size: 1rem;
+    background-color: #a3d9c7;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
   }
 `;
 
@@ -82,13 +76,14 @@ function CTA({
             <TextContent>
               <StyledH2 className="lh-base">{title}</StyledH2>
               <StyledP>{text}</StyledP>
+
               <Modal>
                 <Modal.Open opens="form-modal">
                   <StyledButton>{textBtn}</StyledButton>
                 </Modal.Open>
                 <Modal.Window
                   name="form-modal"
-                  bgColor="rgba(59, 94, 117, 0.5)"
+                  bgColor="rgba(26, 46, 42, 0.85)"
                 >
                   <Form />
                 </Modal.Window>

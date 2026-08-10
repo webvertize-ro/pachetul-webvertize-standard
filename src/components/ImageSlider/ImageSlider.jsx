@@ -1,17 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 // import { images } from '../../data/sliderImages';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircle,
   faCircleDot,
   faCircleLeft,
   faCircleRight,
   faDisplay,
-} from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
-import React from 'react';
-import c from '../../../utils/content';
-import { useContent } from '../../hooks/useContent';
+} from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef, useState } from "react";
+import React from "react";
+import c from "../../../utils/content";
+import { useContent } from "../../hooks/useContent";
 
 const StyledImageSlider = styled.div`
   width: 100%;
@@ -81,7 +81,7 @@ const SliderButton = styled.button`
   bottom: 0;
   padding: 1rem;
   cursor: pointer;
-  background-color: rgba(44, 88, 112, 0.5);
+  background-color: rgba(26, 58, 50, 0.5);
   padding: 0.75rem;
   display: flex;
   opacity: 0;
@@ -103,12 +103,12 @@ const SliderButton = styled.button`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 1.75rem;
-  color: #fff;
+  color: #7ec8b0;
 `;
 
 const DotFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 1.75rem;
-  color: #142b3e;
+  color: #7ec8b0;
   @media (max-width: 576px) {
     font-size: 1.1rem;
   }
@@ -120,7 +120,8 @@ const Dots = styled.div`
   left: 50%;
   translate: -50%;
   gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(26, 58, 50, 0.7);
+  border: 0.5px solid rgba(126, 200, 176, 0.15);
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;

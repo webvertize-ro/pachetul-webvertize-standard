@@ -7,63 +7,97 @@ import { useContent } from "../hooks/useContent";
 import c from "../../utils/content";
 
 const StyledTestimonials = styled.section`
-  padding: 4rem 0;
+  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
-  background-color: #243d38;
+  gap: clamp(2rem, 4vw, 3rem);
+  background-color: #1a2e2a;
   border-top: 1px solid rgba(126, 200, 176, 0.12);
 
   @media (max-width: 576px) {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-  }
-
-  @media (min-width: 576px) and (max-width: 992px) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    gap: 1.75rem;
   }
 `;
 
+const TestimonialsHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  max-width: 640px;
+`;
+
 const TestimonialsHeading = styled.h2`
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   margin-bottom: 0;
   font-weight: 600;
   color: #fff;
-
-  @media (max-width: 576px) {
-    font-size: 1.6rem;
-  }
+  letter-spacing: -0.01em;
 `;
 
 const TestimonialsSubtitle = styled.p`
   margin-bottom: 0;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #fff;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(163, 217, 199, 0.75);
+  line-height: 1.5;
+`;
+
+const TestimonialsGrid = styled.div`
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
 
   @media (max-width: 576px) {
-    font-size: 1rem;
-    padding: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 `;
 
-const StyledTestimonialsContainer = styled.div`
+const ReviewCard = styled.div`
   display: flex;
-  align-items: stretch;
-  gap: 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 1.75rem 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(126, 200, 176, 0.1);
+  border-radius: 14px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+    border-color: rgba(126, 200, 176, 0.32);
+  }
 `;
 
-const StyledRow = styled.div`
-  gap: 1.5rem;
+const AvatarWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const ReviewName = styled.div`
   color: #fff;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
 `;
 
 function Testimonials() {
@@ -78,34 +112,28 @@ function Testimonials() {
 
   return (
     <StyledTestimonials>
-      <div className="d-flex flex-column align-items-center">
+      <TestimonialsHeader>
         <TestimonialsHeading>
           {c(contentMap, "home.reviews_title")}
         </TestimonialsHeading>
         <TestimonialsSubtitle>
           {c(contentMap, "home.reviews_description")}
         </TestimonialsSubtitle>
-      </div>
+      </TestimonialsHeader>
 
-      <StyledTestimonialsContainer className="container">
-        <StyledRow className="row d-flex justify-content-center">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="col-md-4 col-lg-2 d-flex flex-column align-items-center gap-3"
-            >
-              {/* Avatar and Stars */}
-              <div className="d-flex flex-column justify-content-center align-items-center">
-                <Avatar img={review.image} />
-                <ReviewName>{review.name}</ReviewName>
-                <RatingStars stars={review.stars} />
-              </div>
-              {/* Testimonial Text */}
-              <TestimonialContent content={review.quote} />
-            </div>
-          ))}
-        </StyledRow>
-      </StyledTestimonialsContainer>
+      <TestimonialsGrid>
+        {reviews.map((review, index) => (
+          <ReviewCard key={index}>
+            <AvatarWrap>
+              <Avatar img={review.image} />
+              <ReviewName>{review.name}</ReviewName>
+              <RatingStars stars={review.stars} />
+            </AvatarWrap>
+            <TestimonialContent content={review.quote} />
+          </ReviewCard>
+        ))}
+      </TestimonialsGrid>
+
       <ReviewGoogleButton />
     </StyledTestimonials>
   );

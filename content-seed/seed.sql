@@ -217,7 +217,7 @@ insert into content (website_id, page, section, key, label, value, content_type,
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'reviews', 'review_5_quote', 'Recenzie 5 — citat', 'Experiență plăcută de la primul contact.', 'text', 160),
 
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'reviews', 'reviews_button_text', 'Recenzii — text buton Google', 'Scrie-ne o recenzie Google', 'text', 161),
-('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'reviews', 'reviews_button_url', 'Recenzii — link buton Google', 'https://g.page/r/YOUR_GOOGLE_REVIEW_LINK', 'text', 162),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'reviews', 'reviews_button_url', 'Recenzii — link buton Google', 'https://google.com', 'text', 162),
 
 -- home / cta
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'home', 'cta', 'cta_title', 'CTA — titlu', 'Pregătit să începem?', 'text', 163),
@@ -674,7 +674,7 @@ insert into content (website_id, page, section, key, label, value, content_type,
 
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'contact', 'contact_main', 'contact_button_text', 'Contact — text buton', 'Cere o ofertă de preț', 'text', 628),
 
-('1db4c0bf-0450-436f-820c-a6198727905e', 'contact', 'contact_main', 'contact_maps_url', 'Contact — URL Google Maps iframe', 'https://www.google.com/maps/embed?pb=YOUR_EMBED_URL', 'text', 629),
+('1db4c0bf-0450-436f-820c-a6198727905e', 'contact', 'contact_main', 'contact_maps_url', 'Contact — URL Google Maps iframe', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91160.57954789398!2d26.012237353149644!3d44.43791870157616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f93abf3cad4f%3A0xac0632e37c9ca628!2sBucharest!5e0!3m2!1sen!2sro!4v1777384505894!5m2!1sen!2sro', 'text', 629),
 
 -- contact / street view
 ('1db4c0bf-0450-436f-820c-a6198727905e', 'contact', 'contact_street_view', 'street_view_title', 'Vedere stradala — titlu', 'Vedere stradală', 'text', 630),

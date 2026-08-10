@@ -10,7 +10,7 @@ import c from "../../utils/content";
 
 const StyledShortServices = styled.div`
   padding: 4rem 0;
-  background-color: #1a2e2a;
+  background-color: #243d38;
   color: #fff;
   border-top: 1px solid rgba(126, 200, 176, 0.12);
 
@@ -40,7 +40,7 @@ const VideoContainer = styled.div`
 const StyledImg = styled.img`
   max-width: 475px;
   border-radius: 0.75rem;
-  border: 0.5px solid rgba(168, 212, 245, 0.2);
+  border: 0.5px solid rgba(126, 200, 176, 0.2);
   position: relative;
 
   @media (max-width: 576px) {
@@ -101,9 +101,7 @@ const PlayButton = styled.button`
   border: none;
   border-radius: 50%;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(26, 58, 50, 0.7);
   cursor: pointer;
   transition:
     background 0.2s ease,
@@ -197,9 +195,6 @@ const Button1 = styled(Link)`
   border: 0.5px solid rgba(126, 200, 176, 0.3);
   color: #7ec8b0;
   border-radius: 8px;
-
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   font-size: 1rem;
   padding: 1rem;
   transition: all 0.2s ease;
@@ -228,8 +223,6 @@ const Button2 = styled(Link)`
   border-radius: 8px;
   font-size: 1rem;
   text-decoration: none;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   color: #fff;
   padding: 1rem;
   transition: all 0.3s ease;

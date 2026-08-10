@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import ImageSlider from './ImageSlider';
+import styled from "styled-components";
+import ImageSlider from "./ImageSlider";
 
 const StyledSliderWrapper = styled.div`
   width: 100%;
