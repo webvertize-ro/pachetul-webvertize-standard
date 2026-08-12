@@ -1,12 +1,11 @@
-import styled from 'styled-components';
-import Accordion from '../components/Accordion';
-import Hero from '../components/Hero';
-import cookiesImg from '../assets/images/cookies-img.avif';
-import CookiesInfoSection from '../components/CookiesInfoSection';
-import Group from '../components/Group';
-import { Helmet } from 'react-helmet-async';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import Accordion from "../components/Accordion";
+import Hero from "../components/Hero";
+import CookiesInfoSection from "../components/CookiesInfoSection";
+import Group from "../components/Group";
+import { Helmet } from "react-helmet-async";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledCookies = styled.div`
   @media (min-width: 576px) and (max-width: 992px) {
@@ -22,7 +21,7 @@ function Cookies() {
     answer: c(contentMap, `cookies.accordion_item_${n}_answer`),
   }));
 
-  console.log('questions: ', questions);
+  console.log("questions: ", questions);
 
   return (
     <>
@@ -34,17 +33,16 @@ function Cookies() {
         />
       </Helmet>
       <StyledCookies>
-        <Group bgImg={c(contentMap, 'cookies.shared_bg_image')}>
-          <Hero
-            heroTitle={c(contentMap, 'cookies.header_title')}
-            heroDesc={c(contentMap, 'cookies.header_description')}
-            btnTxt={c(contentMap, 'cookies.header_button_text')}
-          />
-          <Accordion
-            data={questions}
-            title={c(contentMap, 'cookies.accordion_title')}
-          />
-        </Group>
+        <Hero
+          heroBg={c(contentMap, "products.header_bg_image")}
+          heroTitle={c(contentMap, "cookies.header_title")}
+          heroDesc={c(contentMap, "cookies.header_description")}
+          btnTxt={c(contentMap, "cookies.header_button_text")}
+        />
+        <Accordion
+          data={questions}
+          title={c(contentMap, "cookies.accordion_title")}
+        />
         <CookiesInfoSection />
       </StyledCookies>
     </>

@@ -1,17 +1,17 @@
-import styled from 'styled-components';
-import Card from './Card';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import Card from "./Card";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledServicesDetails = styled.div`
   padding: 3rem 0;
   color: #fff;
   position: relative;
-  border-top: 3px solid rgba(107, 117, 128, 0.3);
-  background-color: #2a4657;
+  border-top: 3px solid rgba(76, 130, 104, 1);
+  background-color: rgba(76, 130, 104, 0.75);
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
@@ -75,8 +75,8 @@ function ServicesDetails() {
   return (
     <StyledServicesDetails>
       <Container className="container">
-        <StyledH2>{c(contentMap, 'services.services_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'services.services_description')}</StyledP>
+        <StyledH2>{c(contentMap, "services.services_title")}</StyledH2>
+        <StyledP>{c(contentMap, "services.services_description")}</StyledP>
         <Services className="row d-flex justify-content-center">
           {services.map((service, i) => {
             return (

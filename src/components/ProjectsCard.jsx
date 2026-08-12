@@ -1,15 +1,15 @@
-import styled from 'styled-components';
-import Modal from './Modal';
-import ProjectModal from './ProjectModal';
-import { useState } from 'react';
-import Lightbox from 'yet-another-react-lightbox';
-import Captions from 'yet-another-react-lightbox/plugins/captions';
-import c from '../../utils/content';
-import { useContent } from '../hooks/useContent';
+import styled from "styled-components";
+import Modal from "./Modal";
+import ProjectModal from "./ProjectModal";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import c from "../../utils/content";
+import { useContent } from "../hooks/useContent";
 
 const StyledProjectsCard = styled.div`
   width: 100%;
-  background-image: url(${(props) => (props.img ? props.img : 'unset')});
+  background-image: url(${(props) => (props.img ? props.img : "unset")});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@ const StyledProjectsCard = styled.div`
 
 const CardInfo = styled.div`
   margin-top: auto;
-  background: rgba(255, 255, 255, 0.27);
+  background: rgba(79, 133, 119, 1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -40,18 +40,18 @@ const CardInfo = styled.div`
 const StyledH5 = styled.h5`
   text-align: center;
   font-weight: 600;
-  color: #1f3745;
+  color: #fff;
 `;
 
 const StyledP = styled.p`
   text-align: center;
   font-weight: 500;
-  color: #1f3745;
+  color: #fff;
 `;
 
 const StyledButton = styled.button`
   border: none;
-  background-color: #365568;
+  background-color: rgba(36, 61, 56, 0.75);
   color: #fff;
   border-radius: 0.5rem;
   padding: 0.25rem 0.5rem;
@@ -66,7 +66,7 @@ function ProjectsCard({
 }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [indexImg, setIndexImg] = useState(0);
-  const {contentMap} = useContent();
+  const { contentMap } = useContent();
 
   return (
     <>
@@ -83,9 +83,9 @@ function ProjectsCard({
         </Modal.Open>
         <Modal.Window
           name="form-modal"
-          bgColor="rgba(59, 94, 117, 0.5)"
+          bgColor="rgba(79, 133, 119, 0.65)"
           lightboxOpen={lightboxOpen}
-          title={c(contentMap, 'portfolio.project_1_modal_title')}
+          title={c(contentMap, "portfolio.project_1_modal_title")}
         >
           <ProjectModal
             projectLongDesc={projectLongDesc}
@@ -102,7 +102,7 @@ function ProjectsCard({
         close={() => setLightboxOpen(false)}
         slides={imageGallery}
         index={indexImg}
-        captions={{ position: 'bottom' }}
+        captions={{ position: "bottom" }}
       />
     </>
   );

@@ -5,10 +5,11 @@ import Modal from "./Modal";
 import Form from "./Form";
 import { useContent } from "../hooks/useContent";
 import c from "../../utils/content";
+import { Link } from "react-router";
 
 const StyledTimelineHowWeWork = styled.div`
   padding: 3rem 0;
-  background-color: #1b3c53;
+  background-color: rgba(79, 133, 119, 1);
   color: #fff;
 
   @media (max-width: 576px) {
@@ -34,6 +35,33 @@ const HorizontalTimeline = styled.div`
       justify-content: space-between;
       align-items: stretch;
     }
+  }
+`;
+
+const Button2 = styled(Link)`
+  background-color: rgba(61, 107, 92, 1);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 992px) {
+    flex: 1;
+  }
+
+  &:hover {
+    background-color: rgba(61, 107, 92, 0.65);
+    border: none;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -119,14 +147,11 @@ function TimelineHowWeWork() {
               </ul>
               <Modal>
                 <Modal.Open opens="form-modal">
-                  <StyledButton>
-                    {c(contentMap, "services.process_button_text")}
-                  </StyledButton>
+                  <Button2>
+                    {c(contentMap, "home.services_button_offer_text")}
+                  </Button2>
                 </Modal.Open>
-                <Modal.Window
-                  name="form-modal"
-                  bgColor="rgba(59, 94, 117, 0.5)"
-                >
+                <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.3)">
                   <Form />
                 </Modal.Window>
               </Modal>

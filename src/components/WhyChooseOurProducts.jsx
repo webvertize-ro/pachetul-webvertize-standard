@@ -6,7 +6,7 @@ import c from "../../utils/content";
 
 const StyledWhyChooseOurProducts = styled.div`
   padding: 3rem 0;
-  background-color: #6b7580;
+  background-color: rgba(76, 130, 104, 0.75);
   color: #fff;
 `;
 
@@ -44,6 +44,8 @@ function WhyChooseOurProducts() {
   const reasons = [1, 2, 3, 4, 5].map((n) => ({
     title: c(contentMap, `products.quality_reason_${n}`),
   }));
+
+  console.log("reasons in WhyChooseOurProducts: ", reasons);
 
   return (
     <StyledWhyChooseOurProducts className="container-fluid">

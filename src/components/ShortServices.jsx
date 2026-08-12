@@ -107,27 +107,9 @@ const PlayButton = styled.button`
     background 0.2s ease,
     transform 0.2s ease;
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 255, 0.35) 0%,
-      transparent 70%
-    );
-    border-radius: 50%;
-    transform-origin: 90% 90%;
-    animation: ${arcSweep} 3.2s ease-in-out infinite;
-    animation-delay: 1s;
-  }
-
   &:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%) scale(1.06);
+    background: rgba(26, 58, 50, 0.9);
+    transform: translate(-50%, -50%) scale(1.025);
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -1,20 +1,20 @@
-import styled from 'styled-components';
-import Modal from './Modal';
-import TeamMemberModalInner from './TeamMemberModalInner';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from "styled-components";
+import Modal from "./Modal";
+import TeamMemberModalInner from "./TeamMemberModalInner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faFacebookSquare,
   faInstagramSquare,
   faLinkedin,
-} from '@fortawesome/free-brands-svg-icons';
+} from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowRight,
   faArrowUpRightFromSquare,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 const StyledCard = styled.div`
-  background-image: url(${(props) => (props.img ? props.img : 'unset')});
+  background-image: url(${(props) => (props.img ? props.img : "unset")});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -40,7 +40,7 @@ const GlassCard = styled.div`
   flex-direction: column;
   padding: 0.5rem;
   margin-top: auto;
-  background-color: rgba(100, 100, 100, 0.45);
+  background-color: rgba(36, 61, 56, 0.65);
   border-radius: 0.5rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
@@ -133,7 +133,11 @@ function CardTeamMember({ img, name, short_desc, long_desc, role }) {
           </GlassCard>
         </StyledCard>
       </Modal.Open>
-      <Modal.Window name="form-modal" title={name}>
+      <Modal.Window
+        name="form-modal"
+        title={name}
+        bgColor="rgba(26, 46, 42, 0.5)"
+      >
         <TeamMemberModalInner img={img} name={name} long_desc={long_desc} />
       </Modal.Window>
     </Modal>

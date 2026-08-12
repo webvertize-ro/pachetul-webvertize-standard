@@ -23,7 +23,7 @@ const StyledBottomNav = styled.div`
     margin-right: auto;
     width: 90%;
     padding: 0.75rem;
-    z-index: 110;
+    z-index: 90;
     gap: 0.5rem;
     background-color: rgba(26, 58, 50, 0.97);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);

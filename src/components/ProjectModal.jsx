@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { createPortal } from 'react-dom';
-import styled from 'styled-components';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import styled from "styled-components";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const StyledProjectModal = styled.div`
   padding: 2rem;
@@ -12,27 +12,53 @@ const StyledProjectModal = styled.div`
   }
 `;
 
-const Row = styled.div`
-  display: flex;
-`;
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
 
-const ImgContainer = styled.div`
-  @media (max-width: 576px) {
-    margin-bottom: 0.75rem !important;
-    padding: 0 0.5rem;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 `;
 
+const ImageGallery = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 120px;
+  gap: 0.75rem;
+
+  @media (max-width: 576px) {
+    grid-auto-rows: 100px;
+    gap: 0.5rem;
+  }
+`;
+
+const ImgContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const StyledImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0.75rem;
   border: 2px solid #142b3e;
   cursor: pointer;
-  max-width: 150px;
-  max-height: 120px;
+`;
+
+const DetailsCol = styled.div`
+  display: grid;
+  gap: 0.75rem;
 `;
 
 const StyledH3 = styled.h3`
   font-size: 1.5rem;
+  margin: 0;
 
   @media (max-width: 576px) {
     text-align: center;
@@ -42,6 +68,7 @@ const StyledH3 = styled.h3`
 const StyledP = styled.p`
   text-align: justify;
   font-size: 1.2rem;
+  margin: 0;
 
   @media (max-width: 576px) {
     text-align: center;
@@ -57,30 +84,26 @@ function ProjectModal({
 }) {
   return (
     <StyledProjectModal>
-      <div className="container">
-        <Row className="row d-flex">
-          <div className="col-lg-6">
-            <div className="row">
-              {imageGallery.map((img, i) => (
-                <ImgContainer className="col-6 col-md-6 mb-3" key={img}>
-                  <StyledImg
-                    src={img.src}
-                    className="img-fluid"
-                    onClick={() => {
-                      onLightboxOpen(true);
-                      onIndexImage(i);
-                    }}
-                  />
-                </ImgContainer>
-              ))}
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <StyledH3>Detalii proiect</StyledH3>
-            <StyledP>{projectLongDesc}</StyledP>
-          </div>
-        </Row>
-      </div>
+      <Layout>
+        <ImageGallery>
+          {imageGallery.map((img, i) => (
+            <ImgContainer key={img.src ?? i}>
+              <StyledImg
+                src={img.src}
+                onClick={() => {
+                  onLightboxOpen(true);
+                  onIndexImage(i);
+                }}
+              />
+            </ImgContainer>
+          ))}
+        </ImageGallery>
+
+        <DetailsCol>
+          <StyledH3>Detalii proiect</StyledH3>
+          <StyledP>{projectLongDesc}</StyledP>
+        </DetailsCol>
+      </Layout>
     </StyledProjectModal>
   );
 }

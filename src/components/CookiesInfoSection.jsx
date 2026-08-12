@@ -1,12 +1,12 @@
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledCookiesInfoSection = styled.div`
   padding: 3rem 0;
-  background-color: #2c5870;
+  background-color: rgba(54, 97, 86, 1);
   color: #fff;
 
   @media (max-width: 576px) {
@@ -48,13 +48,13 @@ const Date = styled.span`
 function CookiesInfoSection() {
   const { contentMap } = useContent();
 
-  const paragraph1 = c(contentMap, 'cookies.info_paragraph_1').replace(
-    '{date}',
-    c(contentMap, 'cookies.info_paragraph_1_date'),
+  const paragraph1 = c(contentMap, "cookies.info_paragraph_1").replace(
+    "{date}",
+    c(contentMap, "cookies.info_paragraph_1_date"),
   );
-  const paragraph2 = c(contentMap, 'cookies.info_paragraph_3').replace(
-    '{email}',
-    c(contentMap, 'cookies.info_paragraph_3_email'),
+  const paragraph2 = c(contentMap, "cookies.info_paragraph_3").replace(
+    "{email}",
+    c(contentMap, "cookies.info_paragraph_3_email"),
   );
 
   return (
@@ -62,12 +62,12 @@ function CookiesInfoSection() {
       <div className="container">
         <StyledH3>
           <FontAwesomeIcon icon={faInfoCircle} />
-          {c(contentMap, 'cookies.info_title')}
+          {c(contentMap, "cookies.info_title")}
         </StyledH3>
         <StyledP>{paragraph1}</StyledP>
-        <StyledP>{c(contentMap, 'cookies.info_paragraph_2')}</StyledP>
+        <StyledP>{c(contentMap, "cookies.info_paragraph_2")}</StyledP>
         <StyledP>{paragraph2}</StyledP>
-        <StyledP>{c(contentMap, 'cookies.info_paragraph_4')}</StyledP>
+        <StyledP>{c(contentMap, "cookies.info_paragraph_4")}</StyledP>
       </div>
     </StyledCookiesInfoSection>
   );

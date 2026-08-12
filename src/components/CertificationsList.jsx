@@ -5,7 +5,7 @@ import c from "../../utils/content";
 
 const StyledCertificationsList = styled.div`
   padding: 3rem 0;
-  background-color: #6b7580;
+  background-color: rgba(54, 97, 86, 0.75);
   color: #fff;
 
   @media (max-width: 576px) {

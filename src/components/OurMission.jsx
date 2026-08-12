@@ -1,14 +1,13 @@
-import styled from 'styled-components';
-import ourMissionImg from '../assets/images/our_mission_image.avif';
-import Modal from './Modal';
-import Form from './Form';
-import { NavLink } from 'react-router';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import Modal from "./Modal";
+import Form from "./Form";
+import { Link, NavLink } from "react-router";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledOurMission = styled.div`
   padding: 3rem 0;
-  background-color: #1f3745;
+  background-color: rgba(61, 107, 92, 1);
   color: #fff;
 
   @media (max-width: 576px) {
@@ -44,10 +43,67 @@ const StyledP = styled.p`
 
 const ButtonsContainer = styled.div`
   display: flex;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.75rem;
 
-  @media (max-width: 992px) {
+  @media (max-width: 576px) {
     flex-direction: column;
+  }
+`;
+
+const Button1 = styled(Link)`
+  text-decoration: none;
+  background-color: transparent;
+  border: 0.5px solid rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  @media (min-width: 992px) {
+    flex: 1;
+    &:hover {
+      border-color: #fff;
+      color: #fff;
+      background-color: transparent;
+    }
+  }
+`;
+
+const Button2 = styled(Link)`
+  background-color: rgba(79, 133, 119, 1);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 992px) {
+    flex: 1;
+  }
+
+  &:hover {
+    background-color: rgba(79, 133, 119, 0.75);
+    color: #fff;
+    border: none;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -114,35 +170,35 @@ function OurMission() {
           {/* Text */}
           <div className="col-lg-6 mb-4">
             <TextContent>
-              <StyledH2>{c(contentMap, 'about.mission_title')}</StyledH2>
+              <StyledH2>{c(contentMap, "about.mission_title")}</StyledH2>
               {paragraphs.map((p) => (
                 <StyledP>{p}</StyledP>
               ))}
             </TextContent>
             {/* Buttons */}
             <ButtonsContainer>
+              <Button1
+                to={c(contentMap, "home.services_button_more_route")}
+                aria-label="navighează la pagina cu servicii"
+              >
+                {c(contentMap, "home.services_button_more_text")}
+              </Button1>
               <Modal>
                 <Modal.Open opens="form-modal">
-                  <StyledButton>
-                    {c(contentMap, 'about.mission_button_offer_text')}
-                  </StyledButton>
+                  <Button2>
+                    {c(contentMap, "home.services_button_offer_text")}
+                  </Button2>
                 </Modal.Open>
-                <Modal.Window
-                  name="form-modal"
-                  bgColor="rgba(59, 94, 117, 0.3)"
-                >
+                <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.3)">
                   <Form />
                 </Modal.Window>
               </Modal>
-              <StyledNavLink to="/portfolio">
-                {c(contentMap, 'about.mission_button_portfolio_text')}
-              </StyledNavLink>
             </ButtonsContainer>
           </div>
           {/* Image */}
           <div className="col-lg-6 d-flex justify-content-center">
             <StyledImg
-              src={c(contentMap, 'about.mission_image')}
+              src={c(contentMap, "about.mission_image")}
               className="img-fluid"
               alt=""
             />

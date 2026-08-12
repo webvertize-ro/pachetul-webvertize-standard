@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Modal from './Modal';
-import ProductModalInner from './ProductModalInner';
+import styled from "styled-components";
+import Modal from "./Modal";
+import ProductModalInner from "./ProductModalInner";
 
 const Card = styled.div`
   background-image: url(${(props) => props.bgImg});
@@ -20,7 +20,7 @@ const CardInfo = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: auto;
-  background-color: rgba(31, 55, 69, 0.45);
+  background-color: rgba(79, 133, 119, 0.75);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -42,7 +42,7 @@ const StyledP = styled.p`
 
 const StyledButton = styled.button`
   border: none;
-  background-color: #1f3745;
+  background-color: rgba(61, 107, 92, 1);
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -61,7 +61,11 @@ function Product({ product }) {
           </CardInfo>
         </Card>
       </Modal.Open>
-      <Modal.Window name="form-modal" title={product.title}>
+      <Modal.Window
+        name="form-modal"
+        title={product.title}
+        bgColor="rgba(36, 61, 56, 0.9)"
+      >
         <ProductModalInner
           title={product.product_title}
           features={product.features}

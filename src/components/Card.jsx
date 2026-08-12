@@ -1,8 +1,6 @@
-import { faComment } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
-import { iconMap } from '../../utils/iconMap';
-import { cssClass } from 'yet-another-react-lightbox';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
+import { iconMap } from "../../utils/iconMap";
 
 const StyledCard = styled.div`
   position: relative;
@@ -19,8 +17,8 @@ const StyledCard = styled.div`
   border: 1px solid rgba(107, 117, 128, 0.75);
 
   &:after {
-    content: '';
-    background-color: rgba(0, 0, 0, 0.65);
+    content: "";
+    background-color: rgba(124, 175, 160, 0.5);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -54,6 +52,7 @@ const TextContent = styled.div`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 2.2rem;
+  color: rgba(79, 133, 119, 1);
 `;
 
 const StyledH4 = styled.h4`

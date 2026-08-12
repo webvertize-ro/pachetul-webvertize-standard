@@ -1,14 +1,11 @@
-import { fa1 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-import styled from 'styled-components';
+import { fa1 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import styled from "styled-components";
 
 const StyledAccordionItem = styled.div`
   border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 `;
 
 const Question = styled.div`
@@ -16,11 +13,14 @@ const Question = styled.div`
   display: flex;
   align-items: center;
   padding: 1rem;
-  background: rgba(107, 117, 128, 0.29);
   cursor: pointer;
-  border-radius: 0.75rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-left-radius: ${(props) => (props.isOpen ? "unset" : "0.75rem")};
+  border-bottom-right-radius: ${(props) =>
+    props.isOpen ? "unset" : "0.75rem"};
   gap: 0.75rem;
-  border-left: ${(props) => (props.isOpen ? '5px solid #142B3E' : 'unset')};
+  background-color: rgba(79, 133, 119, 0.75);
 `;
 
 const QuestionNumber = styled.div`
@@ -45,9 +45,12 @@ const QuestionText = styled.div`
 `;
 
 const QuestionAnswer = styled.div`
-  color: #fff;
+  color: rgb(44, 44, 44);
   padding: 1rem;
   font-size: 1.1rem;
+  background-color: rgba(212, 196, 183, 1);
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 
   @media (max-width: 576px) {
     font-size: 1rem;

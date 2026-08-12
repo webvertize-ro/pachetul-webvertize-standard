@@ -1,26 +1,16 @@
-import styled from 'styled-components';
-import AccordionItem from './AccordionItem';
-import { useState } from 'react';
-import accordionDefaultImg from '../assets/images/accordion_default_img.avif';
+import styled from "styled-components";
+import AccordionItem from "./AccordionItem";
+import { useState } from "react";
+import accordionDefaultImg from "../assets/images/accordion_default_img.avif";
 
 const StyledAccordion = styled.div`
   padding: 3rem 0;
   border-top: 3px solid rgba(107, 117, 128, 0.75);
+  background-color: rgba(98, 148, 131, 0.5);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 90;
-  }
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -63,7 +53,7 @@ function Accordion({ data, title, subtitle, bgImg }) {
     <StyledAccordion bgImg={bgImg ? bgImg : accordionDefaultImg}>
       <Container className="container">
         <StyledH2>{title}</StyledH2>
-        {subtitle ? <StyledP>{subtitle}</StyledP> : ''}
+        {subtitle ? <StyledP>{subtitle}</StyledP> : ""}
         <AccordionContainer className="accordion" id="accordionExample">
           {data.map((item, index) => (
             <AccordionItem

@@ -8,16 +8,7 @@ const StyledProjects = styled.div`
   position: relative;
   z-index: 90;
   border-top: 3px solid rgba(255, 255, 255, 0.3);
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+  background-color: rgba(36, 61, 56, 0.8);
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -60,6 +51,29 @@ const StyledP = styled.p`
   }
 `;
 
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;
+
+const CardCell = styled.div`
+  display: flex;
+`;
+
 function Projects() {
   const { contentMap } = useContent();
 
@@ -83,9 +97,9 @@ function Projects() {
       <Container className="container">
         <StyledH2>{c(contentMap, "portfolio.projects_title")}</StyledH2>
         <StyledP>{c(contentMap, "portfolio.projects_description")}</StyledP>
-        <div className="row">
-          {projects.map((project) => (
-            <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4 d-flex">
+        <ProjectsGrid>
+          {projects.map((project, i) => (
+            <CardCell key={project.card_title ?? i}>
               <ProjectsCard
                 img={project.card_image}
                 projectTitle={project.card_title}
@@ -93,9 +107,9 @@ function Projects() {
                 projectLongDesc={project.modal_description}
                 imageGallery={project.modal_images}
               />
-            </div>
+            </CardCell>
           ))}
-        </div>
+        </ProjectsGrid>
       </Container>
     </StyledProjects>
   );

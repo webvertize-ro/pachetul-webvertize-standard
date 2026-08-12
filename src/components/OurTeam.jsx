@@ -6,7 +6,7 @@ import c from "../../utils/content";
 
 const StyledOurTeam = styled.div`
   padding: 5rem 0;
-  background-color: #365764;
+  background-color: rgba(42, 78, 66, 1);
 
   @media (max-width: 576px) {
     padding: 3rem 1.5rem;

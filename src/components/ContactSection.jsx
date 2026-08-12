@@ -6,23 +6,14 @@ import Form from "./Form";
 import { useContent } from "../hooks/useContent";
 import c from "../../utils/content";
 import { iconMap } from "../../utils/iconMap";
+import { Link } from "react-router";
 
 const StyledContactSection = styled.div`
   padding: 3rem 0;
   color: #fff;
   position: relative;
   border-top: 3px solid rgba(107, 117, 128, 0.5);
-
-  &:after {
-    content: "";
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 90;
-  }
+  background-color: rgba(61, 107, 92, 0.75);
 
   @media (max-width: 576px) {
     padding: 1.5rem 0;
@@ -69,6 +60,31 @@ const StyledP = styled.p`
 const Row = styled.div`
   @media (max-width: 992px) {
     gap: 1.5rem;
+  }
+`;
+
+const Button = styled(Link)`
+  background-color: rgba(126, 200, 176, 0.45);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem 3.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+  &:hover {
+    background-color: rgba(126, 200, 176, 0.65);
+    border: none;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -161,11 +177,11 @@ function ContactSection() {
             ))}
             <Modal>
               <Modal.Open opens="form-modal">
-                <StyledButton>
-                  {c(contentMap, "contact.contact_button_text")}
-                </StyledButton>
+                <Button>
+                  {c(contentMap, "home.services_button_offer_text")}
+                </Button>
               </Modal.Open>
-              <Modal.Window name="form-modal">
+              <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.9)">
                 <Form />
               </Modal.Window>
             </Modal>

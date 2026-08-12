@@ -12,16 +12,7 @@ const StyledWhatRecommendsUs = styled.div`
   position: relative;
   z-index: 90;
   border-top: 3px solid rgba(255, 255, 255, 0.3);
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+  background-color: rgba(61, 107, 92, 0.75);
 
   @media (max-width: 576px) {
     padding: 1.5rem 0.75rem;

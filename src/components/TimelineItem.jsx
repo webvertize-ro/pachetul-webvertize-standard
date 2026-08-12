@@ -1,9 +1,9 @@
-import { faMessage } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Modal from './Modal';
-import { Link } from 'react-router';
-import styled from 'styled-components';
-import Form from './Form';
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Modal from "./Modal";
+import { Link } from "react-router";
+import styled from "styled-components";
+import Form from "./Form";
 
 const StyledTimelineItem = styled.li`
   list-style: none;
@@ -27,7 +27,7 @@ const StyledTimelineItem = styled.li`
     border-bottom: unset;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       height: 36px;
       border-right: 2px solid #dee2e6;
@@ -51,7 +51,7 @@ const Badge = styled.div`
   margin: 0 auto;
   font-size: 0.9rem;
   padding: 0.5rem;
-  background-color: #b8a897;
+  background-color: rgba(54, 97, 86, 1);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -6,7 +6,7 @@ import c from "../../utils/content";
 const StyledProducts = styled.div`
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: #2c5870;
+  background-color: rgba(79, 133, 119, 0.5);
 `;
 
 const StyledH2 = styled.h2`

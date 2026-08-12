@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import Hero from '../components/Hero';
-import Projects from '../components/Projects';
-import ReasonsToChooseUs from '../components/ReasonsToChooseUs';
-import CTA from '../components/CTA';
-import Group from '../components/Group';
-import { Helmet } from 'react-helmet-async';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled from "styled-components";
+import Hero from "../components/Hero";
+import Projects from "../components/Projects";
+import ReasonsToChooseUs from "../components/ReasonsToChooseUs";
+import CTA from "../components/CTA";
+import Group from "../components/Group";
+import { Helmet } from "react-helmet-async";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledPortfolio = styled.div``;
 
@@ -24,19 +24,18 @@ function Portfolio() {
       </Helmet>
 
       <StyledPortfolio>
-        <Group bgImg={c(contentMap, 'portfolio.header_bg_image')}>
-          <Hero
-            heroTitle={c(contentMap, 'portfolio.header_title')}
-            heroDesc={c(contentMap, 'portfolio.header_description')}
-            btnTxt={c(contentMap, 'portfolio.header_button_text')}
-          />
-          <Projects />
-          <ReasonsToChooseUs />
-        </Group>
+        <Hero
+          heroBg={c(contentMap, "portfolio.header_bg_image")}
+          heroTitle={c(contentMap, "portfolio.header_title")}
+          heroDesc={c(contentMap, "portfolio.header_description")}
+          btnTxt={c(contentMap, "portfolio.header_button_text")}
+        />
+        <Projects />
+        <ReasonsToChooseUs />
         <CTA
-          title={c(contentMap, 'portfolio.cta_title')}
-          text={c(contentMap, 'portfolio.cta_description')}
-          textBtn={c(contentMap, 'portfolio.cta_button_text')}
+          title={c(contentMap, "portfolio.cta_title")}
+          text={c(contentMap, "portfolio.cta_description")}
+          textBtn={c(contentMap, "portfolio.cta_button_text")}
         />
       </StyledPortfolio>
     </>

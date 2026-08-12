@@ -1,14 +1,14 @@
-import styled, { keyframes } from 'styled-components';
-import businessStreetViewImg from '../assets/images/business_street_view.avif';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import Modal from './Modal';
-import { useContent } from '../hooks/useContent';
-import c from '../../utils/content';
+import styled, { keyframes } from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import Modal from "./Modal";
+import { useContent } from "../hooks/useContent";
+import c from "../../utils/content";
 
 const StyledStreetView = styled.div`
   color: #fff;
-  padding: 3rem;
+  padding: 4.5rem;
+  background-color: rgba(76, 130, 104, 0.8);
 `;
 
 const Container = styled.div`
@@ -102,7 +102,7 @@ const StyledButton = styled.button`
   -webkit-backdrop-filter: blur(5px);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
@@ -122,11 +122,11 @@ function StreetView() {
   return (
     <StyledStreetView>
       <Container className="container">
-        <StyledH2>{c(contentMap, 'contact.street_view_title')}</StyledH2>
-        <StyledP>{c(contentMap, 'contact.street_view_description')}</StyledP>
+        <StyledH2>{c(contentMap, "contact.street_view_title")}</StyledH2>
+        <StyledP>{c(contentMap, "contact.street_view_description")}</StyledP>
         <ImageContainer>
           <StyledImg
-            src={c(contentMap, 'contact.street_view_image')}
+            src={c(contentMap, "contact.street_view_image")}
             className="img-fluid"
             alt=""
           />
@@ -138,13 +138,13 @@ function StreetView() {
             </Modal.Open>
             <Modal.Window
               name="form-modal"
-              title={c(contentMap, 'contact.street_view_modal_title')}
-              bgColor="rgba(59, 94, 117, 0.3)"
+              title={c(contentMap, "contact.street_view_modal_title")}
+              bgColor="rgba(36, 61, 56, 0.9)"
             >
               <ModalWindowInner>
                 <IframeWrapper>
                   <StyledIframe
-                    src={c(contentMap, 'contact.street_view_modal_video_url')}
+                    src={c(contentMap, "contact.street_view_modal_video_url")}
                     frameborder="0"
                     allowfullscreen
                   ></StyledIframe>

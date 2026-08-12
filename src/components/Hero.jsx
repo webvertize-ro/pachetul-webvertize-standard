@@ -1,7 +1,7 @@
-import Modal from './Modal';
-import styled from 'styled-components';
-import Form from './Form';
-import { Link } from 'react-router';
+import Modal from "./Modal";
+import styled from "styled-components";
+import Form from "./Form";
+import { Link } from "react-router";
 
 const StyledHero = styled.div`
   background-image: url(${(props) => props.heroBg});
@@ -11,7 +11,7 @@ const StyledHero = styled.div`
   padding: 5rem 0;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
@@ -68,29 +68,29 @@ const StyledP = styled.p`
 
 const Button = styled(Link)`
   text-decoration: none;
-  background: rgba(54, 85, 104, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.2s ease-in-out;
-
-  @media (min-width: 992px) {
-    &:hover {
-      background: rgba(54, 85, 104, 0.65);
-      backdrop-filter: blur(7.5px);
-      -webkit-backdrop-filter: blur(7.5px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-  }
-
+  background-color: rgba(90, 168, 144, 0.75);
   color: #fff;
-  font-size: 1.25rem;
-  font-weight: 500;
-  border-radius: 0.75rem;
-  padding: 1rem;
+  border: none;
+  transition: all 0.2s ease-in-out;
 
   @media (max-width: 576px) {
     font-size: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    &:hover {
+      background-color: rgba(90, 168, 144, 0.9);
+    }
+  }
+
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 1rem;
+
+  &:hover {
+    background-color: rgba(90, 168, 144, 0.9);
+    border: none;
   }
 `;
 
@@ -101,12 +101,12 @@ function Hero({ heroBg, heroTitle, heroDesc, btnTxt }) {
         <TextContent>
           <StyledH2>{heroTitle}</StyledH2>
           <StyledP>{heroDesc}</StyledP>
-          {heroTitle !== 'Politica noastră privind cookie-urile' && (
+          {heroTitle !== "Politica noastră privind cookie-urile" && (
             <Modal>
               <Modal.Open opens="form-modal">
                 <Button>{btnTxt}</Button>
               </Modal.Open>
-              <Modal.Window name="form-modal" bgColor="rgba(59, 94, 117, 0.5)">
+              <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.9)">
                 <Form />
               </Modal.Window>
             </Modal>
