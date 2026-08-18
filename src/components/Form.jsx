@@ -129,7 +129,7 @@ function Form({ onCloseModal }) {
     if (!window.turnstile) return;
 
     window.turnstile.render(".cf-turnstile", {
-      sitekey: "0x4AAAAAACqzGpzOkJGRhCHZ",
+      sitekey: "0x4AAAAAACfdFhOhxvEVfluw",
       callback: onTurnstileSuccess,
     });
   }, []);

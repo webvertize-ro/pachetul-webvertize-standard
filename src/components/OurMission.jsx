@@ -189,7 +189,7 @@ function OurMission() {
                     {c(contentMap, "home.services_button_offer_text")}
                   </Button2>
                 </Modal.Open>
-                <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.3)">
+                <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.9)">
                   <Form />
                 </Modal.Window>
               </Modal>

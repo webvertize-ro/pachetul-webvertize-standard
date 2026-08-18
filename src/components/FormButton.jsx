@@ -33,7 +33,7 @@ function FormButton() {
             <FontAwesomeIcon icon={faMessage} />
           </StyledFormButton>
         </Modal.Open>
-        <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.3)">
+        <Modal.Window name="form-modal" bgColor="rgba(36, 61, 56, 0.9)">
           <Form />
         </Modal.Window>
       </Modal>

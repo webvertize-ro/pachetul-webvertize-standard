@@ -13,6 +13,11 @@ const StyledButton = styled.button`
   border: 0.5px solid rgba(126, 200, 176, 0.3);
   position: fixed;
   bottom: 1rem;
+
+  @media (max-width: 576px) {
+    bottom: 15%;
+  }
+
   right: 1.5rem;
   padding: 0.5rem;
   border-radius: 50%;
