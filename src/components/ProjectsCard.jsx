@@ -68,6 +68,14 @@ function ProjectsCard({
   const [indexImg, setIndexImg] = useState(0);
   const { contentMap } = useContent();
 
+  const slides = imageGallery.map((image) => ({
+    src: image.src,
+    title: image.desc,
+    alt: image.desc,
+  }));
+
+  console.log("slides: ", slides);
+
   return (
     <>
       <Modal>
@@ -100,7 +108,7 @@ function ProjectsCard({
         plugins={[Captions]}
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}
-        slides={imageGallery}
+        slides={slides}
         index={indexImg}
         captions={{ position: "bottom" }}
       />

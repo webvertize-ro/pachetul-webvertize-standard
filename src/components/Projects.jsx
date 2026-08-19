@@ -89,6 +89,10 @@ function Projects() {
     ),
     modal_images: [1, 2, 3, 4].map((i) => ({
       src: c(contentMap, `portfolio.project_${n}_modal_image_${i}`),
+      desc: c(
+        contentMap,
+        `portfolio.project_${n}_modal_image_${i}_description`,
+      ),
     })),
   }));
 
@@ -98,17 +102,20 @@ function Projects() {
         <StyledH2>{c(contentMap, "portfolio.projects_title")}</StyledH2>
         <StyledP>{c(contentMap, "portfolio.projects_description")}</StyledP>
         <ProjectsGrid>
-          {projects.map((project, i) => (
-            <CardCell key={project.card_title ?? i}>
-              <ProjectsCard
-                img={project.card_image}
-                projectTitle={project.card_title}
-                projectShortDesc={project.card_description}
-                projectLongDesc={project.modal_description}
-                imageGallery={project.modal_images}
-              />
-            </CardCell>
-          ))}
+          {projects.map((project, i) => {
+            console.log("project.modal_images: ", project.modal_images);
+            return (
+              <CardCell key={project.card_title + i}>
+                <ProjectsCard
+                  img={project.card_image}
+                  projectTitle={project.card_title}
+                  projectShortDesc={project.card_description}
+                  projectLongDesc={project.modal_description}
+                  imageGallery={project?.modal_images}
+                />
+              </CardCell>
+            );
+          })}
         </ProjectsGrid>
       </Container>
     </StyledProjects>
