@@ -17,10 +17,12 @@ const StyledContactDataItem = styled.div`
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
-    border-color: rgba(126, 200, 176, 0.32);
+  @media (min-width: 576px) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+      border-color: rgba(126, 200, 176, 0.32);
+    }
   }
 `;
 
