@@ -69,7 +69,6 @@ function ServicesDetails() {
     title: c(contentMap, `services.service_${n}_title`),
     description: c(contentMap, `services.service_${n}_description`),
     bg_img: c(contentMap, `services.service_${n}_bg_image`),
-    icon: c(contentMap, `services.service_${n}_icon`),
   }));
 
   return (
@@ -85,7 +84,6 @@ function ServicesDetails() {
                   title={service.title}
                   text={service.description}
                   bg_img={service.bg_img}
-                  icon={service.icon}
                 />
               </div>
             );

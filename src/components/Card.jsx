@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { iconMap } from "../../utils/iconMap";
+import { faCog, faCogs } from "@fortawesome/free-solid-svg-icons";
 
 const StyledCard = styled.div`
   position: relative;
@@ -74,11 +75,11 @@ const StyledP = styled.p`
   font-size: 1.2rem;
 `;
 
-function Card({ title, text, bg_img, icon }) {
+function Card({ title, text, bg_img }) {
   return (
     <StyledCard img={bg_img}>
       <TextContent>
-        <StyledFontAwesomeIcon icon={iconMap[icon]} />
+        <StyledFontAwesomeIcon icon={faCog} />
         <StyledH4 className="card-title">{title}</StyledH4>
         <StyledP className="card-text">{text}</StyledP>
       </TextContent>
