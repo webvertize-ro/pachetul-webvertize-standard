@@ -20,6 +20,7 @@ const StyledModal = styled.div`
     props.bgColor ? props.bgColor : "rgba(26, 58, 50, 0.97)"};
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   border-radius: 18px;
+  width: min(90vw, 900px);
   transition: all 0.5s;
   z-index: 91;
   color: #fff;

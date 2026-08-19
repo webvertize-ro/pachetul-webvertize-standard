@@ -63,9 +63,8 @@ const ImageWrapper = styled.div`
 `;
 
 const IframeWrapper = styled.div`
-  width: 750px;
-  height: 400px;
-  border-radius: 1rem;
+  width: 100%;
+  border-radius: 8px;
   overflow: hidden;
 `;
 
@@ -74,8 +73,9 @@ const ModalWindowInner = styled.div`
 `;
 
 const StyledIframe = styled.iframe`
+  display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   border: none;
 `;
 
