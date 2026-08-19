@@ -13,7 +13,7 @@ const StyledTooManyRequests = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  background-color: #2e5368;
+  background-color: rgba(36, 61, 56, 1);
   color: #fff;
 `;
 
@@ -32,7 +32,7 @@ const StyledButton = styled(Link)`
   text-decoration: none;
   border: none;
   padding: 0.75rem;
-  background-color: #1b3c53;
+  background-color: rgba(90, 168, 144, 1);
   color: #fff;
   border-radius: 0.5rem;
   font-size: 1.1rem;
