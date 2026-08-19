@@ -119,20 +119,20 @@ function Form({ onCloseModal }) {
     register("cf_turnstile_token", { required: true });
   }, [register]);
 
-  const onTurnstileSuccess = (token) => {
-    setValue("cf_turnstile_token", token, {
-      shouldValidate: true,
-    });
-  };
-
   useEffect(() => {
+    const onTurnstileSuccess = (token) => {
+      setValue("cf_turnstile_token", token, {
+        shouldValidate: true,
+      });
+    };
+
     if (!window.turnstile) return;
 
     window.turnstile.render(".cf-turnstile", {
       sitekey: "0x4AAAAAACfdFhOhxvEVfluw",
       callback: onTurnstileSuccess,
     });
-  }, []);
+  }, [setValue]);
 
   async function onSubmit(data) {
     try {
