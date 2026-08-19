@@ -1,16 +1,20 @@
-import styled from 'styled-components';
-import logoImg from '../assets/images/basic-business-logo.svg';
+import styled from "styled-components";
+import c from "../../utils/content";
+import { useContent } from "../hooks/useContent";
 
 const StyledImg = styled.img`
-  max-width: ${(props) => (props.width ? props.width : '160px')};
-  max-height: ${(props) => (props.width ? props.width : '60px')};
+  max-width: ${(props) => (props.width ? props.width : "160px")};
+  max-height: ${(props) => (props.width ? props.width : "60px")};
 `;
 
 function Logo({ width }) {
+  const { contentMap } = useContent();
+
   return (
     <StyledImg
       width={width}
-      src={logoImg}
+      src={c(contentMap, "global.logo")}
+      b
       alt="Logo-ul afacerii [Nume Afacere]"
     />
   );
