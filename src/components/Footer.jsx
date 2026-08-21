@@ -30,6 +30,7 @@ const StyledFooter = styled.footer`
 
 const StyledH6 = styled.h6`
   font-size: 1.5rem;
+  margin: 0;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -97,7 +98,7 @@ function Footer() {
           <div className="col-md-4 my-3">
             <div className="d-flex align-items-center gap-1">
               <StyledH6 className="fw-bold">Despre</StyledH6>
-              <Logo width="100" />
+              {c(contentMap, "global.brand_name")}
             </div>
             <p>{c(contentMap, "global.footer_description")}</p>
           </div>
