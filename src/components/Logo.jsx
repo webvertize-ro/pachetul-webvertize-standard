@@ -14,7 +14,8 @@ const StyledImg = styled.img`
 
 function Logo() {
   const { contentMap } = useContent();
-  const rawWidth = parseInt((c(contentMap, "global.logo_width"), 10));
+
+  const rawWidth = parseInt(c(contentMap, "global.logo_width"), 10);
   const width =
     Number.isFinite(rawWidth) && rawWidth >= MIN_WIDTH && rawWidth <= MAX_WIDTH
       ? rawWidth
