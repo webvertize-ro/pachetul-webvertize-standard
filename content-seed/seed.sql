@@ -817,3 +817,5 @@ WHERE content.label IS DISTINCT FROM EXCLUDED.label
    OR content.value IS DISTINCT FROM EXCLUDED.value
    OR content.content_type IS DISTINCT FROM EXCLUDED.content_type
    OR content.display_order IS DISTINCT FROM EXCLUDED.display_order;
+
+update content set width = 160 where website_id = '1db4c0bf-0450-436f-820c-a6198727905e' and key = 'logo';
