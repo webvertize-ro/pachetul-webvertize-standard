@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import c from "../../utils/content";
+import c, { cWidth } from "../../utils/content";
 import { useContent } from "../hooks/useContent";
 
 const DEFAULT_WIDTH = 160;
@@ -15,7 +15,7 @@ const StyledImg = styled.img`
 function Logo() {
   const { contentMap } = useContent();
 
-  const rawWidth = parseInt(c(contentMap, "global.logo_width"), 10);
+  const rawWidth = cWidth(contentMap, "global.logo");
   const width =
     Number.isFinite(rawWidth) && rawWidth >= MIN_WIDTH && rawWidth <= MAX_WIDTH
       ? rawWidth
